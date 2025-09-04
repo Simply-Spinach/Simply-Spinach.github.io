@@ -14,7 +14,7 @@
 		body /*just setting some default settings for the website*/
 		{
 			color:black; /*more cosmic latte*/
-			background-color: #fff8e7; /*hex I pulled from image*/ 
+			background-color: #131514; /*hex I pulled from image*/ 
 			background-image:url("https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001894/GSFC_20171208_Archive_e001894~medium.jpg"); /*this image is from NASA.gov, which permits use on personal websites*/
 			background-position: top;
 			background-repeat:no-repeat;
@@ -22,10 +22,6 @@
 			font-family:'monospace';
 			padding-left:10%;
 			padding-right:10%;
-		}
-		a
-		{
-			background-color: #fff8e7; /*more cosmic latte!*/
 		}
 		a:link
 		{
@@ -49,13 +45,18 @@
 
 			/*edit coloring*/
 			background-image:none;
-			background-color:cyan;
+			background-color:darkcyan;
 			color:#fff8e7;
 						
 			/*padding fix*/
 			padding-left:5%;
 			padding-right:5%;
 			padding-top:0%;
+		}
+		.general_element
+		{
+			background-color:#fff8e7;
+			color:black;
 		}
 	</style>
 
@@ -74,6 +75,7 @@
 		<a href="https://github.com/Simply-Spinach?tab=repositories" title="https://github.com/Simply-Spinach?tab=repositories" style="background-color:#fff8e7"> check out my github repository </a> <br>
 	<br>
 	</header>
+	<div class="realbody">
 	<section>
 	<h2>Activities</h2>
 	<ul>
@@ -99,7 +101,8 @@
 	<a href="https://github.com/Simply-Spinach" title="https://github.com/Simply-Spinach"> See the full project on my github </a>
 	</p>
 	</section>
-	<footer>
+	</div>
+	<footer class="">
 		<citation font-size:"small">
 			Image source: NASA image repository <a href="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001894/GSFC_20171208_Archive_e001894~medium.jpg">https://www.nasa.gov/wp-content/uploads/2025/04/hubble-eagleneb-large-heic2507a.jpg</a>
 		</citation>
