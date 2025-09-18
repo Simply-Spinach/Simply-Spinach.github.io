@@ -1,0 +1,33 @@
+*
+{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0,10%,0,10%;
+}
+
+code
+{
+    font-family:monospace;
+    background-color:black;
+    color:white;
+}
+
+textarea#code
+{
+    rows: auto;
+    cols: 200;
+}
+
+#code
+{
+    font-family:monospace;
+    background-color:black;
+    color:white;
+    /* A bit of an outline so that it looks a little nicer*/
+    padding:2px;
+}
+
+h1
+{
+    font-size:largest;
+    text-align:center;
+}
