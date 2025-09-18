@@ -76,9 +76,33 @@ p#about-p2 { grid-area: about-p2; }
 /* Second layout */
 /********************************************************************/
 
+#layout2 p
+{
+    box-sizing:border-box;
+}
+
+#layout2 h1
+{
+    text-align: center;
+}
+#layout2 h2
+{
+    text-align: center;
+    font-style: italic;
+    margin:auto calc(100% / 6 * 2) auto calc(100% / 6 * 2)
+}
+
 #layout2 .callout
 {
-    display: inline-block;
+    display: block;
     height: fit-content;
     width: calc(100% / 6);
+    clear:none;
+    margin:auto 0px auto 0px;
+    float:right;
+}
+
+#layout2 .about
+{
+    margin: auto calc(100% / 6) auto calc(100% / 6);
 }
