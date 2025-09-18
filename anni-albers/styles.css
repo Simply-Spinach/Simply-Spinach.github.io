@@ -21,21 +21,21 @@ main#GeneralLayout
     display: grid;
     grid-template-columns: repeat(6,calc(100% / 6));
     grid-template-areas:
-        'title       title       title       title       title       title       ',
-        'subtitle    subtitle    subtitle    subtitle    subtitle    subtitle    ',
-        'p1          p1          p1          p1          p1          c1          ',
-        'p2          p2          p2          p2          p2          c1          ',
-        'c2          p3          p3          p3          p3          p3          ',
-        'c2          p4          p4          p4          p4          p4          ',
-        'c2          p5          p5          p5          p5          p5          ',
-        'p6          p6          p6          p6          p6          c3          ',
-        'p7          p7          p7          p7          p7          c3          ',
-        'c4          p8          p8          p8          p8          p8          ',
-        'c4          p9          p9          p9          p9          p9          ',
-        'p10         p10         p10         p10         p10         p10         ',
-        'p11         p11         p11         p11         p11         p11         ',
-        'about-head  about-head  about-head  about-head  about-head  about-head  ',
-        'about-p1    about-p1    about-p1    about-p1    about-p1    about-p1    ',
+        'title       title       title       title       title       title       '
+        'subtitle    subtitle    subtitle    subtitle    subtitle    subtitle    '
+        'p1          p1          p1          p1          p1          c1          '
+        'p2          p2          p2          p2          p2          c1          '
+        'c2          p3          p3          p3          p3          p3          '
+        'c2          p4          p4          p4          p4          p4          '
+        'c2          p5          p5          p5          p5          p5          '
+        'p6          p6          p6          p6          p6          c3          '
+        'p7          p7          p7          p7          p7          c3          '
+        'c4          p8          p8          p8          p8          p8          '
+        'c4          p9          p9          p9          p9          p9          '
+        'p10         p10         p10         p10         p10         p10         '
+        'p11         p11         p11         p11         p11         p11         '
+        'about-head  about-head  about-head  about-head  about-head  about-head  '
+        'about-p1    about-p1    about-p1    about-p1    about-p1    about-p1    '
         'about-p2    about-p2    about-p2    about-p2    about-p2    about-p2    ';
 }
 
