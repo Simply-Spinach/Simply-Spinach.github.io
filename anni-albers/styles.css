@@ -7,7 +7,7 @@ main
 
 p.callout
 {
-    font-style:italic;
+    font-style: italic;
     text-align: center;
 }
 
@@ -39,7 +39,7 @@ main#GeneralLayout
         'about-p2    about-p2    about-p2    about-p2    about-p2    about-p2    ';
 }
 
-/*primary body paragraphs*/
+/* primary body paragraphs */
 #p1 { grid-area: p1; }
 #p2 { grid-area: p2; }
 #p3 { grid-area: p3; }
@@ -51,6 +51,13 @@ main#GeneralLayout
 #p9 { grid-area: p9; }
 #p10 { grid-area: p10; }
 #p11 { grid-area: p11; }
+
+/* side boxes */
+#c1 { grid-area: c1; }
+#c2 { grid-area: c2; }
+#c3 { grid-area: c3; }
+#c4 { grid-area: c4; }
+
 
 /* Additional needed stuff */
 #title { grid-area: title; }
