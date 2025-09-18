@@ -1,0 +1,68 @@
+main
+{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px
+}
+
+p.callout
+{
+    font-style:italic;
+    text-align: center;
+}
+
+
+/********************************************************************/
+/* First layout */
+/********************************************************************/
+
+main#GeneralLayout
+{
+    display: grid;
+    grid-template-columns: repeat(6,calc(100% / 6));
+    grid-template-areas:
+        'title       title       title       title       title       title       ',
+        'subtitle    subtitle    subtitle    subtitle    subtitle    subtitle    ',
+        'p1          p1          p1          p1          p1          c1          ',
+        'p2          p2          p2          p2          p2          c1          ',
+        'c2          p3          p3          p3          p3          p3          ',
+        'c2          p4          p4          p4          p4          p4          ',
+        'c2          p5          p5          p5          p5          p5          ',
+        'p6          p6          p6          p6          p6          c3          ',
+        'p7          p7          p7          p7          p7          c3          ',
+        'c4          p8          p8          p8          p8          p8          ',
+        'c4          p9          p9          p9          p9          p9          ',
+        'p10         p10         p10         p10         p10         p10         ',
+        'p11         p11         p11         p11         p11         p11         ',
+        'about-head  about-head  about-head  about-head  about-head  about-head  ',
+        'about-p1    about-p1    about-p1    about-p1    about-p1    about-p1    ',
+        'about-p2    about-p2    about-p2    about-p2    about-p2    about-p2    ';
+}
+
+/*primary body paragraphs*/
+#p1 { grid-area: p1; }
+#p2 { grid-area: p2; }
+#p3 { grid-area: p3; }
+#p4 { grid-area: p4; }
+#p5 { grid-area: p5; }
+#p6 { grid-area: p6; }
+#p7 { grid-area: p7; }
+#p8 { grid-area: p8; }
+#p9 { grid-area: p9; }
+#p10 { grid-area: p10; }
+#p11 { grid-area: p11; }
+
+/* Additional needed stuff */
+#title { grid-area: title; }
+#subtitle { grid-area: subtitle}
+
+/* about section layout */
+h2#about-head { grid-area: about-head; }
+p#about-p1 { grid-area: about-p1; }
+p#about-p2 { grid-area: about-p2; }
+
+
+/********************************************************************/
+/* Second layout */
+/********************************************************************/
+
