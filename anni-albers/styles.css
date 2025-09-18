@@ -8,9 +8,10 @@ main
 p.callout
 {
     font-style: italic;
-    text-align: center;
-    align-items: center;
     padding: 0em 1em 0em 1em;
+    
+    display: flex;
+    align-items: center;
 }
 
 
