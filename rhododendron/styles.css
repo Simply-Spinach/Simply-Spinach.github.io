@@ -14,15 +14,16 @@ body /*setup for the background image.  Takes up entire screen and displays imag
     background-size: cover; /*should keep dimensions and scales image to fit on screen*/
     background-repeat:no-repeat;
     background-position:center;  /*keeps flower easy to see and centered*/
-};
+    background-attachment:fixed; /*image now flows through the entire thing :)*/
+}
 
 p
 {
     background-color:#c244a7; /*Should likely edit later*/
-};
+}
 
 h1#title
 {
     display: flex;
     align-items: bottom-left;
-};
+}
