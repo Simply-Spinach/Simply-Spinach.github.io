@@ -19,7 +19,7 @@ body /*setup for the background image.  Takes up entire screen and displays imag
 p
 {
     background-color:hotpink; /*Should likely edit later*/
-    margin: 20% 20% 20% 10%;
+    margin: 10% 15% 10% 15%;
     padding: 0.5em;
 }
 
