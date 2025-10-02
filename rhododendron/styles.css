@@ -23,6 +23,7 @@ body {
     border: 0%;
 }
 
+/*
 p {
     background-color: hotpink;
     margin: 0% 15vw 50vh 15vw;
@@ -44,8 +45,8 @@ ol {
     background-color: hotpink;
     margin: 0% 15vw 50vh 15vw;
     padding: 0.5em;
-}
-
+} 
+*/
 li
 {
     margin: 0 0 0 1em
