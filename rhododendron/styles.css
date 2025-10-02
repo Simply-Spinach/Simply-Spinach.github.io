@@ -3,14 +3,19 @@
     display: flexbox;
     color:white;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    size:100% 100% /*everything important by default takes up a whole page*/
+    size:100vw 100vh /*everything important by default takes up a whole page*/
 }
 
-body
+body /*setup for the background image.  Takes up entire screen and displays image*/
 {
-    background-image:"Pacific Rhododendron 2 - Gary Monroe.jpeg";
-    background-size: calc(100% * ( 2500 / 1634 ) ) 100%; /*should keep dimensions and scales image to fit on screen*/
+    background-image:url("Pacific Rhododendron 2 - Gary Monroe.jpeg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover; /*should keep dimensions and scales image to fit on screen*/
+    background-repeat:no-repeat;
+    background-position:center;  /*keeps flower easy to see and centered*/
 };
+
 p
 {
     background-color:#c244a7; /*Should likely edit later*/
