@@ -59,3 +59,9 @@ h1#title {
     margin: 0em 0em 50vw 1em;
 }
 
+.article_section
+{
+    background-color:hotpink;
+    margin: 50vh 15vw 50vh 15vw;
+    padding: 0.5em;
+}
