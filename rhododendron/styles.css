@@ -44,3 +44,11 @@ h1#title {
     margin: 50vh 15vw 50vh 15vw;
     padding: 0.5em;
 }
+
+@media screen and (width-min: 1000px)
+{
+    .plant_info
+    {
+        width: 30%;
+    }
+}
