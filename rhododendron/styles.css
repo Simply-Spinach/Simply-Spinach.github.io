@@ -1,9 +1,8 @@
 *
 {
-    display: flexbox;
-    color:white;
+    color: floralWhite;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    size:100vw 100vh /*everything important by default takes up a whole page*/
+    box-sizing: border-box; 
 }
 
 body /*setup for the background image.  Takes up entire screen and displays image*/
@@ -19,13 +18,15 @@ body /*setup for the background image.  Takes up entire screen and displays imag
 
 p
 {
-    background-color:#c244a7; /*Should likely edit later*/
+    background-color:hotpink; /*Should likely edit later*/
+    margin: 20% 20% 20% 10%;
+    padding: 0.5em;
 }
 
 h1#title
 {
     display: flex;
     height:95vh;
-    padding-bottom: 5vh;
+    margin-bottom: 5vh;
     align-items: flex-end;
 }
