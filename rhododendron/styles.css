@@ -10,26 +10,25 @@ body {
     background-image: url("Pacific Rhododendron 2 - Gary Monroe.jpeg");
     width: 100vw;
     height: 100vh;
-    /*note: Firefox on android's height doesn't include the menubar which does disappear and reveals white space below the image.  This is really a Firefox bug and it's only visual, it's not gonna be patched*/
     background-size: cover;
     /*should keep dimensions and scales image to fit on screen*/
     background-repeat: no-repeat;
-    background-position: center;
     /*keeps flower easy to see and centered*/
-    background-attachment: fixed;
+    background-position: center;
     /*image now flows through the entire thing :)*/
+    background-attachment: fixed;
     margin: 0%;
     padding: 0%;
     border: 0%;
 }
 
-li
-{
+li {
     margin: 0 0 0 -1em;
     overflow: visible;
     overflow-wrap: break-word;
 }
 
+/*title banner that says Rhododendron because I wanted something cool like that*/
 h1#title {
     display: flex;
     height: 90vh;
@@ -38,30 +37,27 @@ h1#title {
     margin: 0em 0em 50vw 1em;
 }
 
-.article_section
-{
-    background-color:hotpink;
+.article_section {
+    background-color: hotpink;
     margin: 50vh 15vw 50vh 15vw;
     padding: 0.5em;
 }
 
-@media screen and (min-width: 1000px)
-{
-    #plant_info_box
-    {
-        display:grid;
+/*my goal is to take the soil and Preferable environments and make them exist horizontally from one another when on a high width display*/
+@media screen and (min-width: 900px) {
+    #plant_info_box {
+        display: grid;
         grid-template-columns: auto auto;
         grid-template-areas: 'plant_info_1 , plant_info_2';
     }
-    #plant_info_1
-    {
-        padding:0;
-        margin:1em;
-        float:right;
+
+    #plant_info_1 {
+        padding: 0;
+        margin: 1em;
     }
-    #plant_info_2
-    {
-        padding:0;
-        margin:1em;
+
+    #plant_info_2 {
+        padding: 0;
+        margin: 1em;
     }
 }
