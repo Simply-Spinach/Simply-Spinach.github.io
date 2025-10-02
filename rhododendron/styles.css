@@ -8,8 +8,8 @@
 body /*setup for the background image.  Takes up entire screen and displays image*/
 {
     background-image:url("Pacific Rhododendron 2 - Gary Monroe.jpeg");
-    width: 100vw;
-    height: 100vh; /*note: Firefox on android's height doesn't include the taskbar which does disappear and reveals white space below the image*/
+    width: 105vw;
+    height: 105vh; /*note: Firefox on android's height doesn't include the taskbar which does disappear and reveals white space below the image.  This is really a Firefox bug but I'm going to fix it here anyway*/
     background-size: cover; /*should keep dimensions and scales image to fit on screen*/
     background-repeat:no-repeat;
     background-position:center;  /*keeps flower easy to see and centered*/
