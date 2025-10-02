@@ -18,7 +18,7 @@ body {
     /*keeps flower easy to see and centered*/
     background-attachment: fixed;
     /*image now flows through the entire thing :)*/
-    margin: 0%;
+    margin: 0% 0% 50vw 0%;
     padding: 0%;
     border: 0%;
 }
@@ -37,12 +37,18 @@ ul {
 body h2
 {
     background-color:hotpink;
-    margin: 50vh 15vw 0% 15vh;
+    margin: 50vh 15vw 0% 15vw;
+    padding: 0.5em;
 }
 ol {
     background-color: hotpink;
     margin: 0% 15vw 50vh 15vw;
     padding: 0.5em;
+}
+
+li
+{
+    margin: 0 0 0 1em
 }
 
 h1#title {
