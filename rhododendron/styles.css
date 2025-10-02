@@ -25,18 +25,18 @@ body {
 
 p {
     background-color: hotpink;
-    margin: 20% 20% 20% 10%;
+    margin: 50vh 15vw 50vh 15vw;
     padding: 0.5em;
 }
 
 ul {
     background-color: hotpink;
-    margin: 20% 20% 20% 10%;
+    margin: 50vh 15vw 50vh 15vw;
     padding: 0.5em;
 }
 ol {
     background-color: hotpink;
-    margin: 20% 20% 20%;
+    margin: 50vh 15vw 50vh 15vw;
     padding: 0.5em;
 }
 
