@@ -25,7 +25,7 @@ p
 h1#title
 {
     display: flex;
-    height:90vh;
-    padding-bottom: 10vh;
+    height:95vh;
+    padding-bottom: 5vh;
     align-items: flex-end;
 }
