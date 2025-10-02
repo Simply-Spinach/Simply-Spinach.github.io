@@ -47,7 +47,7 @@ h1#title {
 @media screen and (min-width: 900px) {
     #plant_info_box {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 50% 50%;
         grid-template-areas: 'plant_info_1 , plant_info_2';
     }
 
