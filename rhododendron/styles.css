@@ -18,7 +18,7 @@ body {
     /*keeps flower easy to see and centered*/
     background-attachment: fixed;
     /*image now flows through the entire thing :)*/
-    margin: 0% 0% 50vw 0%;
+    margin: 0%;
     padding: 0%;
     border: 0%;
 }
@@ -56,6 +56,6 @@ h1#title {
     height: 85vh;
     margin-bottom: 25vh;
     align-items: flex-end;
-    margin: 0em 0em 0em 1em;
+    margin: 0em 0em 50vw 1em;
 }
 
