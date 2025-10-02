@@ -1,32 +1,38 @@
-*
-{
+* {
     color: floralWhite;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    box-sizing: border-box; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+
 }
 
-body /*setup for the background image.  Takes up entire screen and displays image*/
-{
-    background-image:url("Pacific Rhododendron 2 - Gary Monroe.jpeg");
-    width: 105vw;
-    height: 105vh; /*note: Firefox on android's height doesn't include the taskbar which does disappear and reveals white space below the image.  This is really a Firefox bug but I'm going to fix it here anyway*/
-    background-size: cover; /*should keep dimensions and scales image to fit on screen*/
-    background-repeat:no-repeat;
-    background-position:center;  /*keeps flower easy to see and centered*/
-    background-attachment:fixed; /*image now flows through the entire thing :)*/
+/*setup for the background image.  Takes up entire screen and displays image*/
+body {
+    background-image: url("Pacific Rhododendron 2 - Gary Monroe.jpeg");
+    width: 100vw;
+    height: 100vh;
+    /*note: Firefox on android's height doesn't include the menubar which does disappear and reveals white space below the image.  This is really a Firefox bug and it's only visual, it's not gonna be patched*/
+    background-size: cover;
+    /*should keep dimensions and scales image to fit on screen*/
+    background-repeat: no-repeat;
+    background-position: center;
+    /*keeps flower easy to see and centered*/
+    background-attachment: fixed;
+    /*image now flows through the entire thing :)*/
+    margin: 0%;
+    padding: 0%;
+    border: 0%;
 }
 
-p
-{
-    background-color:hotpink; /*Should likely edit later*/
+p {
+    background-color: hotpink;
     margin: 20% 20% 20% 10%;
     padding: 0.5em;
 }
 
-h1#title
-{
+h1#title {
     display: flex;
-    height:85vh;
+    height: 85vh;
     margin-bottom: 25vh;
     align-items: flex-end;
+    padding: 0em 0em 0em 1em;
 }
