@@ -1,11 +1,76 @@
+/* Main title section */
 .title_block
 {
     width: 100vw;
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 0.25vh, 0.75vh;
+    grid-template-columns:50% 50%;
+    grid-template-rows:auto auto;
     grid-template-areas:
-        '.title .img'
-        '.body  .img'
+        'title  img'
+        'body  img'
     ;
+}
+.title_block > h1
+{
+    grid-area: title;
+}
+
+.title_block > .body
+{
+    grid-area: body;
+}
+
+.title_block > .img
+{
+    grid-area: img;
+}
+
+/* Cook time counter */
+.time_sum
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+    grid-template-areas:
+        'h h h'
+        'prep cook total'
+} 
+
+.time_sum > #prep_time
+{
+    grid-area: prep;
+}
+
+.time_sum > #prep_time::before
+{
+    content: 'Prep: ';
+    font-weight:bold;
+}
+
+.time_sum > #cook_time
+{
+    grid-area: cook;
+}
+
+.time_sum > #cook_time::before
+{
+    content: 'Cook: ';
+    font-weight:bold;
+}
+
+
+.time_sum > #total_time
+{
+    grid-area: total;
+}
+
+.time_sum > #total_time::before
+{
+    content: 'Total: ';
+    font-weight:bold;
+}
+
+.time_sum > h1
+{
+    grid-area: h;
 }
