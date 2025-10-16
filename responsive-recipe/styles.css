@@ -1,3 +1,11 @@
+/* general website design */
+
+.image
+{
+    background-color:gray;
+    align-content: center;
+}
+
 /* Main title section */
 .title_block
 {
@@ -20,10 +28,9 @@
     grid-area: body;
 }
 
-.title_block > .img
+.title_block > .image
 {
     grid-area: img;
-    background-color:gray;
 }
 
 /* Cook time counter */
