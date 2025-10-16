@@ -94,7 +94,7 @@
 
 .ingredients > ol > li
 {
-    flex-basis: 33%
+
 }
 
 /* Step class is used for individual steps of recipe */
@@ -119,6 +119,34 @@
 }
 
 .step > .img
+{
+    grid-area: img;
+}
+
+
+/* Result is for the final result of the process */
+
+.result
+{
+    display: grid;
+    grid-template-columns: calc( 100% / 6) calc( 400% / 6 ); /* last little bit should be a little margin about 1/6 of space available */
+    grid-template-areas:
+        'h img'
+        'h cont'
+    ;
+}
+
+.result > h2
+{
+    grid-area:h;
+}
+
+.result > .content
+{
+    grid-area: cont;
+}
+
+.result > .image
 {
     grid-area: img;
 }
