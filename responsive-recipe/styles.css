@@ -199,8 +199,8 @@
         grid-template-rows: 100%;
         grid-template-areas:
             'h'
-            'cont'
             'img'
+            'cont'
         ;
     }
 
