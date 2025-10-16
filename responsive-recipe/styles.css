@@ -23,6 +23,7 @@
 .title_block > .img
 {
     grid-area: img;
+    background-color:gray;
 }
 
 /* Cook time counter */
