@@ -167,8 +167,8 @@
 
     .ingredients ol
     {
-        /*just trying to make it a nice long simple list*/
-        column-count: 1;
+        /*just trying to make it a bit easier to read on a small screen*/
+        column-count: 2;
     }
 
     .step
