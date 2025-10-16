@@ -4,6 +4,10 @@
 {
     background-color:lightgray;
     align-content: center;
+    min-height: 360px;
+    min-width: 580px;
+    border: 2px;
+    border-color: black;
 }
 
 /* Main title section */
