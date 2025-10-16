@@ -74,3 +74,23 @@
 {
     grid-area: h;
 }
+
+/*Ingredient list*/
+
+.ingredients > h2
+{
+
+}
+
+.ingredients > ol
+{
+    display: flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.ingredients > ol > li
+{
+    flex-basis: 33%;
+}
