@@ -30,7 +30,7 @@
 {
     width: 100%;
     display: grid;
-    grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+    grid-template-columns: 3;
     grid-template-areas:
         'h h h'
         'prep cook total'
@@ -149,4 +149,46 @@
 .result > .image
 {
     grid-area: img;
+}
+
+@media screen and (aspect-ratio < 1/1 ) or (max-width: 800px) /*aka checking if vertical or phone layout should be used*/
+{
+    .title_block
+    {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'title'
+            'img'
+            'body'
+        ;
+    }
+
+    .ingredients
+    {
+        /*just trying to make it a nice long simple list*/
+        display: inline; 
+    }
+
+    .step
+    {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            'h    img'
+            'cont img'
+        ;
+    }
+
+    .result
+    {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            'h    img'
+            'cont img'
+        ;
+    }
+
+
 }
