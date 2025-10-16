@@ -70,7 +70,7 @@
     font-weight:bold;
 }
 
-.time_sum > h1
+.time_sum > h2
 {
     grid-area: h;
 }
