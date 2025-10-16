@@ -85,12 +85,14 @@
 .ingredients > ol
 {
     display: flexbox;
-    flex-direction: row;
+    flex-direction: column;
+    column-count: 3;
     flex-wrap: wrap;
     align-items: flex-start;
+    
 }
 
 .ingredients > ol > li
 {
-    flex-basis: 33%;
+    flex-basis: 33%
 }
