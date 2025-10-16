@@ -96,3 +96,29 @@
 {
     flex-basis: 33%
 }
+
+/* Step class is used for individual steps of recipe */
+
+.step
+{
+    display: grid;
+    grid-template-columns: calc( 100% / 6 ) calc( 200% / 6) 50%;
+    grid-template-areas:
+        'h cont img'
+}
+
+.step > h2
+{
+    content: '';
+    grid-area: h;
+}
+
+.step > .content
+{
+    grid-area: cont;
+}
+
+.step > .img
+{
+    grid-area: img;
+}
