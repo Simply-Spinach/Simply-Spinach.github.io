@@ -1,0 +1,11 @@
+.title_block
+{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 0.25vh, 0.75vh;
+    grid-template-areas:
+        '.title .img'
+        '.body  .img'
+    ;
+}
