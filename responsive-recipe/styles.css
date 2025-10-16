@@ -50,6 +50,7 @@
 .time_sum > #cook_time
 {
     grid-area: cook;
+    margin: 0em 1em 0em 1em;
 }
 
 .time_sum > #cook_time::before
@@ -151,7 +152,7 @@
     grid-area: img;
 }
 
-@media screen and (aspect-ratio < 1/1 ) or (max-width: 800px) /*aka checking if vertical or phone layout should be used*/
+@media screen and (aspect-ratio < 1/1 ) and (max-width: 800px)/*aka checking if vertical or phone layout should be used*/
 {
     .title_block
     {
@@ -164,10 +165,10 @@
         ;
     }
 
-    .ingredients
+    .ingredients ol
     {
         /*just trying to make it a nice long simple list*/
-        display: inline; 
+        column-count: 1;
     }
 
     .step
@@ -182,7 +183,7 @@
 
     .result
     {
-        grid-template-columns: 50% 50%;
+        grid-template-columns: auto auto;
         grid-template-rows: auto auto;
         grid-template-areas:
             'h    img'
