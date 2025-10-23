@@ -1,29 +1,155 @@
 /* navbar design */
-nav
-{
-    position: 0 0;
-    width: 100vw;
-    height: 1.5cm; /* looks about right when testing it on my laptop.  Not too hard to press with a finger */
+/* CSS for responsive menu demo copied and pasted from example.  Edited to try and make work */
+
+/* define variables */
+:root {
+    --nav-height: 3rem;
+    --nav-bkgd-color: maroon;
+    --nav-text-color: whitesmoke;
+    --nav-hover-bkgd-color: whitesmoke;
+    --nav-hover-text-color: black;
 }
 
-nav > ul
-{
-    display:inline;
-    width: calc(100vw / 3);
-    height:auto;
+* {
+    box-sizing: border-box;
 }
-nav > li
-{
-    display:inline-block;
+
+body {
+    margin: 0;
+    padding: var(--nav-height) 0 0 0;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 1.5cm;
+    height: var(--nav-height);
+    background-color: var(--nav-bkgd-color);
 }
 
-nav li::before
-{
-    content: '';
+#navBurger {
+    position: relative;
+    display: block;
+    font-size: 2rem;
+    color: var(--nav-text-color);
+    padding: 0.1em 0 0 0.3em;
+    max-height: 2rem;
 }
 
+nav ul {
+    position: relative;
+    background-color: var(--nav-bkgd-color);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav>ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+nav.clicked>ul {
+    max-height: 90vh;
+}
+
+nav>ul>li {
+    position: relative;
+    background-color: var(--nav-bkgd-color);
+    display: block;
+    margin: 1rem;
+}
+
+nav>ul>li>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+nav>ul>li>a::after {
+    position: absolute;
+    content: "⌄";
+    right: 0.3rem;
+    top: 0.2rem;
+    color: inherit;
+    font-size: 110%;
+}
+
+nav>ul>li>ul {
+    margin: 0 0 0 1rem;
+    background-color: inherit;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+nav>ul>li.clicked>ul {
+    max-height: 90vh;
+}
+
+nav>ul>li>ul>li {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--nav-text-color);
+}
+
+nav>ul>li>ul>li:hover {
+    background-color: var(--nav-hover-bkgd-color);
+}
+
+nav>ul>li>ul>li:hover a {
+    color: var(--nav-hover-text-color);
+}
+
+
+/* ----- MEDIA QUERY for landscape/desktop layout ----- */
+@media screen and (orientation: landscape) {
+
+    #navBurger {
+        display: none;
+    }
+
+    nav>ul {
+        overflow: visible;
+    }
+
+    nav>ul>li {
+        float: left;
+        margin: 0.5rem;
+    }
+
+    nav>ul>li a {
+        padding-right: 0.5rem;
+        margin: 0;
+    }
+
+    nav>ul>li>ul {
+        margin: 0 0.5rem 0.5rem 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    nav>ul>li.clicked>ul {
+        display: block;
+        visibility: visible;
+    }
+
+    nav>ul>li>ul li {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    nav>ul>li>a::after {
+        content: "";
+    }
+
+}
 
 /* general website design */
 
