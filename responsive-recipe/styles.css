@@ -2,8 +2,10 @@
 
 main
 {
+    background-color: oldlace;
     /*I just want some margin added */
-    margin: 0 5% 0 5%;
+    padding: 0 5% 0 5%;
+    margin: 0;
 }
 
 .image
@@ -14,11 +16,20 @@ main
     min-width: 580px;
     border: 2px;
     border-color: black;
+    color:black;
 }
 
 /* Main title section */
 .title_block
 {
+    /*styling*/
+    background-color: maroon;
+    color: whitesmoke;
+    border-style: dotted;
+    border-width: medium;
+    padding: 1rem;
+    
+    /*grid setup*/
     width: 100vw;
     display: grid;
     grid-template-columns:50% 50%;
@@ -28,6 +39,14 @@ main
         'body  img'
     ;
 }
+
+/*General main styling (rest are basically done for arrangement first and foremost*/
+main h2
+{
+    color: maroon;
+}
+
+
 .title_block > h1
 {
     grid-area: title;
@@ -63,6 +82,7 @@ main
 {
     content: 'Prep: ';
     font-weight:bold;
+    color: maroon;
 }
 
 .time_sum > #cook_time
@@ -75,6 +95,7 @@ main
 {
     content: 'Cook: ';
     font-weight:bold;
+    color: maroon;
 }
 
 
@@ -87,6 +108,7 @@ main
 {
     content: 'Total: ';
     font-weight:bold;
+    color: maroon;
 }
 
 .time_sum > h2
@@ -132,6 +154,8 @@ main
 {
     content: '';
     grid-area: h;
+    
+    margin-right: 1rem;
 }
 
 .step > .content
@@ -155,6 +179,8 @@ main
 {
     content: '';
     grid-area: h;
+    margin-right: 1rem;
+
 }
 
 .step_w_img > .content
@@ -183,6 +209,8 @@ main
 .result > h2
 {
     grid-area:h;
+    margin-right: 1rem;
+
 }
 
 .result > .content
