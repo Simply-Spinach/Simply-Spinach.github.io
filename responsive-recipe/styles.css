@@ -122,9 +122,9 @@ main
 {
     /*setup*/
     display: grid;
-    grid-template-columns: calc( 100% / 6 ) calc( 200% / 6) 50%;
+    grid-template-columns: calc( 100% / 6 ) calc( 500% / 6);
     grid-template-areas:
-        'h cont img';
+        'h cont';
     margin: 10% 0 10% 0;
 }
 
@@ -139,7 +139,30 @@ main
     grid-area: cont;
 }
 
-.step > .img
+/* Step class is used for individual steps of recipe with images */
+
+.step_w_img
+{
+    /*setup*/
+    display: grid;
+    grid-template-columns: calc( 100% / 6 ) calc( 200% / 6) 50%;
+    grid-template-areas:
+        'h cont img';
+    margin: 10% 0 10% 0;
+}
+
+.step_w_img > h2
+{
+    content: '';
+    grid-area: h;
+}
+
+.step_w_img > .content
+{
+    grid-area: cont;
+}
+
+.step_w_img > .img
 {
     grid-area: img;
 }
