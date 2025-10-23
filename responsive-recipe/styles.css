@@ -1,5 +1,11 @@
 /* general website design */
 
+main
+{
+    /*I just want some margin added */
+    margin: 0 5% 0 5%;
+}
+
 .image
 {
     background-color:lightgray;
@@ -114,10 +120,12 @@
 
 .step
 {
+    /*setup*/
     display: grid;
     grid-template-columns: calc( 100% / 6 ) calc( 200% / 6) 50%;
     grid-template-areas:
-        'h cont img'
+        'h cont img';
+    margin: 10% 0 10% 0;
 }
 
 .step > h2
