@@ -1,0 +1,294 @@
+/* navbar design */
+nav
+{
+    position: 0 0;
+    width: 100vw;
+    height: 1.5cm; /* looks about right when testing it on my laptop.  Not too hard to press with a finger */
+}
+
+nav > ul
+{
+    display:inline;
+    width: calc(100vw / 3);
+    height:auto;
+}
+nav > li
+{
+    display:inline-block;
+    width: 100%;
+    height: 1.5cm;
+}
+
+nav li::before
+{
+    content: '';
+}
+
+
+/* general website design */
+
+main
+{
+    background-color: oldlace;
+    /*I just want some margin added */
+    padding: 0 5% 0 5%;
+    margin: 0;
+}
+
+.image
+{
+    background-color:lightgray;
+    align-content: center;
+    min-height: 360px;
+    min-width: 580px;
+    border: 2px;
+    border-color: black;
+    color:black;
+}
+
+/* Main title section */
+.title_block
+{
+    /*styling*/
+    background-color: maroon;
+    color: whitesmoke;
+    border-style: dotted;
+    border-width: medium;
+    padding: 1rem;
+    
+    /*grid setup*/
+    width: 100vw;
+    display: grid;
+    grid-template-columns:50% 50%;
+    grid-template-rows:auto auto;
+    grid-template-areas:
+        'title  img'
+        'body  img'
+    ;
+}
+
+/*General main styling (rest are basically done for arrangement first and foremost*/
+main h2
+{
+    color: maroon;
+}
+
+
+.title_block > h1
+{
+    grid-area: title;
+}
+
+.title_block > .body
+{
+    grid-area: body;
+}
+
+.title_block > .image
+{
+    grid-area: img;
+}
+
+/* Cook time counter */
+.time_sum
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-areas:
+        'h h h'
+        'prep cook total'
+} 
+
+.time_sum > #prep_time
+{
+    grid-area: prep;
+}
+
+.time_sum > #prep_time::before
+{
+    content: 'Prep: ';
+    font-weight:bold;
+    color: maroon;
+}
+
+.time_sum > #cook_time
+{
+    grid-area: cook;
+    margin: 0em 1em 0em 1em;
+}
+
+.time_sum > #cook_time::before
+{
+    content: 'Cook: ';
+    font-weight:bold;
+    color: maroon;
+}
+
+
+.time_sum > #total_time
+{
+    grid-area: total;
+}
+
+.time_sum > #total_time::before
+{
+    content: 'Total: ';
+    font-weight:bold;
+    color: maroon;
+}
+
+.time_sum > h2
+{
+    grid-area: h;
+}
+
+/*Ingredient list*/
+
+.ingredients > h2
+{
+
+}
+
+.ingredients > ol
+{
+    display: flexbox;
+    flex-direction: column;
+    column-count: 3;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    
+}
+
+.ingredients > ol > li
+{
+
+}
+
+/* Step class is used for individual steps of recipe */
+
+.step
+{
+    /*setup*/
+    display: grid;
+    grid-template-columns: calc( 100% / 6 ) calc( 500% / 6);
+    grid-template-areas:
+        'h cont';
+    margin: 10% 0 10% 0;
+}
+
+.step > h2
+{
+    content: '';
+    grid-area: h;
+    
+    margin-right: 1rem;
+}
+
+.step > .content
+{
+    grid-area: cont;
+}
+
+/* Step class is used for individual steps of recipe with images */
+
+.step_w_img
+{
+    /*setup*/
+    display: grid;
+    grid-template-columns: calc( 100% / 6 ) calc( 200% / 6) 50%;
+    grid-template-areas:
+        'h cont img';
+    margin: 10% 0 10% 0;
+}
+
+.step_w_img > h2
+{
+    content: '';
+    grid-area: h;
+    margin-right: 1rem;
+
+}
+
+.step_w_img > .content
+{
+    grid-area: cont;
+}
+
+.step_w_img > .img
+{
+    grid-area: img;
+}
+
+
+/* Result is for the final result of the process */
+
+.result
+{
+    display: grid;
+    grid-template-columns: calc( 100% / 6) calc( 400% / 6 ); /* last little bit should be a little margin about 1/6 of space available */
+    grid-template-areas:
+        'h img'
+        'h cont'
+    ;
+}
+
+.result > h2
+{
+    grid-area:h;
+    margin-right: 1rem;
+
+}
+
+.result > .content
+{
+    grid-area: cont;
+}
+
+.result > .image
+{
+    grid-area: img;
+}
+
+@media screen and (aspect-ratio < 1/1 ) and (max-width: 800px)/*aka checking if vertical or phone layout should be used*/
+{
+    .title_block
+    {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'title'
+            'img'
+            'body'
+        ;
+    }
+
+    .ingredients ol
+    {
+        /*just trying to make it a bit easier to read on a small screen*/
+        column-count: 2;
+    }
+
+    .step
+    {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            'h    img'
+            'cont img'
+        ;
+    }
+
+    .result
+    {
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'h'
+            'img'
+            'cont'
+        ;
+    }
+
+
+}
