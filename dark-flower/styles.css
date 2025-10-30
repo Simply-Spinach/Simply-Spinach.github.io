@@ -66,9 +66,10 @@ h1#title {
 
 #darkmode_button
 {
-    position: absolute;
+    position: fixed;
     top: 0%;
-    right: 100%;
+    right: 0%;
+    color: black;
 }
 
 .darkmode

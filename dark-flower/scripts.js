@@ -1,7 +1,11 @@
 body = document.querySelector('body');
 button = document.querySelector('#darkmode_button');
 
-button.addEventListener('click', function(e)
+
+document.addEventListener('DOMContentLoaded', function()
 {
-    body.classList.toggle('darkmode');
+    button.addEventListener('click', function(e)
+    {
+        body.classList.toggle('darkmode');
+    });
 });
