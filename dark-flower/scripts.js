@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', function()
     {
         if(body.classList.contains('darkmode') )
         {
-            setLightMode();
+            body.classList.remove('darkmode');
+            button.contains = '&#x263E;';
         }
         else
         {
-            setDarkMode();
+            body.classList.add('darkmode');
+            button.contains = '&#x2600;';
         }
     });
 });
@@ -20,8 +22,6 @@ document.addEventListener('DOMContentLoaded', function()
 //Modifies website to enable dark mode
 function setDarkmode()
 {
-    body.classList.add('darkmode');
-    button.contains = '&#x2600;';
 }
 
 void setLightMode()
