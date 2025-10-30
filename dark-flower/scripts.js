@@ -18,14 +18,3 @@ document.addEventListener('DOMContentLoaded', function()
         }
     });
 });
-
-//Modifies website to enable dark mode
-function setDarkmode()
-{
-}
-
-void setLightMode()
-{
-    body.classList.remove('darkmode');
-    button.contains = '&#x263E;';
-}
