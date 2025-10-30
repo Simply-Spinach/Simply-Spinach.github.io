@@ -69,14 +69,18 @@ h1#title {
     position: fixed;
     top: 0%;
     right: 0%;
-    color: black;
     font-size: 3em;
+    
+    background-color: hotpink;
+    border-color:pink;
+    color: floralwhite;
 }
 
 .darkmode #darkmode_button
 {
     color: lightpink;
     background-color:black;
+    border-color:dimgrey;
 }
 
 .darkmode #darkmode_button:hover

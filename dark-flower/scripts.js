@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function()
         if(body.classList.contains('darkmode') )
         {
             body.classList.remove('darkmode');
-            button.contains = '&#x263E;';
+            button.innerHTML = '&#x263E;';
         }
         else
         {
             body.classList.add('darkmode');
-            button.contains = '&#x2600;';
+            button.innerHTML = '&#x2600;';
         }
     });
 });
