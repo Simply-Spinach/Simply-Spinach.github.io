@@ -81,7 +81,7 @@ h1#title {
 
 .darkmode #darkmode_button:hover
 {
-    background-color:darkgrey;
+    background-color: dimgrey;
 }
 
 .darkmode *
