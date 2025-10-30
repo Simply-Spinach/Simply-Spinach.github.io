@@ -6,6 +6,26 @@ document.addEventListener('DOMContentLoaded', function()
 {
     button.addEventListener('click', function(e)
     {
-        body.classList.toggle('darkmode');
+        if(body.classList.contains('darkmode') )
+        {
+            setLightMode();
+        }
+        else
+        {
+            setDarkMode();
+        }
     });
 });
+
+//Modifies website to enable dark mode
+function setDarkmode()
+{
+    body.classList.add('darkmode');
+    button.contains = '&#x2600;';
+}
+
+void setLightMode()
+{
+    body.classList.remove('darkmode');
+    button.contains = '&#x263E;';
+}

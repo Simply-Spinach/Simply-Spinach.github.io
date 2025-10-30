@@ -70,12 +70,7 @@ h1#title {
     top: 0%;
     right: 0%;
     color: black;
-    content: '0x263E;';
-}
-
-.darkmode #darkmode_button
-{
-    content: '0x2600;';
+    font-size: 3em;
 }
 
 .darkmode *
