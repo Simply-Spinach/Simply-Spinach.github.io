@@ -73,6 +73,17 @@ h1#title {
     font-size: 3em;
 }
 
+.darkmode #darkmode_button
+{
+    color: lightpink;
+    background-color:black;
+}
+
+.darkmode #darkmode_button:hover
+{
+    background-color:darkgrey;
+}
+
 .darkmode *
 {
     color:lightpink;
