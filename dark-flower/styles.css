@@ -1,0 +1,83 @@
+* {
+    color: floralWhite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+
+}
+
+/*setup for the background image.  Takes up entire screen and displays image*/
+body {
+    background-image: url("Pacific Rhododendron 2 - Gary Monroe.jpeg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    /*should keep dimensions and scales image to fit on screen*/
+    background-repeat: no-repeat;
+    /*keeps flower easy to see and centered*/
+    background-position: center;
+    /*image now flows through the entire thing :)*/
+    background-attachment: fixed;
+    margin: 0%;
+    padding: 0%;
+    border: 0%;
+}
+
+li {
+    margin: 0 0 0 -1em;
+    overflow: visible;
+    overflow-wrap: break-word;
+}
+
+/*title banner that says Rhododendron because I wanted something cool like that*/
+h1#title {
+    display: flex;
+    height: 90vh;
+    margin-bottom: 20vh;
+    align-items: flex-end;
+    margin: 0em 0em 50vw 1em;
+}
+
+.article_section {
+    background-color: hotpink;
+    margin: 50vh 12.5vw 50vh 12.5vw;
+    padding: 0.5em;
+}
+
+/*my goal is to take the soil and Preferable environments and make them exist horizontally from one another when on a high width display*/
+@media screen and (min-width: 900px) {
+    #plant_info_box {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 'plant_info_1 , plant_info_2';
+    }
+
+    #plant_info_1 {
+        padding: 0;
+        margin: 1em;
+    }
+
+    #plant_info_2 {
+        padding: 0;
+        margin: 1em;
+    }
+}
+
+/* Additional dark mode code */
+
+#darkmode_button
+{
+    position: absolute;
+    top: 0%;
+    right: 100%;
+}
+
+.darkmode
+{
+    color:lightpink;
+}
+
+.darkmode .article_section
+{
+    color: lightpink;
+    background-color:black;
+}
