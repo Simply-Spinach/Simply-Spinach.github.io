@@ -72,9 +72,12 @@ h1#title {
     font-size: 3em;
     
     background-color: hotpink;
-    padding: 8mm;
+    padding: 4mm;
     border-color:pink;
     color: floralwhite;
+    width: Calc(2ex + 12mm);
+    height: Calc(2ex + 12mm);
+    overflow:
 }
 
 .darkmode #darkmode_button
