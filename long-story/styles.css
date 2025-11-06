@@ -1,7 +1,7 @@
 body .scroll_snap_container
 {
     overflow: auto;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
 }
 
 body .storybeat
@@ -9,6 +9,6 @@ body .storybeat
     margin: 0% 10% 0% 10%;
     height: 100vh;
     display: block;
-    scroll-snap-align: center;
+    scroll-snap-align: top;
 }
 
