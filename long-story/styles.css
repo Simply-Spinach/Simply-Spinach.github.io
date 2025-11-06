@@ -6,7 +6,8 @@ body
     overflow:clip;
 }
 
-/*Snapping doesn't work on body so I created this to do the snapping instead*/
+/*Snapping doesn't work on body so I created this to do the snapping instead.
+  It's a little jank, but it works so that's all I ultimately care about*/
 .story
 {
     height: 100vh;
