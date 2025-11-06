@@ -9,11 +9,11 @@ body .storybeat
     margin: 0% 10% 0% 10%;
     height: 100vh;
     display: block;
-    scroll-snap-align: start;
+    align-content: center;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
 
     /*debugging*/
-    outline: black;
     border-color: black;
     border-style: solid;
 }
