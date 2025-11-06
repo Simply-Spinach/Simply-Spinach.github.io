@@ -1,13 +1,23 @@
+
+/*Disabling scrolling on body (doesn't seem to work with snap to scroll)*/
 body
 {
+    height:100vh;
+    overflow:clip;
+}
+
+/*Snapping doesn't work on body so I created this to do the snapping instead*/
+.story
+{
+    height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
 
-body .storybeat
+.story .storybeat
 {
     margin: 0% 10% 0% 10%;
-    height: 100vh;
+    min-height: 100vh;
     display: block;
     align-content: center;
     scroll-snap-align: center;
@@ -17,4 +27,3 @@ body .storybeat
     border-color: black;
     border-style: solid;
 }
-
