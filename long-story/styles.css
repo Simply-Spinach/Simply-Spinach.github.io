@@ -1,0 +1,6 @@
+body .storybeat
+{
+    margin: 50% 10% 50% 10%;
+    scroll-snap-type: mandatory;
+}
+
