@@ -1,9 +1,16 @@
+*
+{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
 /*Disabling scrolling on body (doesn't seem to work with snap to scroll)*/
 body
 {
     height:100vh;
     overflow:clip;
+    background-color: black;
 }
 
 /*Snapping doesn't work on body so I created this to do the snapping instead.
@@ -27,4 +34,12 @@ body
     /*debugging*/
     border-color: black;
     border-style: solid;
+}
+
+.story h1
+{
+    color:lightgray;
+    min-height:100vh;
+    align-content:center;
+    justify-content:center;
 }
