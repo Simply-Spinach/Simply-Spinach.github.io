@@ -22,18 +22,25 @@ body
     scroll-snap-type: y mandatory;
 }
 
+.story > *
+{
+    /*enable snapping*/
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
 .story .storybeat
 {
     margin: 0% 10% 0% 10%;
     min-height: 100vh;
     display: block;
     align-content: center;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
 
     /*debugging*/
+    /*
     border-color: black;
     border-style: solid;
+    */
 }
 
 .story h1
