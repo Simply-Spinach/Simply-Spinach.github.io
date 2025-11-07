@@ -27,14 +27,6 @@ body
     border: 0px;
     margin: 0px;
 
-    
-    /* basic background setup.  Image will be set by classes*/
-
-    background-attachment: fixed;
-    background-repeat: none;
-    background-position: center;
-    background-size: cover;
-
     /*transitioning on background*/
     transition-property: background-image;
     transition-duration: 1s;
@@ -49,10 +41,17 @@ body
 
 #story .storybeat
 {
-    margin: 0% 10% 0% 10%;
+    padding: 0% 10% 0% 10%;
     min-height: 100vh;
     display: block;
     align-content: center;
+
+    /* basic background setup.  Image will be set by classes*/
+
+    background-attachment: fixed;
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
 
     /*debugging*/
     /*
