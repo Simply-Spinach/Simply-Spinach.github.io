@@ -5,7 +5,8 @@
 }
 
 
-/*Disabling scrolling on body (doesn't seem to work with snap to scroll)*/
+/*Disabling scrolling on body (doesn't seem to work with snap to scroll so instead we're 
+doing the jank method of having another element inside it handling scrolling)*/
 body
 {
     height:100vh;
@@ -15,33 +16,38 @@ body
 
 /*Snapping doesn't work on body so I created this to do the snapping instead.
   It's a little jank, but it works so that's all I ultimately care about*/
-.story
+#story
 {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 
-    
-    /*Background image setup.  Image will be set by classes*/
+    /*Fixing small border around image.  This is mean't to be a "replacement" for body anyway*/
 
-    background-image: none;
+    border: 0px;
+    margin: 0px;
+
+    
+    /* basic background setup.  Image will be set by classes*/
+
     background-attachment: fixed;
     background-repeat: none;
     background-position: center;
     background-size: cover;
 
+    /*transitioning on background*/
     transition-property: background-image;
     transition-duration: 1s;
 }
 
-.story > *
+#story > *
 {
     /*enable snapping*/
     scroll-snap-align: center;
     scroll-snap-stop: always;
 }
 
-.story .storybeat
+#story .storybeat
 {
     margin: 0% 10% 0% 10%;
     min-height: 100vh;
@@ -55,7 +61,7 @@ body
     */
 }
 
-.story h1
+#story h1
 {
     color:lightgray;
     min-height:100vh;
@@ -64,7 +70,10 @@ body
 }
 
 
-/*image one*/
+/*images will be assigned direclty to story through javascript
+  linear-gradient is used instead of just rgba because at least
+  Firefox has a bug where the alpha channel doesn't work with the
+  image behind it*/
 .space_img
 {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , url("GeneralSpace.jpg");
