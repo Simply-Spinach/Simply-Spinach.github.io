@@ -87,5 +87,5 @@ body
 
 .earth_img
 {
-    background-image: ulr('Earth.jpg');
+    background-image: url('Earth.jpg');
 }
