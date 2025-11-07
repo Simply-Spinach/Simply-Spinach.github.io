@@ -67,27 +67,25 @@ body
 /*image one*/
 .space_img
 {
-    background-image:
-    rgba(0,0,0,0.1),
-    url("GeneralSpace.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , url("GeneralSpace.jpg");
 }
 
 .blackhole_img
 {
-    background-image: rgba(0,0,0,0.1), url('BlackHole.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) , url("GeneralSpace.jpg");
 }
 
 .star_img
 {
-    background-image: rgba(0,0,0,0.1), url('Star.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,  url('Star.jpg');
 }
 
 .voyager_img
 {
-    background-image: rgba(0,0,0,0.1), url('Voyager1.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,  url('Voyager1.jpg');
 }
 
 .earth_img
 {
-    background-image: rgba(0,0,0,0.1), url('Earth.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,  url('Earth.jpg');
 }
