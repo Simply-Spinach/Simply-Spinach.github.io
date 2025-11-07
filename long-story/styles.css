@@ -20,6 +20,18 @@ body
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+
+    
+    /*Background image setup.  Image will be set by classes*/
+
+    background-image: none;
+    background-attachment: fixed;
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
+
+    transition-property: background-image;
+    transition-duration: 1s;
 }
 
 .story > *
@@ -51,7 +63,29 @@ body
     justify-content:center;
 }
 
-.nothingness
+
+/*image one*/
+.space_img
 {
-    background-image: url("")
+    background-image:url("GeneralSpace.jpg");
+}
+
+.blackhole_img
+{
+    background-image: url('BlackHole.jpg');
+}
+
+.star_img
+{
+    background-image: url('Star.jpg');
+}
+
+.voyager_img
+{
+    background-image: url('Voyager1.jpg');
+}
+
+.earth_img
+{
+    background-image: ulr('Earth.jpg');
 }
