@@ -67,25 +67,27 @@ body
 /*image one*/
 .space_img
 {
-    background-image:url("GeneralSpace.jpg");
+    background-image:
+    rgba(0,0,0,0.1),
+    url("GeneralSpace.jpg");
 }
 
 .blackhole_img
 {
-    background-image: url('BlackHole.jpg');
+    background-image: rgba(0,0,0,0.1), url('BlackHole.jpg');
 }
 
 .star_img
 {
-    background-image: url('Star.jpg');
+    background-image: rgba(0,0,0,0.1), url('Star.jpg');
 }
 
 .voyager_img
 {
-    background-image: url('Voyager1.jpg');
+    background-image: rgba(0,0,0,0.1), url('Voyager1.jpg');
 }
 
 .earth_img
 {
-    background-image: url('Earth.jpg');
+    background-image: rgba(0,0,0,0.1), url('Earth.jpg');
 }
