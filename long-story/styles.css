@@ -39,7 +39,7 @@ body
     scroll-snap-stop: always;
 }
 
-#story .storybeat
+#story .story_page
 {
     padding: 0% 10% 0% 10%;
     min-height: 100vh;
