@@ -98,3 +98,8 @@ body
 {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,  url('Earth.jpg');
 }
+
+.asteroid_img
+{
+    background-image:  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) ,  url('Asteroid.jpg');
+}
