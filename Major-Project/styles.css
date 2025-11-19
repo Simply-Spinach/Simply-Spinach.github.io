@@ -1,0 +1,43 @@
+/* in-file CSS here */
+.navbar
+{
+  /*basic positioning*/
+  position:fixed;
+  top:0;
+  left:0;
+  overflow:scroll;
+  
+  /*better fit content*/
+  line-height: 2rem;
+  height:100vh;
+  width:fit-content;
+  padding: 0.5em 1em 0.5em 0;
+  margin: 0px;
+  
+  /*set background for menu*/
+  background-color:gray;
+  border-color:whitesmoke;
+  border-style:none groove none none;
+  border-width: 15px;
+  /*debugging*/
+  /*
+  border-color:black;
+  border-style:solid;
+  */
+}
+
+.navbar a
+{
+  display:inline-block;
+  color:black;
+  font-style:none;
+  text-decoration: none;
+  width:100%;
+  padding-left:1em;
+  margin: 0px 0 0px 0;
+}
+
+.navbar a:hover
+{
+  background-color:lightgray;
+}
