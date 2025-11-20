@@ -1,7 +1,10 @@
 :root
 {
-  --accent-color-1: steelblue;
-  --accent-color-2: lightsteelblue;
+  --navigation-color-background: lightgray;
+  --navigation-color-highlight: whitesmoke;
+  --navigation-article-color-blend: whitesmoke;
+  --article-accent-color-1: steelblue;
+  --article-accent-color-2: lightsteelblue;
 }
 
 /* navigation menu setup */
@@ -21,8 +24,8 @@
   margin: 0px;
   
   /*set background for menu*/
-  background-color:lightgray;
-  border-color:whitesmoke;
+  background-color: var(--navigation-color-background);
+  border-color: var(--navigation-color-highlight);
   border-style:none groove none none;
   border-width: 15px;
   /*debugging*/
@@ -31,6 +34,21 @@
   border-style:solid;
   */
 }
+
+/*navbar list setup*/
+.navbar ol
+{
+    list-style-type:decimal;
+    list-style-position:inside;
+}
+
+.navbar > ol
+{
+    margin-left:0px;
+    padding-left:1em;
+}
+
+/*Button styling of links*/
 
 .navbar a
 {
@@ -43,30 +61,19 @@
   margin: 0px 0 0px 0;
 }
 
-.navbar ol
-{
-  list-style-type:decimal;
-  list-style-position:inside;
-}
-
-.navbar > ol
-{
-  margin-left:0px;
-  padding-left:1em;
-}
-
 .navbar a:hover
 {
   background-color:whitesmoke;
   
 }
 
-/*page content*/
-main
+/*automatically align actual page content to page*/
+body > * 
 {
-  margin-left:27em;
+    margin-left:27em; /*Note that this does not apply to navbar since it's overridden there*/
 }
 
+/*body style*/
 main h1
 {
   color: var(--accent-color-1);
@@ -77,7 +84,33 @@ main h2
   color: var(--accent-color-1);
 }
 
-main ul li:::marker
+main ul li::marker
 {
   color: var(--accent-color-2);
+}
+
+/*Footer setup*/
+#prev_page
+{
+    display: block;
+    background-color: var(--navigation-color-background);
+    border-style: groove;
+    border-width: 0.5em;
+    left:1em;
+}
+#prev_page
+{
+    background-color: var(--navigation-color-highlight)
+}
+#prev_page
+{
+    display: block;
+    background-color: var(--navigation-color-background);
+    border-style: groove;
+    border-width: 0.5em;
+    right:1em;
+}
+#prev_page
+{
+    background-color: var(--navigation-color-highlight)
 }
