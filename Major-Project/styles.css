@@ -63,7 +63,7 @@
 
 .navbar a:hover
 {
-  background-color:whitesmoke;
+  background-color:var(--navigation-color-highlight);
   
 }
 
