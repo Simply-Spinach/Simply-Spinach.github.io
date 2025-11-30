@@ -5,6 +5,9 @@
   --navigation-article-color-blend: whitesmoke;
   --article-accent-color-1: steelblue;
   --article-accent-color-2: lightsteelblue;
+
+  --mobile-screen-width: calc(27em * 2.5);
+  --mobile-burg-button-width: 2em;
 }
 
 /* navigation menu setup */
@@ -35,22 +38,23 @@
   */
 }
 
-/*navbar list setup*/
+
+
 .navbar ol
 {
-    list-style-type:decimal;
+  list-style-type:decimal;
     list-style-position:inside;
-}
+  }
 
-.navbar > ol
-{
+  .navbar > ol
+  {
     margin-left:0px;
     padding-left:1em;
-}
-
-/*Button styling of links*/
-
-.navbar a
+  }
+  
+  /*Button styling of links*/
+  
+  .navbar a
 {
   display:inline-block;
   color:black;
@@ -67,10 +71,55 @@
   
 }
 
-/*automatically align actual page content to page*/
-body > * 
+/*mobile navbar setup*/
+@media screen and (max-width: --mobile-screen-width)
 {
-    margin-left:27em; /*Note that this does not apply to navbar since it's overridden there*/
+  /*navbar list setup*/
+  .navbar
+  {
+    display:none;
+  }
+
+  .navburger
+  {
+    /* basic positioning */
+    position:fixed;
+    top:0;
+    left:0;
+    height:1vh;
+    width: --mobile-burg-button-width;
+
+    /* position burger to be in center */
+    display: flexbox;
+    align-items:center;
+    text-orientation: sideways;
+
+      /*set background for menu*/
+    background-color: var(--navigation-color-background);
+    border-color: var(--navigation-article-color-blend);
+    border-style:none groove none none;
+    border-width: 15px;
+  }
+
+  body > *
+  {
+    margin-left: --mobile-burg-button-width; /*buffer for navbuger*/
+  }
+}
+
+/*desktop setup (always shown)*/
+@media screen and (min-width: --mobile-screen-width)
+{
+  .navburger
+  {
+    display:none;
+  }
+
+  /*automatically align actual page content to page to get out from behind */
+  body > * 
+  {
+    margin-left: 27em; /*Note that this does not apply to navbar since it's overridden there*/
+  }
 }
 
 /*body style*/
