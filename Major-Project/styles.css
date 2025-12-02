@@ -4,11 +4,13 @@
   --navigation-color-highlight: whitesmoke;
   --navigation-article-color-blend: whitesmoke;
   --nav-bar-width: 27em;
+  --article-text-color-primary: black;
+  --article-text-color-secondary:dimgray;
   --article-accent-color-1: steelblue;
   --article-accent-color-2: lightsteelblue;
-
-
-
+  
+  
+  
   --mobile-screen-width: calc(27em * 2.5); /*alsso fix @medias because for some reason, this didn't work there.  Should be 67.5 or 68 rounded up*/
   --mobile-burg-button-width: 3em;
 }
@@ -44,17 +46,17 @@
 .navbar ol
 {
   list-style-type:decimal;
-    list-style-position:inside;
-  }
+  list-style-position:inside;
+}
 
-  .navbar > ol
-  {
-    margin-left:0px;
-    padding-left:1em;
-  }
-  
+.navbar > ol
+{
+  margin-left:0px;
+  padding-left:1em;
+}
+
 /*Button styling of links*/
-  
+
 .navbar a
 {
   display:inline-block;
@@ -88,6 +90,7 @@ body > *
   margin-left: var(--nav-bar-width); /*Note that this does not apply to navbar since it's overridden there*/
 }
 
+
 /*seperate mobile navbar setup*/
 @media screen and (max-width: 68em)
 {
@@ -95,7 +98,7 @@ body > *
   {
     margin-left: var(--mobile-burg-button-width); /*buffer for navbuger*/
   }
-
+  
   .navburger
   {
     /* basic positioning */
@@ -119,7 +122,7 @@ body > *
     padding:0 15px 0 5px;
     border-width: 15px;
   }
-
+  
   /*should be aligned with actual navburger.  Invisible until mov_nav_open is enabled*/
   .navbar
   {
@@ -140,7 +143,7 @@ body > *
     /*coloring to make visible as a button*/
     background-color: var(--navigation-color-highlight);
   }
-
+  
   .mob_navbar_open .navbar
   {
     display: block;
@@ -163,6 +166,21 @@ main ul li::marker
   color: var(--article-accent-color-2);
 }
 
+/*class used with spans and such.  Provides a tooltip on hover*/
+.tooltip
+{
+  /* special coloring and highlighting*/
+  color: var(--article-text-color-secondary);
+  border-color: var(--article-text-color-secondary);
+  border-bottom-style:dashed;
+}
+
+.tooltip:hover
+{
+  /* special coloring and highlighting*/
+  border-bottom-style: none;
+}
+
 /*Footer setup*/
 
 footer
@@ -173,32 +191,32 @@ footer
 
 #prev_page
 {
-    /*fix font*/
-    color:black;
-    font-style:none;
-    text-decoration:none;
+  /*fix font*/
+  color:black;
+  font-style:none;
+  text-decoration:none;
     text-align: center;
     width:4em;
     padding:1em;
-  
+    
     /*positioning*/
     float:left;
     right:1em;
-  
+    
     /*Button styling*/
     background-color: var(--navigation-color-background);
     border-style: none groove groove none;
     border-width: 0.5em;
     border-color: var(--navigation-article-color-blend);
-}
-#prev_page:hover
-{
+  }
+  #prev_page:hover
+  {
     background-color: var(--navigation-color-highlight)
-}
-
-
-#next_page
-{
+  }
+  
+  
+  #next_page
+  {
     /*fix font*/
     color:black;
     font-style:none;
@@ -206,18 +224,19 @@ footer
     text-align: center;
     width:4em;
     padding:1em;
-  
+    
     /*positioning*/
     float:right;
     right:1em;
-  
+    
     /*Button styling*/
     background-color: var(--navigation-color-background);
     border-style: none groove groove none;
     border-width: 0.5em;
     border-color: var(--navigation-article-color-blend);
-}
-#next_page:hover
-{
+  }
+  #next_page:hover
+  {
     background-color: var(--navigation-color-highlight)
-}
+  }
+  
