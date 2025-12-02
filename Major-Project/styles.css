@@ -3,8 +3,11 @@
   --navigation-color-background: lightgray;
   --navigation-color-highlight: whitesmoke;
   --navigation-article-color-blend: whitesmoke;
+  --nav-bar-width: 27em;
   --article-accent-color-1: steelblue;
   --article-accent-color-2: lightsteelblue;
+
+
 
   --mobile-screen-width: calc(27em * 2.5);
   --mobile-burg-button-width: 2em;
@@ -79,11 +82,11 @@
 /*automatically align actual page content to page to get out from behind */
 body > * 
 {
-  margin-left: 27em; /*Note that this does not apply to navbar since it's overridden there*/
+  margin-left: var(--nav-bar-width); /*Note that this does not apply to navbar since it's overridden there*/
 }
 
 /*seperate mobile navbar setup*/
-@media screen and (max-width: --mobile-screen-width)
+@media screen and (max-width: var(--mobile-screen-width))
 {
   body > *
   {
