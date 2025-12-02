@@ -11,6 +11,6 @@ document.addEventListener('DOMContentLoaded', function()
     navburger.addEventListener('click', function(e)
     {
         //open navbar
-        nav.classList.toggle('.mob_navbar_open')
+        nav.classList.toggle('mob_navbar_open')
     });
 });
