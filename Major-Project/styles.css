@@ -94,7 +94,7 @@ body > *
   }
   
   /*navbar list setup*/
-  .navbar_open
+  .mob_navbar_open
   {
     display: none;
   }
@@ -107,7 +107,7 @@ body > *
     position:fixed;
     top:0;
     left:0;
-    height:1vh;
+    height:100vh;
     width: var(--mobile-burg-button-width);
     
     /* position burger to be in center */
@@ -127,7 +127,7 @@ body > *
   {
     border-style:none;
     display: none;
-    width: calc( 1vw - var(--mobile-burg-button-width));
+    width: calc( 100vw - var(--mobile-burg-button-width));
   }
   
   /*move navburger to right upon opening*/
