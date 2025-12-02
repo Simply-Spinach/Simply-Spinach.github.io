@@ -13,6 +13,10 @@
   
   --mobile-screen-width: calc(27em * 2.5); /*alsso fix @medias because for some reason, this didn't work there.  Should be 67.5 or 68 rounded up*/
   --mobile-burg-button-width: 3em;
+
+  --tooltip-max-width: 30em;
+  --tooltip-background-color: lightgray;
+  --tooltip-text-color: black;
 }
 
 /* navigation menu setup */
@@ -174,6 +178,28 @@ main ul li::marker
   text-decoration-line:underline;
   text-decoration-style:dashed;
   text-decoration-thickness: 1.5px;
+}
+
+.tip
+{
+  /*display method*/
+  box-sizing: border-box;
+  display: none; /*set later by hover or other toggle*/
+  position: relative;
+  
+  /*positioning and size*/
+  top: 100%; /*goal is to shift it down below the text*/
+  max-width: var(--tooltip-max-width);
+  height: fit-content;
+
+  /*set coloring and stuff*/
+  background-color: var(--tooltip-background-color);
+  color: var(--tooltip-text-color);
+}
+
+.tooltip:hover > .tip
+{
+  display: block;
 }
 
 .tooltip:hover
