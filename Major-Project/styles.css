@@ -127,6 +127,7 @@ body > *
   .mob_navbar_open .navburger
   {
     right:0;
+    left: auto;
   }
 
   .mob_navbar_open .navbar
