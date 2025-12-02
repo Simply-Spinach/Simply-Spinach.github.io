@@ -171,8 +171,8 @@ main ul li::marker
 {
   /* special coloring and highlighting*/
   color: var(--article-text-color-secondary);
-  border-color: var(--article-text-color-secondary);
-  border-bottom-style:dashed;
+  text-decoration-line:underline;
+  text-decoration-style:dashed;
 }
 
 .tooltip:hover
