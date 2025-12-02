@@ -69,7 +69,6 @@
 .navbar a:hover
 {
   background-color:var(--navigation-color-highlight);
-  
 }
 
 /*navbar setup*/
@@ -77,6 +76,10 @@
 .navburger
 {
   display:none;
+}
+.navburger:hover
+{
+  background-color:var(--navigation-color-highlight);
 }
 
 /*automatically align actual page content to page to get out from behind */
@@ -105,6 +108,8 @@ body > *
     /* position burger to be in center */
     display: flex;
     align-items:center;
+    text-align: center;
+    justify-content:center;
     text-orientation: sideways;
     
     /*set background for menu*/
@@ -128,6 +133,12 @@ body > *
   {
     right:0;
     left: auto;
+    border-style: none none none none;
+    padding: 0 3px 0 3px;
+    overflow:visible;
+    
+    /*coloring to make visible as a button*/
+    background-color: var(--navigation-color-highlight);
   }
 
   .mob_navbar_open .navbar
