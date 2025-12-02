@@ -38,8 +38,6 @@
   */
 }
 
-
-
 .navbar ol
 {
   list-style-type:decimal;
@@ -52,9 +50,9 @@
     padding-left:1em;
   }
   
-  /*Button styling of links*/
+/*Button styling of links*/
   
-  .navbar a
+.navbar a
 {
   display:inline-block;
   color:black;
@@ -71,14 +69,34 @@
   
 }
 
-/*mobile navbar setup*/
+/*navbar setup*/
+
+.navburger
+{
+  display:none;
+}
+
+/*automatically align actual page content to page to get out from behind */
+body > * 
+{
+  margin-left: 27em; /*Note that this does not apply to navbar since it's overridden there*/
+}
+
+/*seperate mobile navbar setup*/
 @media screen and (max-width: --mobile-screen-width)
 {
-  /*navbar list setup*/
-  .navbar
+  body > *
   {
-    display:none;
+    margin-left: --mobile-burg-button-width; /*buffer for navbuger*/
   }
+  
+  /*navbar list setup*/
+  .navbar_open
+  {
+    display: none;
+  }
+
+  /**/
 
   .navburger
   {
@@ -87,39 +105,38 @@
     top:0;
     left:0;
     height:1vh;
-    width: --mobile-burg-button-width;
-
+    width: var(--mobile-burg-button-width);
+    
     /* position burger to be in center */
     display: flexbox;
     align-items:center;
     text-orientation: sideways;
-
-      /*set background for menu*/
+    
+    /*set background for menu*/
     background-color: var(--navigation-color-background);
     border-color: var(--navigation-article-color-blend);
     border-style:none groove none none;
     border-width: 15px;
   }
 
-  body > *
+  /*should be aligned with actual navburger.  Invisible until mov_nav_open is enabled*/
+  .navbar
   {
-    margin-left: --mobile-burg-button-width; /*buffer for navbuger*/
+    border-style:none;
+    display: none;
+    width: calc( 1vw - var(--mobile-burg-button-width));
   }
-}
+  
+  /*move navburger to right upon opening*/
+  .mob_navbar_open .navburger
+  {
+    right:0;
+  }
 
-/*desktop setup (always shown)*/
-@media screen and (min-width: --mobile-screen-width)
-{
-  .navburger
+  .mob_navbar_open .navbar
   {
-    display:none;
-  }
-
-  /*automatically align actual page content to page to get out from behind */
-  body > * 
-  {
-    margin-left: 27em; /*Note that this does not apply to navbar since it's overridden there*/
-  }
+    display: block;
+  } 
 }
 
 /*body style*/
