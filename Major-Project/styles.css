@@ -90,7 +90,7 @@ body > *
 {
   body > *
   {
-    margin-left: --mobile-burg-button-width; /*buffer for navbuger*/
+    margin-left: var(--mobile-burg-button-width); /*buffer for navbuger*/
   }
   
   /*navbar list setup*/
