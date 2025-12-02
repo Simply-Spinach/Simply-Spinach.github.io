@@ -186,6 +186,7 @@ main ul li::marker
   box-sizing: border-box;
   display: none; /*set later by hover or other toggle*/
   position: relative;
+  float:left;
   clear:none;
   
   /*positioning and size*/
