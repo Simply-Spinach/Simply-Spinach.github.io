@@ -173,12 +173,13 @@ main ul li::marker
   color: var(--article-text-color-secondary);
   text-decoration-line:underline;
   text-decoration-style:dashed;
+  text-decoration-thickness: 1.5px;
 }
 
 .tooltip:hover
 {
   /* special coloring and highlighting*/
-  border-bottom-style: none;
+  text-decoration-line: none;
 }
 
 /*Footer setup*/
