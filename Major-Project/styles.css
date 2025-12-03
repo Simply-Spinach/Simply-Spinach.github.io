@@ -221,7 +221,7 @@ main img
   text-decoration-thickness: 1.5px;
 }
 
-.tip
+.tooltip_msg
 {
   /*display style*/
   box-sizing: border-box;
@@ -245,7 +245,7 @@ main img
   text-decoration: none;
 }
 
-.tooltip:hover > .tip
+.tooltip:hover > .tooltip_msg
 {
   visibility: visible;
 }
