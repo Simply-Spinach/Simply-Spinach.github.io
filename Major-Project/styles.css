@@ -170,6 +170,20 @@ main ul li::marker
   color: var(--article-accent-color-2);
 }
 
+main figure
+{
+  max-width: 80%;
+  height: auto;
+  margin: 0 10% 0 10%;
+}
+
+main img
+{
+  width: 100%;
+  height: auto;
+}
+
+
 /*class used with spans and such.  Provides a tooltip on hover*/
 .tooltip
 {
