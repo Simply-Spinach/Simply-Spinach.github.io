@@ -14,7 +14,7 @@
   --mobile-screen-width: calc(27em * 2.5); /*alsso fix @medias because for some reason, this didn't work there.  Should be 67.5 or 68 rounded up*/
   --mobile-burg-button-width: 3em;
 
-  --tooltip-max-width: 30em;
+  --tooltip-max-width: 20em;
   --tooltip-background-color: lightgray;
   --tooltip-text-color: black;
 }
@@ -186,19 +186,23 @@ main ul li::marker
 
 .tip
 {
-  /*display above tooltip*/
+  /*display style*/
   box-sizing: border-box;
   position: absolute;
   visibility: hidden;
   
   /*positioning and size*/
-  top: 100%; /*goal is to shift it down below the text*/
+  bottom: 100%; /*goal is to shift it down below the text*/
+  left:0;
+  width: var(--tooltip-max-width);
+  height: auto;
   max-width: var(--tooltip-max-width);
   height: fit-content;
 
   /*set coloring and stuff*/
   background-color: var(--tooltip-background-color);
   color: var(--tooltip-text-color);
+  padding: 0.25em;
 
   /* also fix font stuff since it's inside the parent*/
   text-decoration: none;
