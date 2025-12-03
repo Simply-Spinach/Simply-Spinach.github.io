@@ -96,7 +96,8 @@ body > *
 
 
 /*seperate mobile navbar setup*/
-@media screen and (max-width: 68em)
+@media screen and (max-width: 67.5em /*--mobile-screen-width*/)
+
 {
   body > *
   {
@@ -138,9 +139,8 @@ body > *
   /*move navburger to right upon opening*/
   .mob_navbar_open .navburger
   {
-    right:0;
-    left: auto;
-    border-style: none none none none;
+    left: var(--nav-bar-width);
+    border-style: none grove none none;
     padding: 0 3px 0 3px;
     overflow:visible;
     
@@ -153,6 +153,25 @@ body > *
     display: block;
   } 
 }
+
+/* extremely small screen.  navmenu takes up entire screen rather than just the typical width */
+@media screen and (max-width: 30em /*--mobile-burg-width + --nav-bar-width*/)
+{
+  /*ensure navbar fits on screen*/
+  .navbar
+  {
+    width: calc( 100vw - var(--mobile-burg-button-width));
+  }
+  
+  /*force navbar to be open on right of screen*/
+  .mob_navbar_open .navburger
+  {
+    right:0;
+    left:auto;
+    border-style:none;
+  }
+}
+
 
 /*body style*/
 main h1
