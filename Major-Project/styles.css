@@ -133,14 +133,13 @@ body > *
   {
     border-style:none;
     display: none;
-    width: calc( 100vw - var(--mobile-burg-button-width));
+    /*! width: var(--nav-bar-width); */
   }
   
   /*move navburger to right upon opening*/
   .mob_navbar_open .navburger
   {
-    left: var(--nav-bar-width);
-    border-style: none grove none none;
+    left: calc(var(--nav-bar-width) + 16px);
     padding: 0 3px 0 3px;
     overflow:visible;
     
@@ -151,6 +150,7 @@ body > *
   .mob_navbar_open .navbar
   {
     display: block;
+    /*! box-sizing: border-box; */
   } 
 }
 
