@@ -70,6 +70,9 @@
   width:100%;
   padding:0px;
   margin: 0px 0 0px 0;
+
+  /*not needed, but as a backup*/
+  z-index:998; /* below navburger on mobile */
 }
 
 .navbar a:hover
@@ -81,6 +84,7 @@
 
 .navburger
 {
+  z-index:999;
   display:none;
 }
 .navburger:hover
