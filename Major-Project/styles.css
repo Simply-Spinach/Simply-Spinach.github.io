@@ -173,7 +173,10 @@ main ul li::marker
 /*class used with spans and such.  Provides a tooltip on hover*/
 .tooltip
 {
-  /* special coloring and highlighting*/
+  /* basic setup for popup */
+  position: relative;
+
+  /* special coloring and highlighting for text inside*/
   color: var(--article-text-color-secondary);
   text-decoration-line:underline;
   text-decoration-style:dashed;
@@ -182,12 +185,10 @@ main ul li::marker
 
 .tip
 {
-  /*display method*/
+  /*display above tooltip*/
   box-sizing: border-box;
-  display: none; /*set later by hover or other toggle*/
-  position: relative;
-  float:left;
-  clear:none;
+  position: absolute;
+  visibility: hidden;
   
   /*positioning and size*/
   top: 100%; /*goal is to shift it down below the text*/
@@ -197,11 +198,14 @@ main ul li::marker
   /*set coloring and stuff*/
   background-color: var(--tooltip-background-color);
   color: var(--tooltip-text-color);
+
+  /* also fix font stuff since it's inside the parent*/
+  text-decoration: none;
 }
 
 .tooltip:hover > .tip
 {
-  display: block;
+  visibility: visible;
 }
 
 .tooltip:hover
