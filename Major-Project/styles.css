@@ -231,7 +231,9 @@ main img
   /*positioning and size*/
   bottom: 100%; /*goal is to shift it down below the text*/
   left:0;
-  width: clamp( 10em, var(--nav-bar-width), auto);
+  max-width: 0; /* I was having problems with the 
+            space already being there so I did
+            this as a really rough patch*/
   height: auto;
   max-width: var(--tooltip-max-width);
   height: fit-content;
@@ -247,6 +249,7 @@ main img
 
 .tooltip:hover > .tooltip_msg
 {
+  max-width: var(--nav-bar-width);
   visibility: visible;
 }
 
