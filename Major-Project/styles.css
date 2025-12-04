@@ -249,7 +249,7 @@ main img
 
 .tooltip:hover > .tooltip_msg
 {
-  max-width: var(--nav-bar-width);
+  width: clamp(auto, var(--nav-bar-width), calc(100vw - left));
   visibility: visible;
 }
 
