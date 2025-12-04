@@ -232,7 +232,7 @@ main img
   
   /*positioning and size*/
   bottom: 100%; /*goal is to shift it down below the text*/
-  right: 100%; /*Doing this to try and get it to just work.  Please, just hover*/
+  right: -2em; /*Doing this to try and get it to just work.  Please, just hover*/
   max-width: 0; /* I was having problems with the 
             space already being there so I did
             this as a really rough patch*/
