@@ -15,6 +15,7 @@
   --mobile-burg-button-width: 3em;
 
   --tooltip-max-width: 20em;
+  --tooltip-recommended-width: 15em;
   --tooltip-background-color: lightgray;
   --tooltip-text-color: black;
 }
@@ -249,7 +250,8 @@ main img
 
 .tooltip:hover > .tooltip_msg
 {
-  width: clamp(auto, var(--nav-bar-width), calc(100vw - left));
+  width: clamp(10rem, var(--tooltip-recommended-width), var(--tooltip-max-width));
+  min-width: 0px;
   visibility: visible;
 }
 
