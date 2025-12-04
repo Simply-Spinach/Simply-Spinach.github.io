@@ -116,7 +116,7 @@ body > *
     position:fixed;
     top:0;
     left:0;
-    height:100vw;
+    height:100vh;
     width: var(--mobile-burg-button-width);
     
     /* position burger to be in center */
