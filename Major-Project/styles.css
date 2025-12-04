@@ -14,8 +14,8 @@
   --mobile-screen-width: calc(27em * 2.5); /*alsso fix @medias because for some reason, this didn't work there.  Should be 67.5 or 68 rounded up*/
   --mobile-burg-button-width: 3em;
 
-  --tooltip-max-width: 20em;
-  --tooltip-recommended-width: 15em;
+  --tooltip-max-width: 10vw;
+  --tooltip-recommended-width: 20em;
   --tooltip-background-color: lightgray;
   --tooltip-text-color: black;
 }
@@ -31,7 +31,8 @@
   
   /*better fit content*/
   line-height: 2rem;
-  height:100vh;
+  height:120vh; /*I've previously had problems with this going off screen
+                on mobile so this is my really poor fix*/
   width:25em;
   padding: 0.5em 1em 0.5em 0;
   margin: 0px;
@@ -115,7 +116,7 @@ body > *
     position:fixed;
     top:0;
     left:0;
-    height:100vh;
+    height:100vw;
     width: var(--mobile-burg-button-width);
     
     /* position burger to be in center */
