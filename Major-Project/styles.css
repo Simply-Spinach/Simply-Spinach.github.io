@@ -290,6 +290,7 @@ footer
     border-width: 0.5em;
     border-color: var(--navigation-article-color-blend);
   }
+
   #prev_page:hover
   {
     background-color: var(--navigation-color-highlight)
@@ -316,6 +317,7 @@ footer
     border-width: 0.5em;
     border-color: var(--navigation-article-color-blend);
   }
+  
   #next_page:hover
   {
     background-color: var(--navigation-color-highlight)

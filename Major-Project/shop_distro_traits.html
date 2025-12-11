@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Guide: Traits for a Beginner Distro</title>
+
+    <!-- external and internal CSS -->
+    <link rel="stylesheet" href="styles.css" media="all">
+    <style>
+        /* in-file CSS here */
+    </style>
+
+    <!-- external and internal JavaScript -->
+    <script src="scripts.js" defer></script>
+    <script>
+        // in-page JavaScript here
+    </script>
+
+</head>
+
+<body>
+    <nav>
+    <button class="navburger">
+         &#9776;
+    </button>
+    <div class="navbar">
+        <ol>
+            <a href="index.html">
+                <li>
+                    About this Guide
+                </li>
+            </a>
+
+            <a href="what_is_linux.html">
+                <li>
+                    What is Linux?
+                </li>
+            </a>
+            <li>
+                How to shop for a Linux Distro
+                <ol>
+                    <a href="shop_distro_explain.html">
+                        <li> What's a distro? </li>
+                    </a>
+                    <a href="shop_distro_traits.html">
+                        <li> Best traits for a beginner distro </li>
+                    </a>
+                    <a href="shop_distro_recommend.html">
+                        <li> Recommended distros for beginners </li>
+                    </a>
+                </ol>
+            </li>
+            <li> Preparation
+                <ol>
+                    <a href="prep_iso_download.html">
+                        <li>
+                            How to download an iso
+                        </li>
+                    </a>
+                    <a href="prep_boot.html">
+                        <li>
+                            Preparing your computer to boot
+                        </li>
+                    </a>
+                    <a href="prep_usb_boot.html">
+                        <li>
+                            How to boot Linux from a USB
+                        </li>
+                        <a href="prep_installation.html">
+                            <li>
+                                Installing Linux
+                            </li>
+                        </a>
+                </ol>
+            </li>
+            <li> About Linux
+                <ol>
+                    <a href="info_distro_vs_de.html">
+                        <li>
+                            Distro vs Desktop Environment
+                        </li>
+                    </a>
+                    <a href="info_secure_boot.html">
+                        <li>
+                            Secure Boot
+                        </li>
+                    </a>
+                    <a href="info_add_resources.html">
+                        <li>
+                            Additional Resources
+                        </li>
+                    </a>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <main>
+        <h1> Best Traits for a Beginner Distro </h1>
+        <p>
+            When looking at Linux distributions, there can be a lot of language thrown around and it can be
+            hard to cut through the noise.  What's a desktop environment?  What's Debian or Ubuntu and why
+            are so many built off the same thing?  Is there a difference>  Let's cover some of those topics, or
+            skip to the next page and see what we recommend instead.
+        </p>
+        <h2>
+            Desktop environment
+        </h2>
+        <p>
+            Before you start looking at how pretty certain distributions are, it's important to talk about what
+            a desktop environment is.  A desktop environment is the visual way you interact with a computer.  It's what
+            handles windows, background image, start menu and taskbar (and the same thing as a launcher on Android if you know
+            what that is).  Basically, it handles everything visual and interactive that an app doesn't handle.
+            Unlike many other operating systems, Linux allows you to change this out, often providing different
+            experiences to the same operating system without actually changing any underlying structure.  There are
+            a large variety to pick from but the main thing you can think is that most distributions offer an alternative
+            with another desktop environment if you so wish.
+        </p>
+        <p>
+            One important thing is to recognize that a Debian and an Ubuntu system can share the same desktop environment.
+            If you like the look of one operating system, look for what Desktop Environment it is and see where you can go
+            from there.
+        </p>
+        <p>
+            When you are ready to look for a desktop environment, you are probably going to want a desktop environment that's easy
+            to use and familiar with whichever OS you came from.  Environments like KDE Plazma, Cinammon, and LXDE all provide a 
+            rather similar layout to Windows, with their own personal touches and flourishes to make them unique.
+        </p>
+        <h2>
+            App store or "Discover":
+        </h2>
+        <p>
+            While you may see an app store and think of paid apps, most Linux distros don't offer paid apps and only let
+            you download free apps.  But why would you want this?
+        </p>
+        <p>
+            While the Linux counterpart may go by different names such as "Discover" on Ubuntu systems, an
+            app store of some sort allows you to easily install many apps that you need and many put the Windows
+            version to shame (Microsoft Store <i>*cough cough*</i>)
+        </p>
+        <p>
+            Well when it comes to Linux, most distributions allow you to use a terminal to install applications.  While this
+            may be my, and many other people's prefered method for installing apps, it's not easy to learn for a new user.
+        </p>
+        <p>
+            That's where these stores come in.  They let you download an application from a store much like you would your
+            phone, and are significantly more complete than the Windows Store.  They allow you to easily use a computer without
+            talking to the void and that's very handy.
+        </p>
+        <p>
+            Which speaking of...
+        </p>
+        <h2>
+            Application Support
+        </h2>
+        <p>
+            When looking at applications, there can be a lot of overwhelming information, so let's break it down.
+        </p>
+        <p>
+            When you use your computer, you typically run what are called .exe files, which are designed to talk to Windows.  However,
+            these only work on Windows.  If you were to put these onto an Apple or Linux computer, the langauge designed to tell Windows what
+            to do doesn't work anymore as these other comptuers speak something else.  The two options are to translate the langauge from Windows
+            to the language of your current computer, which does exist but can be buggy when translators make mistakes in translation, or the
+            app should be installed in a langauge the current computer understands.
+        </p>
+        <p>
+            While Windows and Apple are rather consistent in the name of these applications, Linux can be a little bit different due to operating
+            system variety.  For example, a Debian designed .deb file runs into the same issue on any other operating system not built off of it.
+            To solve that, there are competing standards for applications, Flatpak, AppImage and Snap being some of the biggest ones.
+            All of these are designed to work in a somewhat more universal way that can run on nearly every Linux computer, as long as your
+            distribution has added the support to run them of course.
+        </p>
+        <p>
+            What do you pick when you start using your computer?  What should you prioritize?  Well, when it
+            comes to the universal Flatpak, AppImage and Snap support, Flatpak is one of the best picks for compatability.
+        </p>
+        <p>
+            You don't typically have to pick one or none though.  Many distributions have multiple supported application types.  For example, Linux Mint
+            supports AppImage, Flatpaks, and Debian files (since it's built on Debian) out of the box.  What you may typically want though, is the
+            most support without sacrificing speeds (which typically is something to worry about if you have a computer that really struggles with Windows).
+        </p>
+        <h2>
+            Community and support
+        </h2>
+        <p>
+            Unfortunately, while I love to see Linux as being all rainbows and happiness, sometimes you do run into difficulties using a particular distro.
+            Luckly, many distributions have good communities and help fourms for when you need it.
+        </p>
+        <p>
+            The biggest communities tend to have the strongest versions of these.  Even if you're not someone that actually asks questions on these
+            fourms, you can often search them to find other people who have had the exact same problem.
+        </p>
+        <p>
+            You may also see documentation as something that's important.  I would say unless you're really looking to mess with the operating system,
+            you don't need to worry about that.  Just being able to get help from a human person when you need it is the most helpful thing you can do.
+        </p>
+    </main>
+    <footer>
+        <a id="prev_page" href="shop_distro_explain.html"> Previous </a>
+        <a id="next_page" href="shop_distro_recommended.html"> Next </a>
+    </footer>
+</body>
+
+</html>
