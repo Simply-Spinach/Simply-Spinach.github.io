@@ -33,20 +33,19 @@ body
 .project_type ul a
 {
   display:inline-block;
-  color:black;
+  color: var(--cosmic-latte-color);
   font-style:none;
   text-decoration: none;
   width:100%;
   margin: 0px 0 0px 0;
-  
-  /*not needed, but as a backup*/
-  z-index:998; /* below navburger on mobile */
+    
+  border-radius: var(--border-roundness-factor);      
+  background-color: var(--navigation-color-default);
 }
 
 .project_type ul a:hover
 {
     background-color:var(--navigation-color-highlight);
-    border-radius: var(--border-roundness-factor);    
 }
 
 .project_type ul
@@ -58,14 +57,6 @@ body
 {
     list-style-type: none;
     padding:5px;
-    
-    border-width:2px;
-    border-color:var(--navigation-color-default);
-    border-radius: var(--border-roundness-factor);    
-}
-.project_type a:hover li
-{
-    border-color: var(--navigation-color-highlight);
 }
 
 .nameplate
