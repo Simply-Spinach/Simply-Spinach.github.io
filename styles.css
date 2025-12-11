@@ -9,10 +9,11 @@ body
 {
     color: black;
 	background-image: url('home_pg_bkg.jpg');
+    
 	/*this image is from NASA.gov, which permits use on personal websites*/
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 100vw;
+	background-size: cover;
 	font-family: 'monospace';
 	padding-left: 15%;
 	padding-right: 15%;
