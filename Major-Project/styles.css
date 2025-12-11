@@ -213,7 +213,8 @@ main ul li::marker
 main figure
 {
   max-width: 80%;
-  max-height: 50vh;
+  width: 50%;
+  min-width: 400px;
   height: auto;
   margin: 0 10% 0 10%;
 }
