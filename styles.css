@@ -3,6 +3,7 @@
     --cosmic-latte-color: #fff8e7; /*scientifically proven to be the most average color in the universe */
     --border-roundness-factor: 15px;
     --universal-margin: 15px;
+    --navigation-color-highlight: darkcyan;
 }
 
 *
@@ -25,18 +26,32 @@ body
 	padding-right: 5em;
 }
 
-a:link {
-	color: green;
-	text-decoration: underline;
+
+/*Button styling of links*/
+
+.project_type a
+{
+  display:inline-block;
+  color:black;
+  font-style:none;
+  text-decoration: none;
+  width:100%;
+  padding:0px;
+  margin: 0px 0 0px 0;
+
+  /*not needed, but as a backup*/
+  z-index:998; /* below navburger on mobile */
 }
 
-a:hover {
-	text-decoration: none;
+.project_type a:hover
+{
+  background-color:var(--navigation-color-highlight);
 }
 
-a:visited {
-	color: #ff0000;
-	text-decoration: underline;
+.project_type li
+{
+    list-style-type: none;
+    
 }
 
 .nameplate
