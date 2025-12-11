@@ -158,6 +158,12 @@ body > *
     display: block;
     /*! box-sizing: border-box; */
   } 
+
+  /*additional changes*/
+  .qr_code
+  {
+    min-width: 150px;
+  }
 }
 
 /* extremely small screen.  navmenu takes up entire screen rather than just the typical width */
@@ -317,9 +323,14 @@ footer
     border-width: 0.5em;
     border-color: var(--navigation-article-color-blend);
   }
-  
+
   #next_page:hover
   {
     background-color: var(--navigation-color-highlight)
   }
   
+  .qr_code
+  {
+    min-width: 200px;
+    max-width: 300px;
+  }
