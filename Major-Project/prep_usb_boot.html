@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Guide: PAGE TITLE HERE</title>
+
+    <!-- external and internal CSS -->
+    <link rel="stylesheet" href="styles.css" media="all">
+    <style>
+        /* in-file CSS here */
+    </style>
+
+    <!-- external and internal JavaScript -->
+    <script src="scripts.js" defer></script>
+    <script>
+        // in-page JavaScript here
+    </script>
+
+</head>
+
+<body>
+    <nav>
+    <button class="navburger">
+         &#9776;
+    </button>
+    <div class="navbar">
+        <ol>
+            <a href="index.html">
+                <li>
+                    About this Guide
+                </li>
+            </a>
+
+            <a href="what_is_linux.html">
+                <li>
+                    What is Linux?
+                </li>
+            </a>
+            <li>
+                How to shop for a Linux Distro
+                <ol>
+                    <a href="shop_distro_explain.html">
+                        <li> What's a distro? </li>
+                    </a>
+                    <a href="shop_distro_traits.html">
+                        <li> Best traits for a beginner distro </li>
+                    </a>
+                    <a href="shop_distro_recommend.html">
+                        <li> Recommended distros for beginners </li>
+                    </a>
+                </ol>
+            </li>
+            <li> Preparation
+                <ol>
+                    <a href="prep_iso_download.html">
+                        <li>
+                            How to download an iso
+                        </li>
+                    </a>
+                    <a href="prep_boot.html">
+                        <li>
+                            Preparing your computer to boot
+                        </li>
+                    </a>
+                    <a href="prep_usb_boot.html">
+                        <li>
+                            Preparing a USB
+                        </li>
+                    </a>
+                    <a href="prep_installation.html">
+                        <li>
+                            Installing Linux
+                        </li>
+                    </a>
+                </ol>
+            </li>
+            <li> About Linux
+                <ol>
+                    <a href="info_add_resources.html">
+                        <li>
+                            Additional Resources
+                        </li>
+                    </a>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <main>
+        <h1> Preparing a USB </h1>
+        <p>
+            You may be wondering what we're doing with the iso file at this point.  That's a pretty good question.
+        </p>
+        <p>
+            Unfortunately, most operating systems (if not all), don't let you change out the operating system without
+            first booting your device from a flash drive (or a DVD if you really feel like it.  I've done it.  It's awful).
+        </p>
+        <p>
+            That iso file you downloaded, is what we're putting on that flash drive to boot from so we can install Linux.
+            The only problem is that Windows and most operating systems don't come with a tool to do that.
+        </p>
+        <p>
+            A tool called <a href='https://etcher.balena.io/'>Balena Etcher</a> is going to be your friend.  This will create the USB
+            we will boot from to test and install your operating system from.
+        </p>
+        <ol>
+            <li> Back up any data from your flash drive </li>
+            <li> Install and open Balnea Etcher 
+                <figure>
+                    <img src="Etcher_start.png">
+                    <figcaption> Look for this page after setup </figcaption>
+                </figure>
+            </li>
+            <li> Select flash from file and choose your iso file 
+                <figure>
+                    <img src="Etcher_target_but.png">
+                    <figcaption> Image is selected.  Target device is not. </figcaption>
+                </figure>
+            </li>
+            <li> If you haven't inserted your flash drive yet, insert it now.  If it has, remove it and re-insert it again</li>
+            <li> Set your flash target to your USB drive. 
+                <figure>
+                    <img src="Etcher_flash_ready.png">
+                </figure>
+            </li>
+            <li> ENSURE BALENA IS FLAHSING TO THE RIGHT DEVICE BEFORE FLASHING!!!  All data on the target will be wiped when flashing starts</li>
+            <li> Click the Flash button and wait for it to finish flashing 
+            </li>
+        </ol>
+        <p>
+            And now you have a flashed USB drive, ready to boot from.
+        </p>
+    </main>
+    <footer>
+        <a id="prev_page" href="prep_boot.html"> Previous </a>
+        <a id="next_page" href="404.html"> Next </a>
+    </footer>
+</body>
+
+</html>

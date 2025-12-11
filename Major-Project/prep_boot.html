@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Guide: PAGE TITLE HERE</title>
+
+    <!-- external and internal CSS -->
+    <link rel="stylesheet" href="styles.css" media="all">
+    <style>
+        /* in-file CSS here */
+    </style>
+
+    <!-- external and internal JavaScript -->
+    <script src="scripts.js" defer></script>
+    <script>
+        // in-page JavaScript here
+    </script>
+
+</head>
+
+<body>
+    <nav>
+    <button class="navburger">
+         &#9776;
+    </button>
+    <div class="navbar">
+        <ol>
+            <a href="index.html">
+                <li>
+                    About this Guide
+                </li>
+            </a>
+
+            <a href="what_is_linux.html">
+                <li>
+                    What is Linux?
+                </li>
+            </a>
+            <li>
+                How to shop for a Linux Distro
+                <ol>
+                    <a href="shop_distro_explain.html">
+                        <li> What's a distro? </li>
+                    </a>
+                    <a href="shop_distro_traits.html">
+                        <li> Best traits for a beginner distro </li>
+                    </a>
+                    <a href="shop_distro_recommend.html">
+                        <li> Recommended distros for beginners </li>
+                    </a>
+                </ol>
+            </li>
+            <li> Preparation
+                <ol>
+                    <a href="prep_iso_download.html">
+                        <li>
+                            How to download an iso
+                        </li>
+                    </a>
+                    <a href="prep_boot.html">
+                        <li>
+                            Preparing your computer to boot
+                        </li>
+                    </a>
+                    <a href="prep_usb_boot.html">
+                        <li>
+                            How to boot Linux from a USB
+                        </li>
+                        <a href="prep_installation.html">
+                            <li>
+                                Installing Linux
+                            </li>
+                        </a>
+                </ol>
+            </li>
+            <li> About Linux
+                <ol>
+                    <a href="info_distro_vs_de.html">
+                        <li>
+                            Distro vs Desktop Environment
+                        </li>
+                    </a>
+                    <a href="info_secure_boot.html">
+                        <li>
+                            Secure Boot
+                        </li>
+                    </a>
+                    <a href="info_add_resources.html">
+                        <li>
+                            Additional Resources
+                        </li>
+                    </a>
+                </ol>
+            </li>
+        </ol>
+    </nav>
+    <main>
+        <h1> Preparing your computer to boot </h1>
+        <p>
+            Depending on the age of your computer and what it likes, you may not be able to boot directly into Linux.
+            This is because of a security setting on called Secure Boot that exists to prevent hackers from changing what
+            your computer runs.
+        </p>
+        <p>
+            A little thing most people don't know is that your comptuer can't just directly go from starting itself to 
+            running an operating system.  There's an inbetween step called a BIOS (or UEFI on newer computers) that sets
+             up a good portion of your device.  This is what also checks for secure boot to make sure your computer
+            is running ok.
+        </p>
+        <p>
+            When it comes to entering the bios, you have just a few ways to do it, but today I will show you the most commonly
+            used approach.
+        </p>
+        <p>
+            This is a good reminder that right now, you are going to be a bit of a hacker.  While I wish there was a far less scary
+            way to perform this step, there unfortunately isn't one that I am aware of.  Thankfully, there are far harder steps in this
+            tutorial and this one, besides the scary stuff, is rather easy and if you do it right, is rather safe to do.
+        </p>
+        <h2>
+            Entering the BIOS
+        </h2>
+        <p>
+            When you start up the computer, there's a few seconds as you start up the computer you can enter the BIOS menu.  This button
+            can vary depending on your computer in particular but it's typically an F2 or F3 key (sometimes you need to hold the fn key for
+            the function key to work too) (if neither of these buttons work, look up the model of your computer and try that, or try the other method).  This will open a menu that will vary greatly depending on the device.
+        </p>
+        <p>
+            When you're done, you should see a menu you probably haven't seen before and varies depending on the device.  Often times, they look
+            old and outdated interfaces, like something you would see on an MS-DOS computer.  On some very modern devices, it may look like
+            any other application you've used, but ever so slightly different.  If you see this, congradulations and go down to removing secure boot!
+        </p>
+        <h2>
+            I'm in the BIOS.  Now what?
+        </h2>
+        <p>
+            When it comes to navigating a BIOS, it can be rather scary.  Nothing like looking at a very rudimentary display that looks extremely
+            reminiscent of MS-DOS.  This menu is designed for extreme tinkerers and isn't typically designed for the general public to mess with.
+            Unfortunately for this process, you are going to need to be that extreme computer tinkerer.  Scary.
+        </p>
+        <p>
+            The good news is that there are a few rules that can keep you safe.  For one, if you ever believe you made any mistake in your settings,
+            YOUR SETTINGS ARE NOT SAVED UNTIL YOU PRESS THE SAVE AND EXIT BUTTON!!!  You can press either the esc key on your keyboard or your
+            power button if you are ever afraid you messed something up you're not supposed to.
+        </p>
+        <p>
+            Speaking of messing anything up, your +, - and enter keys are your main keys for changing settings.  I wouldn't touch them unless you're
+            ready to change something.
+        </p>
+        <p>
+            I would also avoid changing any settings you don't recognize.  While it can certainally be fun at times, they typically aren't meant
+            to be accessed by most users so keep yourself safe.
+        </p>
+        <p>
+            With those disclaimers out of the way, your arrow keys are rather safe to press.  Go and move over to the security tab (or if your BIOS
+            is fancy, click it), and go to Secure Boot and press enter.  You should either see another page or somewhere on screen you should see your
+            Secure Boot set to disabled.  If you're on another page, just hover on secure boot, press enter again and you should be all good.
+        </p>
+        <p>
+            Unfortunately, this is reasonably likely not going to be the last time you're going to see your computer's BIOS during this process,
+            but this is certainally the end of you needing to mess with any of these settings.  At this point, your computer is ready
+            to boot a Linux distro.
+        </p>
+    </main>
+    <footer>
+        <a id="prev_page" href="prep_iso_download.html"> Previous </a>
+        <a id="next_page" href="prep_usb_boot.html"> Next </a>
+    </footer>
+</body>
+
+</html>
