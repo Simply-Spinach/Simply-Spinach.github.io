@@ -11,66 +11,7 @@
 	<!-- external and internal CSS -->
 	<link rel="stylesheet" href="styles.css" media="all">
 	<style>
-		/* in-file CSS here */
-		body
 
-		/*just setting some default settings for the website*/
-			{
-			color: black;
-			/*more cosmic latte*/
-			background-color: #131514;
-			/*hex I pulled from image*/
-			background-image: url("https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001894/GSFC_20171208_Archive_e001894~medium.jpg");
-			/*this image is from NASA.gov, which permits use on personal websites*/
-			background-position: top;
-			background-repeat: no-repeat;
-			background-size: 100%;
-			font-family: 'monospace';
-			padding-left: 15%;
-			padding-right: 15%;
-		}
-
-		a:link {
-			color: green;
-			text-decoration: underline;
-		}
-
-		a:hover {
-			text-decoration: none;
-		}
-
-		a:visited {
-			color: #ff0000;
-			text-decoration: underline;
-		}
-
-		.nameplate
-
-		/*used for my name*/
-			{
-			/*set font*/
-			font-size: xx-large;
-			text-align: center;
-
-			/*edit coloring*/
-			background-image: none;
-			background-color: darkcyan;
-			color: #fff8e7;
-
-			/*padding fix*/
-			padding-left: 5%;
-			padding-right: 5%;
-			padding-top: 0%;
-		}
-
-		.general_element {
-			background-color: #fff8e7;
-			color: black;
-		}
-
-		li::marker {
-			color: darkcyan;
-		}
 	</style>
 
 	<!-- external and internal JavaScript -->
@@ -90,15 +31,26 @@
 			title="https://github.com/Simply-Spinach?tab=repositories"> check out my github repository </a> <br>
 		<br>
 	</header>
-	<div class="general_element">
-		<section>
+
+	<main>
+
+		<div class="project_type" id='major_proj'>
+			<h2> Linux Guide </h2>
+			<p> A guide to installing Linux for beginners, covering how to pick a distro,
+				prepare your BIOS, and install a distro.
+			</p>
+			<div>
+				<a href="hhttps://simply-spinach.github.io/Major-Project/index.html"> See the finished site here </a>
+			</div>
+		</div>
+		<div class="project_type" id="activities">
 			<h2>Activities</h2>
 			<ul>
 				<li>Activity 1</li>
 				<li>Activity 2</li>
 			</ul>
-		</section>
-		<section>
+		</div>
+		<div class="project_type" id="tiny_projs">
 			<h2>Tiny Projects</h2>
 			<ul>
 				<li> <a href="https://simply-spinach.github.io/favorite-recipie/">Tiny Project 2</a></li>
@@ -111,20 +63,8 @@
 					</ul>
 				</li>
 			</ul>
-		</section>
-		<section>
-			<h2>Major Project</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor
-				incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum
-				exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-				consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
-				eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in
-				culpa qui officia deserunt mollit anim id est laborum.
-				<a href="https://github.com/Simply-Spinach" title="https://github.com/Simply-Spinach"> See the full
-					project on my github </a>
-			</p>
-		</section>
-	</div>
+		</div>
+	</main>
 	<footer class="general_element">
 		<citation font-size:"small">
 			Image source: NASA image repository <a

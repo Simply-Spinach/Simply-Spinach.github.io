@@ -1,0 +1,101 @@
+:root
+{
+    --cosmic-latte-color: #fff8e7; /*scientifically proven to be the most average color in the universe */
+    --border-roundness-factor: 15px;
+}
+
+/*just setting some default settings for the website*/
+body
+{
+    color: black;
+    /*more cosmic latte*/
+    background-color: #131514;
+    /*hex I pulled from image*/
+	background-image: url('home_pg_bkg.jpg');
+	/*this image is from NASA.gov, which permits use on personal websites*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100vw;
+	font-family: 'monospace';
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+a:link {
+	color: green;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:visited {
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+.nameplate
+
+/*used for my name*/
+	{
+	/*set font*/
+	font-size: xx-large;
+	text-align: center;
+
+    /*edit coloring*/
+    
+    border-radius: var(--border-roundness-factor);
+	background-image: linear-gradient(to bottom, LightSeaGreen, darkcyan);
+	color: var(--cosmic-latte-color);
+
+	/*padding fix*/
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 0%;
+}
+
+@media screen and (min-width: 900px)
+{
+    #project_showcase
+    {
+        display: grid;
+        grid-column-gap: 3px;
+        grid-template-columns: auto auto auto;
+        grid-template-areas:
+            'major_proj activities tiny_projs';
+    }
+
+    #major_proj
+    {
+        grid-area: 'major_proj';
+    }
+
+    #activities
+    {
+        grid-area: 'activities';
+    }
+
+    #tiny_projs
+    {
+        grid-area: 'tiny_projs';
+    }
+}
+
+.project_type
+{
+    /* set background */
+    border-radius: var(--border-roundness-factor);
+	background-color: var(--cosmic-latte-color);
+	color: black;
+}
+
+footer
+{
+	background-color: var(--cosmic-latte-color);
+	color: black;
+}
+
+li::marker {
+	color: darkcyan;
+}
