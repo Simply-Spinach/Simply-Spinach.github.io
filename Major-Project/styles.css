@@ -170,7 +170,7 @@ body > *
 
   main figure
   {
-    max-width: 40vw;
+    max-width: calc(30vw - var(--mobile-burg-button-width));
     width: 20em;
     height: auto;
     margin: 0 10% 0 10%;
