@@ -8,9 +8,6 @@
 body
 {
     color: black;
-    /*more cosmic latte*/
-    background-color: #131514;
-    /*hex I pulled from image*/
 	background-image: url('home_pg_bkg.jpg');
 	/*this image is from NASA.gov, which permits use on personal websites*/
 	background-position: center;
@@ -46,6 +43,8 @@ a:visited {
     /*edit coloring*/
     
     border-radius: var(--border-roundness-factor);
+    padding: calc(var(--border-roundness-factor) + 1em);
+
 	background-image: linear-gradient(to bottom, LightSeaGreen, darkcyan);
 	color: var(--cosmic-latte-color);
 
@@ -86,6 +85,7 @@ a:visited {
 {
     /* set background */
     border-radius: var(--border-roundness-factor);
+    padding: calc(var(--border-roundness-factor) + 1em);
 	background-color: var(--cosmic-latte-color);
 	color: black;
 }
@@ -93,6 +93,11 @@ a:visited {
 footer
 {
 	background-color: var(--cosmic-latte-color);
+
+    /*background setup*/
+    border-radius: var(--border-roundness-factor);
+    padding: calc(var(--border-roundness-factor) + 1em);
+
 	color: black;
 }
 
