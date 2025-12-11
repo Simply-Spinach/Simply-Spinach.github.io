@@ -2,6 +2,12 @@
 {
     --cosmic-latte-color: #fff8e7; /*scientifically proven to be the most average color in the universe */
     --border-roundness-factor: 15px;
+    --universal-margin: 15px;
+}
+
+*
+{
+    box-sizing: content-box;
 }
 
 /*just setting some default settings for the website*/
@@ -9,7 +15,7 @@ body
 {
     color: black;
 	background-image: url('home_pg_bkg.jpg');
-    
+
 	/*this image is from NASA.gov, which permits use on personal websites*/
 	background-position: center;
 	background-repeat: no-repeat;
@@ -49,10 +55,7 @@ a:visited {
 	background-image: linear-gradient(to bottom, LightSeaGreen, darkcyan);
 	color: var(--cosmic-latte-color);
 
-	/*padding fix*/
-	padding-left: 5%;
-	padding-right: 5%;
-	padding-top: 0%;
+    margin: var(--universal-margin);
 }
 
 @media screen and (min-width: 900px)
@@ -60,7 +63,6 @@ a:visited {
     #project_showcase
     {
         display: grid;
-        grid-column-gap: 3px;
         grid-template-columns: auto auto auto;
         grid-template-areas:
             'major_proj activities tiny_projs';
@@ -68,17 +70,17 @@ a:visited {
 
     #major_proj
     {
-        grid-area: 'major_proj';
+        grid-area: major_proj;
     }
 
     #activities
     {
-        grid-area: 'activities';
+        grid-area: activities;
     }
 
     #tiny_projs
     {
-        grid-area: 'tiny_projs';
+        grid-area: tiny_projs;
     }
 }
 
@@ -89,6 +91,8 @@ a:visited {
     padding: calc(var(--border-roundness-factor) + 1em);
 	background-color: var(--cosmic-latte-color);
 	color: black;
+
+    margin: var(--universal-margin);
 }
 
 footer
@@ -100,6 +104,8 @@ footer
     padding: calc(var(--border-roundness-factor) + 1em);
 
 	color: black;
+
+    margin: var(--universal-margin);
 }
 
 li::marker {
