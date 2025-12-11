@@ -29,25 +29,24 @@ body
 
 /*Button styling of links*/
 
-.project_type a
+.project_type ul a
 {
   display:inline-block;
   color:black;
   font-style:none;
   text-decoration: none;
   width:100%;
-  padding:0px;
+  padding:0.5px;
   margin: 0px 0 0px 0;
 
   /*not needed, but as a backup*/
   z-index:998; /* below navburger on mobile */
 }
 
-.project_type a:hover
+.project_type ul a:hover
 {
-  background-color:var(--navigation-color-highlight);
-  border: darkcyan;
-  border-radius: var(--border-roundness-factor);    
+    background-color:var(--navigation-color-highlight);
+    border-radius: var(--border-roundness-factor);    
 }
 
 .project_type ul
