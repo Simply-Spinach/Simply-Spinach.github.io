@@ -170,7 +170,7 @@ body > *
 
   main figure
   {
-    max-width: calc(30vw - var(--mobile-burg-button-width) - 10em); /*last second patch.  Probably not great, but works in most conditions I tested (few) */
+    max-width: calc(15vw - var(--mobile-burg-button-width) - 10em); /*last second patch.  Probably not great, but works in most conditions I tested (few) */
     width: 20em;
     height: auto;
     margin: 0 10% 0 10%;
@@ -192,6 +192,12 @@ body > *
     right:0;
     left:auto;
     border-style:none;
+  }
+
+  /*these really small screens struggled with image going offscreen.  Hardcoding it to stay on screen*/
+  main figure
+  {
+    width: calc(100vw - var(--mobile-burg-button-width) - 15em); /*last second patch.  Probably not great, but works in most conditions I tested (few) */
   }
 }
 
