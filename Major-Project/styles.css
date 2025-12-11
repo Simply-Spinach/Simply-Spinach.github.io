@@ -195,11 +195,13 @@ main
 }
 main h1
 {
+  font-family: 'Funnel Sans';
   color: var(--article-accent-color-1);
 }
 
 main h2
 {
+  font-family: 'Funnel Sans';
   color: var(--article-accent-color-1);
 }
 
