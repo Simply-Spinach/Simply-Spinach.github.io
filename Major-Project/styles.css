@@ -268,6 +268,12 @@ main img
   text-decoration-line: none;
 }
 
+.qr_code
+{
+  min-width: 200px;
+  max-width: 300px;
+}
+
 /*Footer setup*/
 
 footer
@@ -329,8 +335,3 @@ footer
     background-color: var(--navigation-color-highlight)
   }
   
-  .qr_code
-  {
-    min-width: 200px;
-    max-width: 300px;
-  }
