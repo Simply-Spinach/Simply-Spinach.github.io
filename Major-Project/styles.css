@@ -42,6 +42,9 @@
   border-color: var(--navigation-article-color-blend);
   border-style:none groove none none;
   border-width: 15px;
+
+  /*Setup font*/
+  font-family: 'Funnel Sans';
   /*debugging*/
   /*
   border-color:red;
@@ -186,6 +189,10 @@ body > *
 
 
 /*body style*/
+main
+{
+  font-family: 'IBM Plex Serif';
+}
 main h1
 {
   color: var(--article-accent-color-1);
@@ -280,6 +287,8 @@ footer
 {
   margin-top: 4em;
   margin-bottom: 4em;
+
+  font-family: 'Funnel Sans';
 }
 
 #prev_page

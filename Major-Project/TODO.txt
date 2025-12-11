@@ -1,2 +1,0 @@
-Todo:
-    Finish what_is_linux.html's stuff (probably written a little too techy)
