@@ -1,0 +1,20 @@
+:root
+{
+    /*colors*/
+    --background-color: rgba(50,55,50,210);
+    --text-color: rgb(20,125,10);
+    --border-color: rgb(20,125,10);
+    
+    /*variables per section*/
+    --section-border-width: 2px;
+
+};
+
+body > section
+{
+    /*let's give this a crt look with some scanlines and noise*/
+    background-image: var(--background-color); 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    /*background-position-x: FIGURE OUT HOW TO ANIMATE THIS LATER*/
+};
