@@ -1,8 +1,8 @@
 :root
 {
     /*colors*/
-    --background-color: rgba(50,55,50,210);
-    --text-color: rgb(20,125,10);
+    --background-color: rgb(50,70,50);
+    --text-color: rgb(20,125,25);
     --border-color: rgb(20,125,10);
     
     /*variables per section*/
@@ -10,7 +10,7 @@
 
 };
 
-body > section
+body > main > section
 {
     /*let's give this a crt look with some scanlines and noise*/
     background-image: var(--background-color); 
