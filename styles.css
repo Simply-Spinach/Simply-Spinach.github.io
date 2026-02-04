@@ -1,20 +1,112 @@
 :root
 {
     /*colors*/
-    --background-color: rgba(50,70,50,150);
-    --text-color: rgb(20,125,25);
-    --border-color: rgb(20,125,10);
+    --section-background-color: rgba(20,35,20,.72);
+    --text-color: rgb(150,155,150);
+    --text-accent-color: rgb(20,150,20);
+    --border-color: rgb(20,150,20);
     
     /*variables per section*/
     --section-border-width: 2px;
+    --section-roundness: 1em;
+    --section-margin: 2em;
 
-};
+    /*general background (set to something realistic to give it a somewhat blend of retro computer terminal and natural look)*/
+    --body-background-img: url(Aleksandr_Zaitsev_typewritter.avif);
+}
+
+body
+{
+    background-image: var(--body-background-img);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body > main
+{
+    display: grid;
+
+    /* default layout */
+    grid-template:
+    'cwork   cwork cwork pic'
+    'cwork   cwork cwork pic'
+    'fact question slang article';
+
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    
+    width: 100%;
+}
+
+@media screen and (max-width: 1000px)
+{
+    body > main
+    {
+        /*mid-range alternate style (reduced items on bottom)*/
+        grid-template:
+        'cwork   cwork  cwork   cwork       pic         pic'
+        'cwork   cwork  cwork   cwork       pic         pic'
+        'fact   fact    fact    question    question    question'
+        'slang  slang   slang   article     article     article';
+    }
+}
+
+img
+{
+    width:80%;
+    text-align:center;
+}
+
+#courseworkLinks
+{
+    grid-area: cwork;
+}
+
+#randomQuestion
+{
+    grid-area: question;
+}
+
+#boringFact
+{
+    grid-area: fact;
+}
+
+#slangThatNeedsToGo
+{
+    grid-area: slang;
+}
+
+#interestingArticle
+{
+    grid-area: article;
+}
+
+#coolPic
+{
+    grid-area: pic;
+}
 
 body > main > section
 {
+    color: var(--text-color);
+
     /*let's give this a crt look with some scanlines and noise*/
-    background-color: var(--background-color); 
+    background-color: var(--section-background-color); 
     background-repeat: repeat;
     background-attachment: fixed;
     /*background-position-x: FIGURE OUT HOW TO ANIMATE THIS LATER*/
-};
+
+    /*border should be a modern-ized rounded one*/
+    border-style: solid;
+    border-color: var(--border-color);
+    margin: var(--section-margin);
+    padding: 1em;
+    border-radius: var(--section-roundness);
+}
+
+strong
+{
+    color: var(--text-accent-color);
+}
