@@ -85,11 +85,11 @@ header h1
     {
         grid-template:
         'cwork'
-        'pic'
         'fact'
         'question'
         'slang'
-        'article';
+        'article'
+        'pic';
 
         grid-template-columns: auto;
 
