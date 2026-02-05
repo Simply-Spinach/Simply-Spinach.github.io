@@ -1,14 +1,18 @@
 :root
 {
     /*colors*/
-    --section-background-color: rgba(20,35,20,.72);
+    --section-background-color: rgba(20,38,20, .72);
     --text-color: rgb(150,155,150);
     --text-accent-color: rgb(20,150,20);
     --border-color: rgb(20,150,20);
+    --link-color: rgb(0,200,0);
+    --link-visited: rgb(150,200,150);
+    --button-link-bg: rgb(0,0,0);
+    --button-link-bg-hover: rgb(55,55,55);
     
     /*variables per section*/
     --section-border-width: 2px;
-    --section-roundness: 1em;
+    --roundness: 1em;
     --section-margin: 2em;
 
     /*general background (set to something realistic to give it a somewhat blend of retro computer terminal and natural look)*/
@@ -22,6 +26,8 @@ body
     background-position: center;
     background-attachment: fixed;
 }
+
+/* Layout builds */
 
 body > main
 {
@@ -39,6 +45,12 @@ body > main
     width: 100%;
 }
 
+/* make name align better, even though it's outside the grid of main*/
+header h1
+{
+    margin: 1.5%;
+}
+
 @media screen and (max-width: 1000px)
 {
     body > main
@@ -47,8 +59,23 @@ body > main
         grid-template:
         'cwork   cwork  cwork   cwork       pic         pic'
         'cwork   cwork  cwork   cwork       pic         pic'
-        'fact   fact    fact    question    question    question'
-        'slang  slang   slang   article     article     article';
+        'fact   fact    fact    question       question    question'
+        'slang  slang   slang   article      article     article';
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    body > main
+    {
+        grid-template:
+        'cwork  cwork'
+        'fact   pic'
+        'question pic'
+        'slang  slang'
+        'article article';
+
+        grid-template-columns: 50% 50%;
     }
 }
 
@@ -88,25 +115,59 @@ img
     grid-area: pic;
 }
 
+/* styling */
+
+
+h1,
 body > main > section
 {
     color: var(--text-color);
 
-    /*let's give this a crt look with some scanlines and noise*/
-    background-color: var(--section-background-color); 
-    background-repeat: repeat;
-    background-attachment: fixed;
-    /*background-position-x: FIGURE OUT HOW TO ANIMATE THIS LATER*/
+    /*let's give this a tiling window manager terminal-esque look with some retro flairs*/
+    background-color: var(--section-background-color);
 
     /*border should be a modern-ized rounded one*/
     border-style: solid;
     border-color: var(--border-color);
     margin: var(--section-margin);
     padding: 1em;
-    border-radius: var(--section-roundness);
+    border-radius: var(--roundness);
 }
 
 strong
 {
     color: var(--text-accent-color);
+}
+
+a
+{
+    color: var(--link-color);
+}
+
+a:hover
+{
+    text-decoration:none;
+}
+
+a:visited
+{
+    color: var(--link-visited);
+}
+
+#coolPic a ,
+#courseworkLinks a
+{
+    background-color: var(--button-link-bg);
+    border-color: var(--button-link-bg);
+    border-style: solid;
+    border-radius: var(--roundness);
+    
+    text-decoration:none;
+}
+
+#coolPic a:hover ,
+#courseworkLinks a:hover
+{
+    background-color: var(--button-link-bg-hover);
+    border-color: var(--button-link-bg-hover);
 }
