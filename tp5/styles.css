@@ -1,0 +1,19 @@
+:root
+{
+    --face-img-0: url('images/-.png');
+    --face-img-1: url('images/+.png');
+    --face-img-2: url('images/=.png');
+    --face-img-3: url('images/carrot.png');
+    --face-img-4: url('images/o.png');
+    --face-img-5: url('images/v.png');
+    --face-img-6: url('images/vertical_double.png');
+    --face-img-7: url('images/vertical_single.png');
+    --face-img-8: url('images/x.png');
+}
+
+main#game_grid
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

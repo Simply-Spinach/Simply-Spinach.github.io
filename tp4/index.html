@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<!-- meta tags and title -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tic-Tac-Toe</title>
+
+	<!-- external and internal CSS -->
+	<link rel="stylesheet" href="styles.css" media="all">
+	<style>
+		/* in-file CSS here */
+	</style>
+
+	<!-- external and internal JavaScript -->
+	<script src="scripts.js" defer></script>
+	<script>
+		// in-page JavaScript here
+	</script>
+
+</head>
+<body>
+    <header id ='title'>
+        <h1>
+            Tic-Tac-Toe
+        </h1>
+    </header>
+
+    <main>
+        <div id="game_grid">
+            <button id="game_cell_0" class="game_x_occupied"></button>
+            <button id="game_cell_1"></button>
+            <button id="game_cell_2" class="game_x_occupied"></button>
+            <button id="game_cell_3"></button>
+            <button id="game_cell_4" class='game_o_occupied'></button>
+            <button id="game_cell_5"></button>
+            <button id="game_cell_6" class="game_x_occupied"></button>
+            <button id="game_cell_7" class="game_o_occupied"></button>
+            <button id="game_cell_8"></button>
+        </div>
+    </main>
+
+    <div id='score_counter'>
+        <div id="o_counter">
+            <strong> O wins: </strong> 0
+        </div>
+        <div id="x_counter">
+            <strong> X wins: </strong> 0
+        </div>
+    </div>
+</body>
+</html>
+

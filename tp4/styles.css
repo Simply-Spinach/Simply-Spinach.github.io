@@ -1,0 +1,123 @@
+:root
+{
+    --game-cell-size: calc(var(--game-grid-size) / 3);
+    --player-x-mark: url('images/x.png');
+    --player-o-mark: url('images/o.png'); 
+    --game-grid-size: 100vh;
+}
+
+*
+{
+    color: white;
+    border-color:darkgray;
+}
+
+body
+{
+    /*Set up grid for body*/
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: calc(50vw - (var(--game-grid-size) / 2)) var(--game-grid-size) calc(50vw - (var(--game-grid-size) / 2));
+    grid-auto-flow: row;
+
+    /*Background color setup*/
+    background-color:black;
+}
+
+@media screen and (max-aspect-ratio: 1) /*Checks for vertical layout*/
+{
+    :root
+    {
+        --game-grid-size: 100vw;
+    }
+    body
+    {
+        grid-template-columns: 100vw;
+        grid-template-rows: calc(50vh - (var(--game-grid-size) / 2)) var(--game-grid-size) calc(50vh - (var(--game-grid-size) / 2));
+        grid-auto-flow:column;
+
+    }
+}
+
+main #title
+{
+    /*Align to free space on left*/
+    display: block;
+    position: top left;
+    width: calc( 50vw - ( var(--game-grid-size) / 2 ) ); /*Should also help center grid*/
+
+    grid-area: title;
+}
+
+main #game_grid
+{
+    /*General grid preparation*/
+    display: grid;
+    position: center center;
+    list-style: none;
+    grid-template-rows: var(--game-cell-size) var(--game-cell-size) var(--game-cell-size);
+    grid-template-columns: var(--game-cell-size) var(--game-cell-size) var(--game-cell-size);
+    grid-auto-columns: var(--game-cell-size);
+    grid-auto-rows: var(--game-cell-size);
+    grid-auto-flow: row;
+
+    /*Setup to stay in center of page (note these variables change depending on orientation)*/
+    width: var(--game-grid-size);
+    height: var(--game-grid-size);
+    place-items: center;
+    float: center;
+
+    /*Make sure game stays in focus*/
+    scroll-snap-type: proximity;
+    padding:0;
+    margin:0;
+}
+
+main #game_grid button 
+{
+    /*Remove button styling*/
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: default;
+	outline: inherit;
+
+    /*prep for backgound image replacement*/
+    background-repeat: none;
+    background-size: contain;
+    background-blend-mode: multiply; /*was gonna try adding a color that can be added onto it, but it seems really difficult for some reason (multiply removes transparency)*/
+    background-position: center center;
+    image-rendering: pixelated; /*Stops anti-aliasing ruining my pixel art*/
+
+    width: var(--game-cell-size);
+    height: var(--game-cell-size);
+
+    border: dashed 1px;
+}
+
+main #game_grid button:hover
+{
+    /*Switch this image depending on the player's turn*/
+    background: rgba(255,255,255, 0.2);
+}
+
+.game_x_occupied
+{
+    background: var(--player-x-mark) !important;
+    background-size:contain !important;
+
+}
+
+.game_o_occupied
+{
+    background: var(--player-o-mark) !important;
+    background-size: contain !important;
+}
+
+#score_counter
+{
+    margin: 1.5em;
+}
