@@ -10,6 +10,7 @@
 {
     color: white;
     border-color:darkgray;
+    image-rendering: pixelated;
 }
 
 body
@@ -120,4 +121,9 @@ main #game_grid button:hover
 #score_counter
 {
     margin: 1.5em;
+}
+
+#score_counter img
+{
+    width: 1em;
 }
