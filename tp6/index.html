@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<!-- meta tags and title -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather: Klamath Falls </title>
+
+	<!-- external and internal CSS -->
+	<link rel="stylesheet" href="styles.css" media="all">
+	<style>
+		/* in-file CSS here */
+	</style>
+
+	<!-- external and internal JavaScript -->
+	<script src="scripts.js" defer></script>
+	<script>
+		// in-page JavaScript here
+	</script>
+
+</head>
+<body>
+    <h1>
+        Klamath Falls, OR
+    </h1>
+    <header>
+        <ol class="day_tabs">
+            <li><button id="day_0" class="day_selected">Wednesday</button></li>
+            <li><button id="day_1">Thursday</button></li>
+            <li><button id="day_2">Friday</button></li>
+        </ol>
+    </header>
+	
+    <main>
+        <img src="images/sun.png">
+        <div>
+            <strong id="condition"> Clear </strong> <br>
+            <span id="temp"> 37</span>&#176; <span class="Temp_Unit">F</span>
+        </div>
+        <div id="wind_compass">
+            <div class="arrow" style="transform: RotateZ(-15deg);" id="wind_direction"> 
+                SSE
+            </div>
+        </div>
+        <div>
+            <div>
+                <strong>Wind:</strong> <span id="wind_speed">1</span> <span class="speed_unit">mph</span> <br>
+                <strong>Humidity:</strong> <span id="humidity">81</span>&#37;
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
