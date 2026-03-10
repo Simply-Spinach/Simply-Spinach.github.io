@@ -7,7 +7,8 @@ class gameBoard{
   #board;
   #BOARD_SIZE = 3;
   #currentTurn = 0;
-  #PLAYER_SYMBOLS;
+  #PLAYER_SYMBOLS = [];
+  #playerWins = [];
 
   // ------------------------------------------------------------------------------- gameBoard Constructor
 
@@ -28,6 +29,13 @@ class gameBoard{
       }
       this.#board.push(curRow);
     }
+
+    //add all players to playerWins as 0
+    this.#playerWins = [];
+    for (let i = 0; i < playerSymbols.length; ++i)
+    {
+      this.#playerWins.push(0);
+    }
   }
 
   // ------------------------------------------------------------------------------ gameBoard.checkGameboard and related functions
@@ -39,9 +47,9 @@ class gameBoard{
 
     //all functions we are using to detect a winning state
     //yes, the bind(this) is important for ensuring it's called on this object and not the array it's a part of for some stupid reason
-    const checkFunctions = [this.checkColumns.bind(this), this.checkRows.bind(this), this.checkDiagonal1.bind(this), this.checkDiagonal2.bind(this)];
+    const checkFunctions = [this.#checkColumns.bind(this), this.#checkRows.bind(this), this.#checkDiagonal1.bind(this), this.#checkDiagonal2.bind(this)];
 
-    //DEBUGGING
+    //DEBUGGING for names of functions in console
     const checkFunctionNames = ['checkColumns', 'checkRows', 'checkDiagonal1 (r=c)', 'checkDiagonal2 (r!= c)'];
     
     //Check each function (should all return '-' on fail)
@@ -76,7 +84,7 @@ class gameBoard{
     return output;
   }
 
-  checkColumns()
+  #checkColumns()
   {
     //check each row
     for (let r = 0; r < this.#BOARD_SIZE; ++r)
@@ -102,7 +110,7 @@ class gameBoard{
     return '-'; 
   }
 
-  checkRows()
+  #checkRows()
   {
     //check each row
     for (let c = 0; c < this.#BOARD_SIZE; ++c)
@@ -129,7 +137,7 @@ class gameBoard{
   }
 
   //Checks r=c diagonal
-  checkDiagonal1()
+  #checkDiagonal1()
   {
     let output = this.#board[0][0];
     
@@ -147,7 +155,7 @@ class gameBoard{
   }
 
   //Checks the diagonal from top right to bottom left
-  checkDiagonal2()
+  #checkDiagonal2()
   {
     let output = this.#board[0][this.#BOARD_SIZE - 1];
     
@@ -181,8 +189,8 @@ class gameBoard{
     return 'd';
   }
 
-    // ------------------------------------------------------------------------------ gameBoard create general cell function
-
+  // ------------------------------------------------------------------------------- gameBoard DOM interactables
+  
   //performs game logic (update and display) upon game cell being recieved
   OnGameCellClicked(cellObj, x,y)
   {
@@ -213,13 +221,26 @@ class gameBoard{
         break;
       default: //our win condition (despite the "default" right here.  I just wanted the option to add another player with little edits if I wanted to)
         window.alert(this.#PLAYER_SYMBOLS[this.#currentTurn] + " won");
+        ++this.#playerWins[this.#currentTurn];
         this.boardClear();
+        this.updateWins();
         break;
-    }  
+    }
 
     //temporarily send currentTurn to here
     console.log(this.#currentTurn);
 
+  }
+
+  //Private function that updates displays for score
+  updateWins()
+  {
+    for (let i = 0; i < this.#PLAYER_SYMBOLS.length; ++i)
+    {
+      let symbol = this.#PLAYER_SYMBOLS[i];
+      let text = document.querySelector('#score_counter #' + symbol + '_wins');
+      text.textContent = this.#playerWins[i];
+    }
   }
 
   // ------------------------------------------------------------------------------- gameBoard getters/setters
@@ -231,9 +252,21 @@ class gameBoard{
   // clear the board
   boardClear()
   {
+    //clear internal save
     for(let row of this.#board)
     {
       row.fill('-');
+    }
+
+    //update display
+    let allCells = document.querySelectorAll('#game_grid > button');
+    for (let cell of allCells)
+    {
+      for (let symbol of this.#PLAYER_SYMBOLS)
+      {
+        console.log(cell.classList);
+        cell.classList.remove('game_' + symbol + '_occupied');
+      }
     }
   }
 }
