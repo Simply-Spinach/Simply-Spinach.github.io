@@ -1,11 +1,15 @@
-// --------------------------------------------------------------------------------- Variable Declarations
+// --------------------------------------------------------------------------------- Class Declarations
 
 class gameBoard{
+
+  // ------------------------------------------------------------------------------- Private Variables
 
   #board;
   #BOARD_SIZE = 3;
   #currentTurn = 0;
   #PLAYER_SYMBOLS;
+
+  // ------------------------------------------------------------------------------- gameBoard Constructor
 
   constructor(boardSize, playerSymbols){
     this.#BOARD_SIZE = boardSize;
@@ -26,14 +30,7 @@ class gameBoard{
     }
   }
 
-  // clear the board
-  boardClear()
-  {
-    for(let row of this.#board)
-    {
-      row.fill('-');
-    }
-  }
+  // ------------------------------------------------------------------------------ gameBoard.checkGameboard and related functions
 
   // general gameboard state functions
   checkGameboard()
@@ -184,7 +181,7 @@ class gameBoard{
     return 'd';
   }
 
-    // ------------------------------------------------------------------------------ Create general cell function
+    // ------------------------------------------------------------------------------ gameBoard create general cell function
 
   //performs game logic (update and display) upon game cell being recieved
   OnGameCellClicked(cellObj, x,y)
@@ -229,6 +226,15 @@ class gameBoard{
   getSize()
   {
     return this.#BOARD_SIZE;
+  }
+
+  // clear the board
+  boardClear()
+  {
+    for(let row of this.#board)
+    {
+      row.fill('-');
+    }
   }
 }
 
