@@ -227,20 +227,33 @@ class gameBoard{
         break;
     }
 
+    //additional display updates
+    this.updateTurnVisual();
+
     //temporarily send currentTurn to here
     console.log(this.#currentTurn);
 
   }
 
-  //Private function that updates displays for score
+  //Updates displays for score based on internally heald count
   updateWins()
   {
     for (let i = 0; i < this.#PLAYER_SYMBOLS.length; ++i)
     {
       let symbol = this.#PLAYER_SYMBOLS[i];
-      let text = document.querySelector('#score_counter #' + symbol + '_wins');
+      let text = document.querySelector('#game_info #' + symbol + '_wins');
       text.textContent = this.#playerWins[i];
     }
+  }
+
+  //Updates turn thingy to show proper turn
+  updateTurnVisual()
+  {
+    //get image used to show who's turn it is
+    let turnVisual = document.querySelector('img#player_turn');
+
+    //update src to current player
+    turnVisual.src = 'images/' + this.#PLAYER_SYMBOLS[this.#currentTurn] + '.png';
   }
 
   // ------------------------------------------------------------------------------- gameBoard getters/setters

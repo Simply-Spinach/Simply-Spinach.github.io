@@ -102,7 +102,7 @@ main #game_grid button
 main #game_grid button:hover
 {
     /*Switch this image depending on the player's turn*/
-    background: rgba(255,255,255, 0.2);
+    background-color: rgba(255,255,255, 0.2);
 }
 
 .game_x_occupied
@@ -118,12 +118,17 @@ main #game_grid button:hover
     background-size: contain !important;
 }
 
-#score_counter
+#game_info
 {
     margin: 1.5em;
 }
 
-#score_counter img
+#game_info img
 {
     width: 1em;
+}
+
+img#player_turn
+{
+    width: 2em;
 }
