@@ -298,9 +298,6 @@ class gameBoard{
 //create game object
 let game = new gameBoard(3, ['x','o']);
 
-// --------------------------------------------------------------------------------- general gameBoard control related functions
-
-
 // --------------------------------------------------------------------------------- DOM interaction
 
 window.addEventListener('load', function()
@@ -308,7 +305,7 @@ window.addEventListener('load', function()
   // ----------------------------------------------------------- Process triggers/events
   const BOARD_SIZE = game.getSize();
 
-  //setup functions on game_cells
+  //setup game.OnGameCellClicked() on all game_cells
   for (let r = 0; r < BOARD_SIZE; ++r)
   {
     let nextRow = [];
