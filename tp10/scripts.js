@@ -213,19 +213,17 @@ class gameBoard{
     //check for player win
     switch(this.checkGameboard())
     {
-      case '-': //default.  No win/lose state
+      case '-': //No win/draw state
         //next turn
         this.#currentTurn = (this.#currentTurn + 1) % this.#PLAYER_SYMBOLS.length;
         break;
       case 'd': //draw state
-        window.alert("Draw");
-        this.boardClear();
+        window.setTimeout(this.#gameOver.bind(this), 1, 'Game draw'); //timeout needed just to allow graphics to update
         break;
       default: //our win condition (despite the "default" right here.  I just wanted the option to add another player with little edits if I wanted to)
-        window.alert(this.#PLAYER_SYMBOLS[this.#currentTurn] + " won");
+        let message = 'player ' + this.#PLAYER_SYMBOLS[this.#currentTurn] + ' won';
         ++this.#playerWins[this.#currentTurn];
-        this.boardClear();
-        this.updateWins();
+        window.setTimeout(this.#gameOver.bind(this), 1, message); //timeout needed just to allow graphics to update
         break;
     }
 
@@ -256,6 +254,17 @@ class gameBoard{
 
     //update src to current player
     turnVisual.src = 'images/' + this.#PLAYER_SYMBOLS[this.#currentTurn] + '.png';
+  }
+
+  //shows game over message (seperate function due to DOM not updating visuals on box clicked before alert, causing indicator to not show up), and clears board
+  #gameOver(message)
+  {
+    //display win message
+    window.alert(message);
+
+    //prep for next game
+    this.boardClear();
+    this.updateWins();
   }
 
   // ------------------------------------------------------------------------------- gameBoard getters/setters
