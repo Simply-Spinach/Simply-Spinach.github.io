@@ -60,6 +60,7 @@ window.addEventListener("load", function()
     function onCardClick(card)
     {
         let cardFace;
+
         if (card.classList.contains("revealed"))
         {
             console.log("Card is already flipped.  Returning early from onCardClick");
@@ -71,13 +72,16 @@ window.addEventListener("load", function()
         card.classList.add("revealed")
 
         //insert into previous card, if currently empty
-        if (previousCard == null)
+        if (previousCard == null) //Turn part 1
         {
             previousCard = card;
             return;
         }
-        else
-        {            
+        else //Turn part 2
+        {   
+            //add 1 to turn count
+            ++turnCount;
+            
             //temporary holder for this since it gets overwritten later
             let privatePrev = previousCard;
             if (getCardSymbol(previousCard) == getCardSymbol(card)) //card turned
@@ -105,9 +109,6 @@ window.addEventListener("load", function()
 
             //reset previous card
             previousCard = null;
-
-            //add 1 to turn count
-            ++turnCount;
         }
     }
 
@@ -144,5 +145,5 @@ window.addEventListener("load", function()
     });
 
     //start game with 16 cards (already knows there are 8 possible card types)
-    start(16);
+    start(4);
 });
