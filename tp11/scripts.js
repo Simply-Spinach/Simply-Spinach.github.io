@@ -145,5 +145,5 @@ window.addEventListener("load", function()
     });
 
     //start game with 16 cards (already knows there are 8 possible card types)
-    start(4);
+    start(16);
 });
