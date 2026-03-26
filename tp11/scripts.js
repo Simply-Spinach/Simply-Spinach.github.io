@@ -61,7 +61,8 @@ window.addEventListener("load", function()
     {
         let cardFace;
 
-        if (card.classList.contains("revealed"))
+        //"error" checks
+        if (card.classList.contains("revealed") || card.classList.contains("paired"))
         {
             console.log("Card is already flipped.  Returning early from onCardClick");
             //return early.  Can't further reveal revealed cards
@@ -115,6 +116,8 @@ window.addEventListener("load", function()
     function getCardSymbol(card)
     {
         let face;
+
+        //itterate through all css classes to find matching css class
         for (let cssClass of Array.from(card.querySelector(".face").classList))
         {
             if (cssClass.match(/face_\d+/g)) //regex match
@@ -123,6 +126,8 @@ window.addEventListener("load", function()
                 face = cssClass.slice(5);
             }
         }
+
+        //convert to int and return
         return parseInt(face);
     }
 
@@ -143,6 +148,8 @@ window.addEventListener("load", function()
         //reload the page
         location.reload();
     });
+
+    // ------------------------------------------------------------------------------------------------- Initialize game
 
     //start game with 16 cards (already knows there are 8 possible card types)
     start(16);
