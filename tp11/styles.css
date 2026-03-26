@@ -1,0 +1,185 @@
+:root
+{
+    --back-img: url('images/carbon_weave.png');
+    --face-img-0: url('images/-.png');
+    --face-img-1: url('images/+.png');
+    --face-img-2: url('images/=.png');
+    --face-img-3: url('images/carrot.png');
+    --face-img-4: url('images/o.png');
+    --face-img-5: url('images/v.png');
+    --face-img-6: url('images/vertical_double.png');
+    --face-img-7: url('images/vertical_single.png');
+    --face-img-8: url('images/x.png');
+
+    --game-card-size: 10em;
+    --game-card-flip-time: 0.5s;
+    --game-card-border-params: dashed 2px;
+}
+
+*
+{
+    color: white;
+    border-color: darkgray;
+    image-rendering: pixelated;
+}
+
+header > h1
+{
+    justify-content: center;
+}
+
+body
+{
+    background-color: black;
+}
+
+main#game_grid
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card
+{
+    position: relative;
+    width: var(--game-card-size);
+    height: var(--game-card-size);
+    perspective: 200px;
+    margin: 2em;
+
+    transition: opacity 0.5s;
+}
+
+.card > .card_content
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform var(--game-card-flip-time);
+    transform-style: preserve-3d;
+}
+
+/* DEBUGGING CODE THAT ALLOWS YOU TO CHEAT THE GAME */
+/*
+.card:hover > .card_content
+{
+    transform: rotateX(180deg);
+}
+*/
+
+.card.revealed > .card_content
+{
+    transform: rotateX(180deg);
+}
+
+.card .card_back,
+.card .face
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility:hidden;
+
+    background-position: center;
+    background-size: contain;
+
+    /*Border setup*/
+    border: var(--game-card-border-params);
+    border-color: darkgray;
+}
+
+.card_back
+{
+    /*background image setup*/
+    background-image: var(--back-img);
+    background-position: center;
+    background-size: contain;
+}
+
+.card .face
+{
+    transform: rotateX(180deg);
+    background-position: center;
+}
+
+.face_0
+{
+    background-image: var(--face-img-0);
+}
+
+.face_1
+{
+    background-image: var(--face-img-1);
+}
+.face_2
+{
+    background-image: var(--face-img-2);
+}
+.face_3
+{
+    background-image: var(--face-img-3);
+}
+.face_4
+{
+    background-image: var(--face-img-4);
+}
+.face_5
+{
+    background-image: var(--face-img-5);
+}
+.face_6
+{
+    background-image: var(--face-img-6);
+}
+.face_7
+{
+    background-image: var(--face-img-7);
+}
+.face_8
+{
+    background-image: var(--face-img-8);
+}
+
+.game_over
+{
+    /* Default hiding of Game Over screen */
+    display:none;
+
+    /* Actual layout */
+    position: fixed;
+    top: 20vh;
+    bottom: 20vh;
+    left: 20vw;
+    right: 20vw;
+
+    /*
+    width: 60vw;
+    height: 60vh;
+    */
+
+    background-color:black;
+    border-color: white;
+    border-style: dashed;
+    border-width: 2px;
+    padding: 2em;
+}
+
+.game_over #play_again
+{
+    position: absolute;
+    padding: 0.5em;
+    bottom: 2em;
+    right: 2em;
+
+    background-color:black;
+    border-color:white;
+    border-style: dashed;
+}
+
+.game_over #play_again:hover
+{
+    background-color: rgb(50,50,50);
+}
