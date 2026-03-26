@@ -59,8 +59,6 @@ window.addEventListener("load", function()
 
     function onCardClick(card)
     {
-        let cardFace;
-
         //"error" checks
         if (card.classList.contains("revealed") || card.classList.contains("paired"))
         {
