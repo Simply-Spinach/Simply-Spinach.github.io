@@ -20,35 +20,46 @@
 	</script>
 
 </head>
+
 <body>
-    <h1>
-        Klamath Falls, OR
-    </h1>
-    <header>
-        <ol class="day_tabs">
-            <li><button id="day_0" class="day_selected">Wednesday</button></li>
-            <li><button id="day_1">Thursday</button></li>
-            <li><button id="day_2">Friday</button></li>
-        </ol>
-    </header>
-	
+    <nav>
+        <fourm action='' method="get">
+            <input type="text" name="searchbar" id="searchbar" placeholder="search for a city...">
+            <button type="submit">Search</button>
+        </fourm>
+    </nav>
+
     <main>
-        <img src="images/sun.png">
+        <h1>
+            Klamath Falls, OR
+        </h1>
         <div>
-            <strong id="condition"> Clear </strong> <br>
-            <span id="temp"> 37</span>&#176; <span class="Temp_Unit">F</span>
+            <img src="images/sun.png">
         </div>
-        <div id="wind_compass">
-            <div class="arrow" style="transform: RotateZ(-15deg);" id="wind_direction"> 
-                SSE
-            </div>
-        </div>
-        <div>
+        <ol class="day_tabs">
+            <li><button id="day_0" class="day_selected">Today</button></li>
+            <li><button id="day_1">Tomorrow</button></li>
+            <li><button id="day_2">2 days from now</button></li>
+        </ol>
+        <div id="weatherInfo">
             <div>
-                <strong>Wind:</strong> <span id="wind_speed">1</span> <span class="speed_unit">mph</span> <br>
-                <strong>Humidity:</strong> <span id="humidity">81</span>&#37;
+                <strong id="condition"> Clear </strong> <br>
+                <span id="temp"> 37</span>&#176; <!-- Degree unicode --> <span id="temp_unit">F</span>
             </div>
-        </div>
+            <!-- compass -->
+            <div id="wind">
+                <div id="wind_compass">
+                    <div class="arrow" style="transform: RotateZ(-15deg);" id="wind_direction"> 
+                        SSE
+                    </div>
+                </div>
+                <strong>Wind:</strong> <span id="wind_speed">1</span> <span id="speed_unit">mph</span> <br>
+            </div>
+            <div>
+                <div>
+                    <strong>Humidity:</strong> <span id="humidity">81</span>&#37; <!-- Percent unicode-->
+                </div>
+            </div>
     </main>
 
 </body>

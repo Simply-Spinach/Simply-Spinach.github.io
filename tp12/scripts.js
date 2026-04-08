@@ -30,7 +30,11 @@ async function getWeatherData(city) {
 }
 
 //load data early (to prevent pop-in of the elements loading)
-let apiPromise = getWeatherData("Everett");
+let apiPromise = null;
+/*
+//disable for testing (reduces API calls)
+apiPromise = getWeatherData("Everett");
+//*/
 
 document.addEventListener("DOMContentLoaded", function()
 {
