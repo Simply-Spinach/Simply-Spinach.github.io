@@ -2,12 +2,13 @@ const API_KEY = 'e743aae5077a47e79e1231340260704';
 const WEATHER_API_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}`;
 
 let city = 'Seattle'
+let numDays = 3;
 
 const WEATHER_API_URL_OPTIONS = {
 	method: 'GET'
 };
 
-async function getWeatherData(city) {
+async function getWeatherData(city, dayCount) {
     //prep local url
     let url = WEATHER_API_URL;
 
@@ -16,7 +17,7 @@ async function getWeatherData(city) {
     city = city.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '');
     city = city.replaceAll(' ', '-');
 
-    url += `&q=${city}`;
+    url += `&q=${city}&days=${dayCount}`;
 
     try {
         const response = await fetch(url, WEATHER_API_URL_OPTIONS);
@@ -35,7 +36,7 @@ async function getWeatherData(city) {
 let apiPromise = null;
 ///*
 //disable for testing (reduces API calls)
-apiPromise = getWeatherData(city);
+apiPromise = getWeatherData(city, numDays);
 //*/
 
 document.addEventListener("DOMContentLoaded", function()
@@ -183,7 +184,11 @@ class WeatherDisplay
         let allForecasted = this.#weatherInfo.forecast.forecastday;
         console.log(allForecasted);
 
-        day %= allForecasted.length; //quick safety to ensure day is correct length
+        if (day > allForecasted.length)
+        {
+            console.warn("DisplayWeatherForecast doesn't have the selected day stored.  Reverting to closest available day");
+            dat = allForecasted.length;
+        } //quick safety to ensure day is correct length
         let selectedWeather = allForecasted[day].day;
 
         //update title
