@@ -83,7 +83,7 @@ window.addEventListener("load", function()
             
             //temporary holder for this since it gets overwritten later
             let privatePrev = previousCard;
-            if (getCardSymbol(previousCard) == getCardSymbol(card)) //card turned
+            if (getCardSymbol(previousCard) == getCardSymbol(card)) //cards are the same
             {
                 //add paired class to both cards
                 card.classList.add("paired");
@@ -99,7 +99,7 @@ window.addEventListener("load", function()
                     window.setTimeout(gameOver, 1000);
                 }
             }
-            else
+            else //not a pair
             {
                 //flip cards back to their previous position
                 window.setTimeout(function() {privatePrev.classList.remove("revealed")}, 1000);

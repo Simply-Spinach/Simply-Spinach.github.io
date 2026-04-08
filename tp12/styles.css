@@ -1,0 +1,122 @@
+:root 
+{
+
+}
+
+*
+{
+    color: white;
+    image-rendering: pixelated;
+    align-content: center;
+    text-align: center;
+}
+
+body
+{
+    background-color:black;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Tab menu setup */
+
+header > ol 
+{
+    /* use flexbox to set up a scrollable expanding tab list*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: scroll;
+
+    /*remove padding*/
+    padding: 0;
+}
+
+header > ol > li
+{
+    /*remove number*/
+    list-style: none;
+
+    /* Set tabular styling */
+    display: block;
+    margin: 0;
+    padding: 2px;
+    width: fit-content;
+
+}
+
+header > ol > li > button
+{
+    /*make fit area well*/
+    margin: 0;
+    width: fit-content;
+    height: 40px;
+    min-height: calc(1em + 4px);
+
+    /* remove contemporary-ness and replace with simplistic style */
+    border: none;
+    color: white;
+    background-color: black;
+    padding: 1em;
+}
+
+header > ol > li > button.day_selected
+{
+    color: black;
+    background-color: white;
+}
+
+/* Main content */
+
+main
+{
+    padding-top: 2em;
+}
+
+main > img
+{
+    width: 80%;
+    max-width: 500px;
+}
+
+#wind_compass
+{
+    display: flex;
+    height:80vw;
+    max-height: 500px;
+
+    align-items: center;
+    justify-content: center;
+    background-image: url('images/+.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    margin: 2em;
+    background-size:contain;
+}
+
+#wind_compass > .arrow
+{
+    /*rendering for directional text*/
+    display: flex;
+    text-align: start;
+    color:black;
+    justify-content: center;
+    
+    /*render arrow*/
+    background-image: url('images/arrow.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+
+    /*Ensure arrow accuracy*/
+    height:80vw;
+    max-height: 500px;
+    width: 80vw;
+    max-width: 500px;
+}
+
+#wind_compass > .arrow > #wind_direction
+{
+    position: relative;
+    top: calc(-20vw - 1em);   
+}
