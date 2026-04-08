@@ -1,0 +1,3 @@
+Currently needs to be worked on:
+[  ] Setup days to be able to be changed
+[  ] Search box should be able to search for a place

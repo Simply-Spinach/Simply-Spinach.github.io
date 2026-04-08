@@ -31,15 +31,16 @@
 
     <main>
         <h1>
-            Klamath Falls, OR
+            Klamath Falls <span id="region">Oregon</span>
         </h1>
         <div>
             <img src="images/sun.png">
         </div>
         <ol class="day_tabs">
-            <li><button id="day_0" class="day_selected">Today</button></li>
-            <li><button id="day_1">Tomorrow</button></li>
-            <li><button id="day_2">2 days from now</button></li>
+            <li><button class="day_selected"> Current </button></li>
+            <li><button> Today </button></li>
+            <li><button>Tomorrow</button></li>
+            <li><button>2 days from now</button></li>
         </ol>
         <div id="weatherInfo">
             <div>
@@ -49,7 +50,7 @@
             <!-- compass -->
             <div id="wind">
                 <div id="wind_compass">
-                    <div class="arrow" style="transform: RotateZ(-15deg);" id="wind_direction"> 
+                    <div class="arrow" id="wind_direction"> 
                         SSE
                     </div>
                 </div>

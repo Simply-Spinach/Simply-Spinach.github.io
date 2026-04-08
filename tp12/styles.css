@@ -7,6 +7,9 @@
     --navbar-unselected-color:black;
     --navbar-selected-color: darkgray;
     --navbar-outline-color: white;
+
+    --tab-hover-color: darkgray;
+    --tab-roundness: 0.75em;
 }
 
 *
@@ -55,6 +58,11 @@ nav fourm > input#searchbar
 
     background-color: var(--navbar-unselected-color);
     border-color: var(--navbar-outline-color);
+}
+
+nav fourm > input#searchbar:focus-visible
+{
+    background-color: var(--navbar-selected-color);
 }
 
 nav fourm > button
@@ -115,14 +123,20 @@ ol.day_tabs > li > button
     /*make fit area well*/
     margin: 0;
     width: fit-content;
-    height: 40px;
+    height: 36px;
     min-height: calc(1em + 4px);
 
     /* remove contemporary-ness and replace with simplistic style */
-    border: none;
+    border: solid;
     color: white;
     background-color: black;
     padding: 1em;
+    border-radius: var(--tab-roundness);
+}
+
+ol.day_tabs > li > button:hover
+{
+    border-color: var(--tab-hover-color) !important;
 }
 
 ol.day_tabs > li > button.day_selected
@@ -132,6 +146,16 @@ ol.day_tabs > li > button.day_selected
 }
 
 /* Main content */
+
+h1 span#region
+{
+    display:none;
+}
+
+h1:hover span#region
+{
+    display:inline;
+}
 
 main
 {
@@ -159,6 +183,12 @@ main img
     width: 20px;
     height: 20px;
     max-width: 500px;
+}
+
+#weatherInfo.forecast_mode #wind_compass
+{
+    /* We don't have any wind direction for the forecast */
+    display: none;
 }
 
 #wind_compass
