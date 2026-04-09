@@ -23,46 +23,48 @@
 
 <body>
     <nav>
-        <fourm action='' method="get">
-            <input type="text" name="searchbar" id="searchbar" placeholder="search for a city...">
+        <form action='' method="get">
+            <input type="text" name="searchbar" placeholder="search for a city...">
             <button type="submit">Search</button>
-        </fourm>
+        </form>
     </nav>
 
     <main>
         <h1>
-            Klamath Falls <span id="region">Oregon</span>
+            <span id="region"></span>
         </h1>
         <div>
-            <img src="images/sun.png">
+            <img id='condition_img'>
         </div>
         <ol class="day_tabs">
-            <li><button class="day_selected"> Current </button></li>
-            <li><button> Today </button></li>
+            <li><button class="day_selected"> Today </button></li>
             <li><button>Tomorrow</button></li>
             <li><button>2 days from now</button></li>
         </ol>
         <div id="weatherInfo">
             <div>
-                <strong id="condition"> Clear </strong> <br>
-                <span id="temp"> 37</span>&#176; <!-- Degree unicode --> <span id="temp_unit">F</span>
+                <strong id="condition"> </strong> <br>
+                <span id="temp"> </span>&#176; <!-- Degree unicode --> <span id="temp_unit">F</span> <br>
+                <strong> High: </strong> <span id="temp_high"> </span>&#176; <!-- Degree unicode --> <span id="temp_unit">F</span> <br>
+                <strong> Low: </strong><span id="temp_low"> </span>&#176; <!-- Degree unicode --> <span id="temp_unit">F</span> <br>
             </div>
             <!-- compass -->
             <div id="wind">
                 <div id="wind_compass">
                     <div class="arrow" id="wind_direction"> 
-                        SSE
+                        
                     </div>
                 </div>
                 <strong>Wind:</strong> <span id="wind_speed">1</span> <span id="speed_unit">mph</span> <br>
             </div>
             <div>
                 <div>
-                    <strong>Humidity:</strong> <span id="humidity">81</span>&#37; <!-- Percent unicode-->
+                    <strong>Humidity:</strong> <span id="humidity"></span>&#37; <!-- Percent unicode-->
                 </div>
             </div>
     </main>
-
+    <div class="search_blur">
+    </div>
 </body>
 </html>
 

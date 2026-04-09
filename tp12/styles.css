@@ -36,13 +36,27 @@ nav
     width:100vw;
 }
 
-nav fourm > input#searchbar
+body.search_mode nav
+{
+    height: 100vh;
+}
+
+nav
+{
+    transition: height 1.5s ease-in-out;
+}
+
+nav form
+{
+    z-index: 1000;
+}
+
+nav form input[name=searchbar]
 {
     box-sizing: border-box;
 
     /*text formatting*/
     text-align:left;
-
 
     /*make border rounded*/
     border-radius: var(--button-roundness);
@@ -60,12 +74,13 @@ nav fourm > input#searchbar
     border-color: var(--navbar-outline-color);
 }
 
-nav fourm > input#searchbar:focus-visible
+nav form input[name=searchbar]:focus-visible
 {
-    background-color: var(--navbar-selected-color);
+    color: var(--navbar-selected-color);
 }
 
-nav fourm > button
+nav form > button,
+nav form[name=submit]
 {
     position:relative;
     left: 0;
@@ -147,6 +162,11 @@ ol.day_tabs > li > button.day_selected
 
 /* Main content */
 
+body.search_mode main
+{
+    display:none;
+}
+
 h1 span#region
 {
     display:none;
@@ -178,17 +198,23 @@ main
     justify-content:center;
 }
 
-main img
+img#condition_img
 {
-    width: 20px;
-    height: 20px;
-    max-width: 500px;
+    width: 80px;
+    height: 80px;
+
+    image-rendering: optimizeQuality;
 }
 
 #weatherInfo.forecast_mode #wind_compass
 {
     /* We don't have any wind direction for the forecast */
     display: none;
+}
+
+#wind
+{
+    flex-basis: 200px;
 }
 
 #wind_compass
@@ -199,7 +225,7 @@ main img
 
     align-items: center;
     justify-content: center;
-    background-image: url('images/+.png');
+    background-image: url('images/Compass-Texture.png');
     background-repeat:no-repeat;
     background-position: center;
     margin: 2em;
@@ -211,14 +237,14 @@ main img
     /*rendering for directional text*/
     display: flex;
     text-align: start;
-    color:black;
+    color:limegreen;
+    font-weight: bolder;
     justify-content: center;
     
     /*render arrow*/
-    background-image: url('images/arrow.png');
+    background-image: url('images/Compass-Hand.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.8;
 
     /*Ensure arrow accuracy*/
     height:200px;
@@ -227,8 +253,15 @@ main img
     max-width: 200px;
 }
 
-#wind_compass > .arrow > #wind_direction
+body.search_mode .search_blur
 {
-    position: relative;
-    top: calc(-20vw - 1em);   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+
+    backdrop-filter: blur(8px);
+    
 }
