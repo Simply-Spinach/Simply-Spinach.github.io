@@ -30,25 +30,16 @@ body
 /* Searchbar setup */
 nav
 {
-    position: fixed;
+    position: absolute;
+    z-index: 10000;
     padding-top: 0.5em;
     top: 0;
     width:100vw;
 }
 
-body.search_mode nav
-{
-    height: 100vh;
-}
-
 nav
 {
     transition: height 1.5s ease-in-out;
-}
-
-nav form
-{
-    z-index: 1000;
 }
 
 nav form input[name=searchbar]
@@ -162,11 +153,6 @@ ol.day_tabs > li > button.day_selected
 
 /* Main content */
 
-body.search_mode main
-{
-    display:none;
-}
-
 h1 span#region
 {
     display:none;
@@ -184,9 +170,10 @@ main
     align-content: center;
     justify-content: center;
     text-align:center;
+    height:fit-content;
 
     width: 100%;
-    height: 100vh;
+    height: 97.5vh; /*little smaller to prevent making it run off screen and allowing you to scroll nowhere*/
 
     overflow: hidden;
 }
@@ -253,8 +240,14 @@ img#condition_img
     max-width: 200px;
 }
 
+.search_blur
+{
+    display: none;
+}
+
 body.search_mode .search_blur
 {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -262,6 +255,6 @@ body.search_mode .search_blur
     height: 100vh;
     z-index: 999;
 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(1em);
     
 }

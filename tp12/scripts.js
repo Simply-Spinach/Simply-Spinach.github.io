@@ -74,11 +74,9 @@ document.addEventListener("DOMContentLoaded", function()
     //load data needed for weatherDisplay (async)
     ipAPIPromise.then(function(locationData)
     {
-        console.log(locationData);
         defaultWeatherPromise = rawInputGetWeatherData(locationData.ip, numDays);
         defaultWeatherPromise.then(function(weatherData)
         {
-            console.log(weatherData);
             weatherDisplay.SetWeather(weatherData);
             weatherDisplay.DisplayWeather(0);
         });
@@ -86,28 +84,23 @@ document.addEventListener("DOMContentLoaded", function()
 
     //wire up the search bar
     let searchBar = document.querySelector("nav form");
-    searchBar.addEventListener("focus", function(e)
-    {
-        e.preventDefault();
-
-        document.querySelector('body').classList.add('search_mode');
-    });
     searchBar.addEventListener("submit", function(e)
     {
         //prevent submitting to server
         e.preventDefault();
 
-        //remove search_mode from body
-        document.querySelector('body').classList.remove('search_mode');
+        //add search_mode to body (to help hide transition)
+        document.querySelector('body').classList.add('search_mode');
         
         //extract the search query
         let searchQuery = searchBar['searchbar'].value;
         
-        //update display to have new data from server
+        //load new location data from server
         getWeatherData(searchQuery, numDays).then(function(weatherData)
         {
             weatherDisplay.SetWeather(weatherData);
             weatherDisplay.UpdateDisplay();
+            document.querySelector('body').classList.remove("search_mode");
         });
     });
 
@@ -120,6 +113,16 @@ document.addEventListener("DOMContentLoaded", function()
         let tab = tabs[i];
         tab.addEventListener('click', function()
         {
+            //clear .day_selected from all tabs (including myself because we'll just be adding it back to ourselves later)
+            for (let i = 0; i < tabs.length; ++i)
+            {
+                tabs[i].classList.remove('day_selected');
+            }
+
+            //add clicked property
+            tab.classList.add('day_selected');
+
+            //update display
             weatherDisplay.DisplayWeather(i);
         });
     }
@@ -269,7 +272,7 @@ class WeatherDisplay
         if (day > allForecasted.length)
         {
             console.warn("DisplayWeatherForecast doesn't have the selected day stored.  Reverting to closest available day");
-            dat = allForecasted.length;
+            day = allForecasted.length;
         } //quick safety to ensure day is correct length
         let selectedWeather = allForecasted[day].day;
 
