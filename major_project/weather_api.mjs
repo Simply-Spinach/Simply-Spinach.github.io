@@ -1,5 +1,6 @@
-import { WEATHER_API_KEY } from "./API_KEYS.mjs";
+//import { WEATHER_API_KEY } from "./API_KEYS.mjs";
 
+const WEATHER_API_KEY = 'e743aae5077a47e79e1231340260704'
 const WEATHER_API_URL = `https://api.weatherapi.com/v1/forecast.json?key=${WEATHER_API_KEY}`;
 const IP_API_URL = 'https://api.ipify.org/?format=json';
 

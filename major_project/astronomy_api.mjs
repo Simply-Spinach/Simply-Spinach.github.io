@@ -1,3 +1,4 @@
+//BELOW CODE DOES NOT WORK (Should be server side?)
 import {ASTRONOMY_API_APP_ID, ASTRONOMY_API_SECRET} from './API_KEYS.mjs'
 
 //enable to prevent API calls and instead use test data
