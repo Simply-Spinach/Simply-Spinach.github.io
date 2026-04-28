@@ -1,0 +1,3 @@
+Todo:
+    Create name for calendar app
+    Replace temporary moon image with image from AstronomyAPI

@@ -1,0 +1,139 @@
+:root
+{
+    --bg-color: black;
+    --fg-color: whitesmoke;
+    --accent-color-1: #40279c;
+    --accent-color-2: #a79c3f;
+    --link-color: #f6cd4c;
+
+    /* timeline elements */
+    --timeline-thickness: 2px;
+    --timeline-cap-thickness: 5px;
+}
+
+/* General changes */
+body
+{
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+}
+
+a 
+{
+    color: var(--link-color);
+}
+
+ol,
+ul
+{
+    /* We aren't using these in the typical format to just remove the padding by default */
+    padding-left: 0;
+}
+
+/* Main setup */
+
+main
+{
+    position: relative;
+    margin-top: 1em;
+}
+
+main > ol
+{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* General dayIdentifier setup */
+
+main .dayIdentifier
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: grid;
+    /* grid-template-columns: calc(100% / 2) calc(100% / 2); */ /*HANDLED BY JS AND APPLIED INLINE*/
+
+    justify-items: center;
+    align-items: center;
+}
+
+/* Navigation buttons */
+
+button.daysNext,
+button.daysPrev
+{
+    top: 20px;
+    position: absolute;
+    z-index: 10;
+}
+
+button.daysPrev
+{
+    left: 0;
+}
+
+button.daysNext
+{
+    right: 0;
+}
+
+/* Setup dayinfo to appear as desired */
+.dayIdentifier
+{
+    z-index:1;
+}
+
+.dayInfo
+{
+    width:fit-content;
+    display:grid;
+    grid-template-columns: auto auto;
+}
+
+.dayInfo img
+{
+    height:75px;
+    width: 75px;
+}
+
+/* Setup timeline holder */
+.timeline-holder
+{
+    padding-top:4em;
+}
+
+.timeline
+{
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+.timeline .line
+{
+    position: relative;
+    height: var(--timeline-thickness);
+    background-color: var(--fg-color);
+    text-justify: bottom;
+}
+
+.timeline .line .left-cap,
+.timeline .line .right-cap
+{
+    position: absolute;
+    background-color: var(--fg-color);
+    bottom: calc( (var(--timeline-thickness) / 2) - (var(--timeline-cap-thickness) /2));    width: var(--timeline-cap-thickness);
+    height: var(--timeline-cap-thickness);
+}
+
+.timeline .line .left-cap
+{
+    left: 0;
+}
+
+.timeline .line .right-cap
+{
+    right: 0;
+}

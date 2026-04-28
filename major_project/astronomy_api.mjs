@@ -16,39 +16,67 @@ export class astronomyAPI
     async getForecastedAstronomyData(latitude, longitude)
     {
         //asign consts and vars
-        const AUTH_STRING = btoa(`${ASTRONOMY_API_APP_ID}}:${ASTRONOMY_API_SECRET}`);
+        const AUTH_STRING = btoa(`${ASTRONOMY_API_APP_ID}:${ASTRONOMY_API_SECRET}`);
         const URL_OPTIONS = 
         {
             method:'GET',
             headers:
             {
-                'Authorization': ('Basic ' + AUTH_STRING),
+                'Authorization': 'Basic ' + AUTH_STRING,
                 'Content-Type': 'application/json'
             }
+        }   
+        
+        //prep dates
+        let fullDate = new Date();
+        let curMonth = fullDate.getMonth();
+        if (curMonth < 10)
+        {
+            curMonth = '0' + String(curMonth);
+        }
+        let curDay = fullDate.getDay();
+        if (curDay < 10)
+        {
+            curDay = '0' + String(curDay);
+        }
+        
+        //prepare for the future
+        let toMonth = fullDate.getMonth() + 1;
+        if (toMonth < 10)
+        {
+            toMonth = '0' + String(toMonth);
         }
 
+        //set our from and to dates
+        let fromDate = `${fullDate.getFullYear()}-${curMonth}-${curDay}`;
+        let toDate = `${fullDate.getFullYear()}-${toMonth}-${curDay}`;
+        
+        let curTime = `${fullDate.getHours()}%3A${fullDate.getMinutes()}%3A${fullDate.getSeconds()}`
+        
         //prep url
-
-
-        //prep dates
-        let curDate = new Date();
-
-        let fromDate = `${curDate.getFullYear()}-${curDate.getMonth()}-${curDate.getDay()}`;
-        let toDate = `${curDate.getFullYear() + 1}-${curDate.getMonth()}-${curDate.getDay()}`;
-
-        let curTime = `${curDate.getHours()}%3A${curDate.getMinutes()}%3A${curDate.getSeconds()}`
-
-        let url = `${API_FORECAST_URL}/?latitude=${latitude}&longitude=${longitude}&elevation=0&from_date=${fromDate}&to_date=${toDate}&time=${curTime}`;
+        let url = `${API_FORECAST_URL}/?latitude=${latitude}&longitude=${longitude}&elevation=1&from_date=${fromDate}&to_date=${toDate}&time=${curTime}`;
 
         try
         {
+            console.log("Attempting via URL: " + url);
             const response = await fetch(url, URL_OPTIONS)
-            return JSON(response);
+            console.log("Response get!")
+            if (response.ok)
+            {
+                return response.json();
+            }
+            else
+            {
+                console.error("Response was not ok")
+                console.error("Response code: " + response.statusText)
+                console.error(await response.text())
+                return null;
+            }
         }
         catch (error)
         {
             //error processing here
-            console.error("Unable to retrieve data from getAstronomyData.  (Might be out of daily tokens)")
+            console.error()
             return null;
         }
     }
