@@ -7,8 +7,9 @@
     --link-color: #f6cd4c;
 
     /* timeline elements */
-    --timeline-thickness: 2px;
-    --timeline-cap-thickness: 5px;
+    --timeline-thickness: 1.5px;
+    --timeline-cap-thickness: 7px;
+    --timeline-cap-roundness: 20px; 
 }
 
 /* General changes */
@@ -38,17 +39,17 @@ main
     margin-top: 1em;
 }
 
-main > ol
+main
 {
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 /* General dayIdentifier setup */
 
 main .dayIdentifier
 {
-    position: absolute;
+    position: sticky; /*Used instead of fixed so it takes up space in DOM*/
     top: 0;
     width: 100%;
     display: grid;
@@ -64,7 +65,7 @@ button.daysNext,
 button.daysPrev
 {
     top: 20px;
-    position: absolute;
+    position: sticky;
     z-index: 10;
 }
 
@@ -98,16 +99,20 @@ button.daysNext
 }
 
 /* Setup timeline holder */
-.timeline-holder
-{
-    padding-top:4em;
-}
 
 .timeline
 {
     position: relative;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.timeline .objectLabel
+{
+    position:sticky;
+    width:fit-content;
+    left: 0;
+    padding-left: 20px;
 }
 
 
@@ -124,8 +129,11 @@ button.daysNext
 {
     position: absolute;
     background-color: var(--fg-color);
-    bottom: calc( (var(--timeline-thickness) / 2) - (var(--timeline-cap-thickness) /2));    width: var(--timeline-cap-thickness);
+    bottom: calc( (var(--timeline-thickness) / 2) - (var(--timeline-cap-thickness) /2));
+    width: var(--timeline-cap-thickness);
     height: var(--timeline-cap-thickness);
+
+    border-radius: var(--timeline-cap-roundness)
 }
 
 .timeline .line .left-cap
