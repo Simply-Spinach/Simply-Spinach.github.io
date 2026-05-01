@@ -155,6 +155,12 @@ button.daysNext
 
 /* Setup timeline holder */
 
+.timeline_holder h2
+{
+    position:sticky;
+    left: 0;
+}
+
 .timeline
 {
     position: relative;
