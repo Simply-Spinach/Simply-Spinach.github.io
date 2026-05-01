@@ -10,6 +10,15 @@
     --timeline-thickness: 1.5px;
     --timeline-cap-thickness: 7px;
     --timeline-cap-roundness: 20px; 
+
+    /* button styling */
+    --button-roundness: 20px;
+    --button-color-default: #3a3a3a;
+    --button-color-hover: dimgray;
+    --button-transition-time: 0.7s;
+
+    /* Searchbar styling */
+    --searchbar-grow-time: 0.4s;
 }
 
 /* General changes */
@@ -31,6 +40,36 @@ ul
     padding-left: 0;
 }
 
+button
+{
+    border:none;
+    border-radius: var(--button-roundness);
+    background-color: var(--button-color-default);
+
+    transition: background-color var(--button-transition-time);
+}
+
+button:hover
+{
+    background-color: var(--button-color-hover);
+}
+
+input[type=text][name=searchbar]
+{
+    display: inline-block;
+    width: 20em;
+    border-radius: var(--button-roundness);
+    background-color: var(--button-color-default);
+
+    transition: width var(--searchbar-grow-time);
+}
+
+input[type=text][name=searchbar]:focus
+{
+    width: 80%;
+    max-width: 90%;
+}
+
 /* Main setup */
 
 main
@@ -47,16 +86,32 @@ main
 
 /* General dayIdentifier setup */
 
-main .dayIdentifier
+main #dayNavigator
 {
     position: sticky; /*Used instead of fixed so it takes up space in DOM*/
     top: 0;
+
+    width: fit-content;
+    min-width: 100%;
+
+    display:flexbox;
+    flex-direction: row;
+}
+
+main #dayIdentifier
+{
     width: 100%;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+
+    flex-basis: 20em;
+    column-gap:5em;
+
     /* grid-template-columns: calc(100% / 2) calc(100% / 2); */ /*HANDLED BY JS AND APPLIED INLINE*/
 
-    justify-items: center;
-    align-items: center;
+    justify-content: left;
+    padding-left:30px;
+    align-content: center;
 }
 
 /* Navigation buttons */
@@ -64,8 +119,8 @@ main .dayIdentifier
 button.daysNext,
 button.daysPrev
 {
-    top: 20px;
-    position: sticky;
+    top: 75px;
+    position: fixed;
     z-index: 10;
 }
 

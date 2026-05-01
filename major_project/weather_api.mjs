@@ -10,55 +10,48 @@ const WEATHER_API_URL_OPTIONS = {
 
 const WEATHER_API_DAY_COUNT = 3;
 
+/* Public exported functions */
 
-export class weatherAPI
+
+//Returns weatherAPI weather forecast output for desired latitude and longitude
+export async function getWeatherFromCoords(latitude, longitude)
 {
-    #location;
-    #forecastInfo = null;
+    let location = `${latitude},${longitude}`;
+    const output = await getWeatherData(location)
+    return output;
+}
 
-    constructor(location)
-    {
-        //sets current location for next load
-        this.setLocationAsCity(location)
+//Returns weatherAPI weather forecast output for desired city
+export async function getWeatherFromCity(city)
+{
+    //cook city name
+    city = city.trim();
+    city = city.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '');
+    city = city.replaceAll(' ', '-');
 
-    }
+    const output = await getWeatherData(city);
+    return output;
+}
 
-    setLocationAsCity(city)
-    {
-        //cook city name
-        city = city.trim();
-        city = city.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '');
-        city = city.replaceAll(' ', '-');
+/* Prepared private functions */
 
-        //update city name in search
-        this.#location = location
-    }
+//Gets weatherData from saved city
+async function getWeatherData(locationRaw)
+{
+    //prep local url
+    let url = WEATHER_API_URL;
+    url += `&q=${locationRaw}&days=${WEATHER_API_DAY_COUNT}`;
 
-    
-
-    //Gets weatherData from saved city
-    async updateWeatherData()
-    {
-        //prep local url
-        let url = WEATHER_API_URL;
-        url += `&q=${this.#location}&days=${WEATHER_API_DAY_COUNT}`;
-
-        //get response
-        try {
-            const response = await fetch(url, WEATHER_API_URL_OPTIONS);
-            if (response.ok) {
-                const result = await response.json();
-                this.#forecastInfo = result;
-            } else {
-                throw(response.status);
-            }
-        } catch (error) {
-
+    //get response
+    try {
+        const response = await fetch(url, WEATHER_API_URL_OPTIONS);
+        if (response.ok) {
+            const result = await response.json();
+            return result;
+        } else {
+            throw(response.status);
         }
-    }
+    } catch (error) {
 
-    getWeatherData()
-    {
-        return this.#forecastInfo;
     }
 }

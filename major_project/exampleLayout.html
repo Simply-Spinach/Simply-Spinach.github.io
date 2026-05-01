@@ -15,7 +15,6 @@
     </style>
 
     <!-- external and internal JavaScript -->
-    <script src="scripts.js" type="module" defer></script>
     <script>
         // in-page JavaScript here
     </script>
@@ -41,7 +40,25 @@
                     <div class="dayInfo">
                         <img class="moonPhase" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg">
                         <div style="align-content: center;">
-                            <span class="day">[day]</span>
+                            <span class="day">Today</span>
+                            <div class="timeframe"> 
+                                <span class="sunset">[sunset]</span> - <span class="sunrise"> [sunrise] </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dayInfo">
+                        <img class="moonPhase" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg">
+                        <div style="align-content: center;">
+                            <span class="dayOfWeek">Today</span>
+                            <div class="timeframe"> 
+                                <span class="sunset">[sunset]</span> - <span class="sunrise"> [sunrise] </span>
+                            </div>
+                        </div>
+                    </div>
+                                        <div class="dayInfo">
+                        <img class="moonPhase" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg">
+                        <div style="align-content: center;">
+                            <span class="dayOfWeek">Today</span>
                             <div class="timeframe"> 
                                 <span class="sunset">[sunset]</span> - <span class="sunrise"> [sunrise] </span>
                             </div>
@@ -58,9 +75,9 @@
                 <h2> Planets </h2>
 
                 <!-- Timeline tempalte object-->
-                <div class="timeline">
+                <div class="timeline" style="left:10%; width: 50%;">
                     <div class="objectLabel">
-                        [Planet Name]
+                        Jupiter
                     </div>
                     <div class="line">
                         <div class="left-cap"></div>
@@ -72,16 +89,12 @@
                 
             <div class="sectionType" id="constelations">
                 <h2> Constelations </h2>
-                <!-- Timeline tempalte object-->
-                <div class="timeline">
-                    <div class="objectLabel">
-                        [Constelation Name]
-                    </div>
-                    <div class="line">
+                <div class="timeline" style="left:5%; width: 92%;">
+                    Big Dipper
+                    <div class="line" >
                         <div class="left-cap"></div>
                         <div class="right-cap"></div>
                     </div>
-                </div>
 
             </div>
         </ol>
