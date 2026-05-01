@@ -74,45 +74,41 @@ class domLoader
         });
     }
 
-    setLocationGPS()
+    async setLocationGPS()
     {
         //get current location
-        try
+        if (navigator.geolocation)
         {
-            if (navigator.geolocation)
+            navigator.geolocation.getCurrentPosition((location) =>
             {
-                navigator.geolocation.getCurrentPosition((location) =>
-                {
-                    console.log(location);
-                    this.#curLocationStr = `${location.coords.latitude}, ${location.coords.longitude}`;
+                console.log(location);
+                this.#curLocationStr = `${location.coords.latitude}, ${location.coords.longitude}`;
 
-                    //load weather data
-                    getWeatherFromCoords(location.coords.latitude, location.coords.longitude).then((e) =>
+                //load weather data
+                getWeatherFromCoords(location.coords.latitude, location.coords.longitude).then((e) =>
+                {
+                    this.#weatherData = e;
+                    console.log(this.#weatherData);
+
+                    //load astro data
+                    getForecastedAstronomyData(location.coords.latitude, location.coords.longitude, location.coords.altitude).then((e) =>
                     {
-                        this.#weatherData = e;
-                        console.log(this.#weatherData);
+                        console.log(e);
+                        this.#astroData = e;
+
+                        //update visuals
+                        this.update();
                     });
-
                 });
 
-                //load astro data
-                getForecastedAstronomyData(location.coords.latitude, location.coords.longitude, location.coords.altitude).then((e) =>
-                {
-                    console.log(e);
-                    this.#astroData = e;
-                });
+            });
 
-                //update visuals
-                this.update();
-            }
-            else
-            {
-                console.warn("GPS request failed.  Remember to implement backup method (like IP?)")
-            }
+
+
         }
-        catch (error) 
+        else
         {
-            //everything is ok here.  Kinda expect this to fail so we should probably revert to an ip, but we aren't doing that yet
+            console.warn("GPS request failed.  Remember to implement backup method (like IP?)")
         }
     }
 
