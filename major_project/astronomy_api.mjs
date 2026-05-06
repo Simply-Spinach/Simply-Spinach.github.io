@@ -25,7 +25,7 @@ export async function getForecastedAstronomyData(latitude, longitude, altitude)
     //prep dates
     let curDate = new Date();
     let futureDate = new Date(curDate);
-    futureDate.setMonth(futureDate.getMonth() + 1);
+    futureDate.setDate(futureDate.getDate() + 14);
 
     //turn to things we can input into get function
     let curMonth = curDate.getMonth() + 1;

@@ -37,7 +37,7 @@ class domLoader
     */
     //setup api calls
 
-    #timeHandler;
+    #timelineHandler;
     #dayHandler
 
     #curLocationStr;
@@ -47,8 +47,9 @@ class domLoader
 
     constructor()
     {
-        //load dayHandler and timeHandler
+        //load dayHandler and timelineHandler
         this.#dayHandler = new domDayHandler();
+        this.#timelineHandler = new domTimelineHandler();
 
         //load first data
         this.setLocationGPS();
@@ -115,6 +116,7 @@ class domLoader
     update()
     {
         this.#dayHandler.update(this.#weatherData, this.#astroData);
+        this.#timelineHandler.update(this.#weatherData, this.#astroData);
     }
 }
 
@@ -149,11 +151,9 @@ class domDayHandler
 
     update(weatherData, astroData)
     {
-        //for simplicity, clear all dayss from daysContainer
+        //for simplicity, clear all days from daysContainer
         this.clear();
 
-        //console.log(weatherData);
-        console.log(astroData);
 
         let weatherForecastAvailable = weatherData.forecast.forecastday.length;
         let astroForecastAvailable = astroData.data.table.header.length; /* I really can't figure out how to do the math here and I don't want to worry about it*/;
@@ -211,6 +211,103 @@ class domDayHandler
             
             //Add to DOM
             this.#daysContainer.appendChild(curDay);
+        }
+    }
+}
+
+const COLUMN_SIZE = '15rem';
+const LEFT_MARGIN = '0';
+
+class domTimelineHandler
+{
+    #timelineTemplate;
+    
+    #planetsContainer;
+    #constelationsContainer;
+
+    constructor()
+    {
+        this.#timelineTemplate = document.querySelector(".timeline").cloneNode(true);
+
+        //get containers by type
+        this.#planetsContainer = document.querySelector(".timeline-holder > .sectionType#planets");
+        this.#constelationsContainer = document.querySelector(".sectionType#constelations");
+
+        console.log(this.#planetsContainer);
+
+        this.clear()
+    }
+
+    clear()
+    {
+        //clear timelines from objects stored
+        for (let child of this.#planetsContainer.querySelectorAll('.timeline'))
+        {
+            this.#planetsContainer.removeChild(child);
+        }
+
+        //now same for constelations        
+        for (let child of this.#constelationsContainer.querySelectorAll('.timeline'))
+        {
+            this.#constelationsContainer.removeChild(child);
+        }
+    }
+
+    update(weatherData, astroData)
+    {
+        //just reset us and rebuild the dom for simplicity of coding
+        this.clear();
+
+        console.log(astroData);
+
+        //skip visibility of sun and moon because we don't care about the sun and the moon gets it's indicator anyway
+        for (let i = 2; i < astroData.table.rows.length; ++i)
+        {
+            let planetData = astroData.table.rows[i]
+            let curTimeline = this.#timelineTemplate.cloneNode(true);
+
+            //prepare names to be visible
+            curTimeline.querySelector(".objectLabel").innerText = planetData.entry.name;
+
+            //mark days when viewable
+            let lastEmptyDay = -1;
+            let visibleDays = this.getDaysViewable(planetData);
+
+            for (let i = 0; i < planetData.length && i; ++i)
+            {
+                if (visibleDays[i] == false)
+                {
+                    //create end for last object, if there
+                }
+                else //visibleDays[i] == true
+                {
+                    //create start object
+                }
+            }
+
+        }
+    }
+
+    ifPlanetViewable(planetCell)
+    {
+        if (planetCell.position.altitude.degrees < 10)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    getDaysViewable(planet)
+    {
+        let cells = planet.cells;
+        let output = Array(cells.length);
+
+        for (let i = 0; i < cells.length; ++i)
+        {
+            output[i] = this.ifPlanetViewable(planet.cells[i])
         }
     }
 }

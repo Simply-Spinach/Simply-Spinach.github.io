@@ -11,6 +11,8 @@
     --timeline-cap-thickness: 7px;
     --timeline-cap-roundness: 20px; 
 
+    --timeline-segment-width: 25rem;
+
     /* button styling */
     --button-roundness: 20px;
     --button-color-default: #3a3a3a;
@@ -104,8 +106,7 @@ main #dayIdentifier
     display: flex;
     flex-direction: row;
 
-    flex-basis: 20em;
-    column-gap:5em;
+    column-gap:10em;
 
     /* grid-template-columns: calc(100% / 2) calc(100% / 2); */ /*HANDLED BY JS AND APPLIED INLINE*/
 
@@ -142,7 +143,7 @@ button.daysNext
 
 .dayInfo
 {
-    width:fit-content;
+    width: 15rem;
     display:grid;
     grid-template-columns: auto auto;
 }
@@ -158,7 +159,8 @@ button.daysNext
 .timeline_holder h2
 {
     position:sticky;
-    left: 0;
+    left:0;
+    width:fit-content;
 }
 
 .timeline
@@ -176,17 +178,29 @@ button.daysNext
     padding-left: 20px;
 }
 
-
 .timeline .line
+{
+    /* setup same flex styling as above */
+    display:flex;
+    flex-direction: row;
+}
+
+.timeline .line > *
+{
+    flex-basis: var(--timeline-segment-width);
+}
+
+.timeline .lineSegment
 {
     position: relative;
     height: var(--timeline-thickness);
+    width: var(--timeline-segment-width);
     background-color: var(--fg-color);
     text-justify: bottom;
 }
 
-.timeline .line .left-cap,
-.timeline .line .right-cap
+.line .left-cap,
+.line .right-cap
 {
     position: absolute;
     background-color: var(--fg-color);
@@ -197,12 +211,12 @@ button.daysNext
     border-radius: var(--timeline-cap-roundness)
 }
 
-.timeline .line .left-cap
+.line .left-cap
 {
     left: 0;
 }
 
-.timeline .line .right-cap
+.line .right-cap
 {
     right: 0;
 }
