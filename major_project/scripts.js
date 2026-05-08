@@ -244,7 +244,7 @@ class domTimelineHandler
         this.#timelineTemplate = document.querySelector(".timeline").cloneNode(true);
 
         //prep line segments
-        this.#lineSegmentTemplate = this.#timelineTemplate.querySelector(".line .lineSegment").cloneNode(true /*DEBUGGING ONLY*/); //REMEMBER: NO CHILDREN WITHOUT TRUE
+        this.#lineSegmentTemplate = this.#timelineTemplate.querySelector(".line .lineSegment").cloneNode(/*true /* REMOVE COMMENT FOR DEBUGGING MODE*/);
         this.#lineSegmentBeginTemplate = this.#timelineTemplate.querySelector(".lineSegment .left-cap").cloneNode();
         this.#lineSegmentEndTemplate = this.#timelineTemplate.querySelector(".lineSegment .right-cap").cloneNode();
 
@@ -281,25 +281,28 @@ class domTimelineHandler
             //mark days when viewable
             let lastEmptyDay = -1;
             let visibleDays = this.getDaysViewable(planetData, weatherData);
-            let lineSegments = Array();
+            let lastSegmentVisible = null; //defined after first loop
             
             for (let i = 0; i < visibleDays.length; ++i)
             {
                 let isVisibleToday = visibleDays[i];
                 let curLineSegment;
-                
-                
-                //TODO: KEEP WORKING ON SETTING UP LINE SEGMENTS TO LOAD
+                           
                 if (isVisibleToday)
                 {
                     //setup line segment
                     
                     curLineSegment = this.#lineSegmentTemplate.cloneNode(true);
                                         
-                    if (i > 0)
+                    if (i > 0 && !lastSegmentVisible) //general case to add start point
                     {
-                        //check if previous day was false and if so, set this to have beginning point
+                        //insert beginning point
+                        curLineSegment.appendChild(this.#lineSegmentBeginTemplate.cloneNode(true));
                         
+                    }
+                    else if (i == 0) //edge case where we do want a start here
+                    {
+                        curLineSegment.appendChild(this.#lineSegmentBeginTemplate.cloneNode(true));
                     }
                     /* if (i == 0 && isVisibleToday) //first node edge case.  Has segment behind it 
                     {
@@ -309,20 +312,23 @@ class domTimelineHandler
                 }
                 else //isVisibleToday == false
                 {
-                    //TODO: set last object to have end cap if it needs one
-                    
-                    
+                    if (i > 0 && lastSegmentVisible == true) //needs cap on last segment when called
+                    {
+                        curTimeline.querySelector('.line').lastElementChild.appendChild(this.#lineSegmentEndTemplate.cloneNode(true));
+                    }
+
                     //enter empty div into dom
                     curLineSegment = document.createElement("div");                    
+                    
                 }
+                
+                //add timeline to dom
+                this.#planetsContainer.appendChild(curTimeline);
+                lastSegmentVisible = isVisibleToday;
 
                 //add to timeline
-                //lineSegments.push(curLineSegment);
                 curTimeline.querySelector('.line').appendChild(curLineSegment);
             }
-
-            //add timeline to dom
-            this.#planetsContainer.appendChild(curTimeline);
         }
             
     }

@@ -11,6 +11,8 @@
     --day-selector-gap: 80px;
     --day-selector-width: 20rem;
 
+    --day-selector-left-padding: 30px;
+
     /* timeline elements */
     --timeline-thickness: 1.5px;
     --timeline-cap-thickness: 7px;
@@ -87,10 +89,7 @@ main
 {
     position: relative;
     margin-top: 1em;
-}
 
-main
-{
     overflow-y: auto;
     overflow-x: auto;
 }
@@ -121,18 +120,19 @@ main .timeline .line
 
     justify-content: left; /*backup for unsupported browsers*/
     justify-content: space-between;
-    padding-left:30px;
     align-items: center;
 }
 
 main #dayIdentifier
 {
     column-gap: var(--day-selector-gap);
+    padding-left: var(--day-selector-left-padding);
 }
 
 main .timeline .line
 {
     column-gap: 0;
+    padding-left: calc( var(--day-selector-left-padding) + var(--day-selector-width) / 2);
 }
 
 main #dayIdentifier > *
