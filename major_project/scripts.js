@@ -36,7 +36,7 @@ class domLoader
     //setup api calls
 
     #timelineHandler;
-    #dayHandler
+    #dayHandler;
 
     #curLocationStr;
     #astroData;
@@ -86,8 +86,6 @@ class domLoader
                 getWeatherFromCoords(location.coords.latitude, location.coords.longitude).then((e) =>
                 {
                     this.#weatherData = e;
-                    console.log(this.#weatherData);
-
                     //load astro data
                     getForecastedAstronomyData(location.coords.latitude, location.coords.longitude, location.coords.altitude).then((e) =>
                     {
@@ -119,18 +117,22 @@ class domLoader
 const DAY_NODE_CONTAINER_QUERY = '#dayIdentifier'
 const DAY_NODE_QUERY = '.dayInfo';
 const DAY_NODE_DAY_NAME_QUERY = '.day';
+const SIMPLE_DAY_NODE_QUERY = '.dayLabel';
 
 class domDayHandler
 {
     #daysContainer;
     #dayTemplate;
+    #simpleDayTemplate;
 
     constructor()
     {
         this.#daysContainer = document.querySelector(DAY_NODE_CONTAINER_QUERY);
         this.#dayTemplate = this.#daysContainer.querySelector(DAY_NODE_QUERY);
+        this.#simpleDayTemplate = this.#daysContainer.querySelector(SIMPLE_DAY_NODE_QUERY);
 
         this.#daysContainer.removeChild(this.#dayTemplate);
+        this.#daysContainer.removeChild(this.#simpleDayTemplate);
     }
 
     //Clears all days from the daysContainer
@@ -158,12 +160,18 @@ class domDayHandler
         {
             //create day to add to daysContainer
             let currentTime = new Date();
-            let curDay = this.#dayTemplate.cloneNode(true);
             let curAstro = astroData.data.table[i];
-            //fill with relevant information
-            
-            //TODO: UPDATE SRC OF MOON PHASE TO BE AN ACURATE IMAGE
-            //curDay.querySelector('img.moonPhase').src = ``;
+            let curDay; //set later
+
+            //set default curDay template
+            if (i < weatherForecastAvailable) //has forecast info
+            {
+                curDay = this.#dayTemplate.cloneNode(true);
+            }
+            else //no forecast info
+            {
+                curDay = this.#simpleDayTemplate.cloneNode(true);
+            }
             
             //set day
             if (i == 0)
@@ -189,21 +197,29 @@ class domDayHandler
                 curDay.querySelector(DAY_NODE_DAY_NAME_QUERY).innerText = `${nodeTime.getMonth() + 1}-${nodeTime.getDate()}-${nodeTime.getFullYear()}`
             }
 
-            //update sunset and sunrise
-            if (i < weatherForecastAvailable - 1)
+            //complex info for other stuff
+            if (i < weatherForecastAvailable)
             {
-                curDay.querySelector('.timeframe .sunset').innerText = weatherData.forecast.forecastday[i].astro.sunset;
-                curDay.querySelector('.timeframe .sunrise').innerText = weatherData.forecast.forecastday[i + 1].astro.sunrise;
+                //get weather data            
+                let curWeather = weatherData.forecast.forecastday[i].day;
+
+                curDay.querySelector('.weatherIcon').src = curWeather.condition.icon;
+
+                //update sunset and sunrise
+                if (i < weatherForecastAvailable - 1)
+                {
+                    curDay.querySelector('.timeframe .sunset').innerText = weatherData.forecast.forecastday[i].astro.sunset;
+                    curDay.querySelector('.timeframe .sunrise').innerText = weatherData.forecast.forecastday[i + 1].astro.sunrise;
+                }
+                else if (i == weatherForecastAvailable - 1)
+                {
+                    curDay.querySelector('.timeframe').innerHTML = `<span class="sunset">${weatherData.forecast.forecastday[i].astro.sunset}</span>`;
+                }
             }
-            else if (i == weatherForecastAvailable - 1)
+            else //we don't have weather data and nothing gets set
             {
-                curDay.querySelector('.timeframe').innerHTML = `<span class="sunset">${weatherData.forecast.forecastday[i].astro.sunset}</span>`;
+
             }
-            else
-            {
-                curDay.querySelector('.timeframe').innerHTML = '';
-            }
-            
             
             //Add to DOM
             this.#daysContainer.appendChild(curDay);
@@ -251,8 +267,6 @@ class domTimelineHandler
         //just reset us and rebuild the dom for simplicity of coding
         this.clear();
 
-        console.log(astroData.table.rows.length);
-
         for (let planetID = 2 /*First planet after sun and moon tracking*/; planetID < astroData.table.rows.length; ++planetID)
         {
             let planetData = astroData.table.rows[planetID];
@@ -278,9 +292,7 @@ class domTimelineHandler
                     //setup line segment
                     
                     curLineSegment = this.#lineSegmentTemplate.cloneNode(true);
-                    
-                    console.log(curLineSegment);
-                    
+                                        
                     if (i > 0)
                     {
                         //check if previous day was false and if so, set this to have beginning point
@@ -302,8 +314,7 @@ class domTimelineHandler
                 }
 
                 //add to timeline
-                console.log(`${isVisibleToday}: ${curLineSegment}`);
-                lineSegments.push(curLineSegment);
+                //lineSegments.push(curLineSegment);
                 curTimeline.querySelector('.line').appendChild(curLineSegment);
             }
 

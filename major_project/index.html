@@ -26,7 +26,7 @@
 
     <nav>
         <form id="citySearch">
-            <input type="text" name="searchbar" placeholder="[insert current city here]">
+            <input type="text" name="searchbar" placeholder="Find astronomy information for a location">
             <button type=submit>&#128269;</button>
         </form>
     </nav>
@@ -36,13 +36,17 @@
             <!-- <button class="daysPrev"> &#8592; </button> -->
         <div id="dayIdentifier">
                 <div class="dayInfo">
-                    <img class="moonPhase" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg">
+                    <img class="weatherIcon">
                     <div style="align-content: center;">
                         <span class="day">[day]</span>
                         <div class="timeframe"> 
                             <span class="sunset">[sunset]</span> - <span class="sunrise"> [sunrise] </span>
                         </div>
                     </div>
+                </div>
+
+                <div class="dayLabel"> <!-- label for days we don't have weather info for -->
+                    <span class="day">[day]</span>
                 </div>
         </div>
             <!-- <button class="daysNext"> &#8594; </button> -->

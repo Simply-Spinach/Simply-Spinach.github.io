@@ -75,6 +75,7 @@ input[type=text][name=searchbar]:focus
 {
     width: 80%;
     max-width: 90%;
+    color: var(--fg-color);
 }
 
 /* Main setup */
@@ -180,6 +181,28 @@ button.daysNext
 {
     height:75px;
     width: 75px;
+}
+
+/* simplified variant for days without weather info*/
+.dayLabel
+{
+    display: flex;
+
+    width: 15rem;
+    height: 75px;
+
+    /*center text inside (yes, span is block.  Best solution at this point)*/
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--bg-accent-color);
+}
+
+.dayLabel span
+{
+    display: block;
+    width: fit-content;
+    height: fit-content;
 }
 
 /* Setup timeline holder */
