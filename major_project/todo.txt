@@ -1,3 +1,4 @@
 Todo:
     Create name for calendar app
-    Replace temporary moon image with image of actual phase
+    Add weather icon
+    Add phase indicator

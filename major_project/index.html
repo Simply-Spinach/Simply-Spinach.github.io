@@ -29,61 +29,51 @@
             <input type="text" name="searchbar" placeholder="[insert current city here]">
             <button type=submit>&#128269;</button>
         </form>
-        <button class="dropdown">
-            Filter
-        </button>
     </nav>
 
     <main>
-        <div id="dayNavigator">
-            <button class="daysPrev"> &#8592; </button>
-            <div id="dayIdentifier" style="grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3)">
-                    <div class="dayInfo">
-                        <img class="moonPhase" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg">
-                        <div style="align-content: center;">
-                            <span class="day">[day]</span>
-                            <div class="timeframe"> 
-                                <span class="sunset">[sunset]</span> - <span class="sunrise"> [sunrise] </span>
-                            </div>
+        <!-- <div id="dayNavigator"> -->
+            <!-- <button class="daysPrev"> &#8592; </button> -->
+        <div id="dayIdentifier">
+                <div class="dayInfo">
+                    <img class="moonPhase" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg">
+                    <div style="align-content: center;">
+                        <span class="day">[day]</span>
+                        <div class="timeframe"> 
+                            <span class="sunset">[sunset]</span> - <span class="sunrise"> [sunrise] </span>
                         </div>
                     </div>
-            </div>
-            <button class="daysNext"> &#8594; </button>
+                </div>
         </div>
+            <!-- <button class="daysNext"> &#8594; </button> -->
+        <!-- </div> -->
         
         </div>
         
         <div class="timeline-holder">
+            <h2> Planets </h2>
             <div class="sectionType" id="planets">
-                <h2> Planets </h2>
-
                 <!-- Timeline tempalte object-->
-                <div class="timeline">
+                <!-- Timeline tempalte object-->
+                <div class="timeline" >
                     <div class="objectLabel">
-                        [Planet Name]
+                        AR-404
                     </div>
                     <div class="line">
-                        <div class="left-cap"></div>
-                        <div class="right-cap"></div>
+                        <div class="lineSegment">
+                            <div class="left-cap"></div>
+                            <div class="right-cap"></div>
+                        </div>
+                        
                     </div>
                 </div>
 
             </div>
-                
+            <!--    
             <div class="sectionType" id="constelations">
                 <h2> Constelations </h2>
-                <!-- Timeline tempalte object-->
-                <div class="timeline">
-                    <div class="objectLabel">
-                        [Constelation Name]
-                    </div>
-                    <div class="line">
-                        <div class="left-cap"></div>
-                        <div class="right-cap"></div>
-                    </div>
-                </div>
-
-            </div>
+                <!-- Javascript uses same template as above, but currently not implenmented yet.  For a future time I guess
+            </div> -->
         </ol>
     </main>
 </body>

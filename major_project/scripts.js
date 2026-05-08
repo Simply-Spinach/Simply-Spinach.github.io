@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function()
 
     let searchFourm = document.querySelector('form#citySearch');
 
-    console.log(searchFourm);
-
     searchFourm.addEventListener('submit', function(e)
     {
         e.preventDefault();
@@ -82,7 +80,6 @@ class domLoader
         {
             navigator.geolocation.getCurrentPosition((location) =>
             {
-                console.log(location);
                 this.#curLocationStr = `${location.coords.latitude}, ${location.coords.longitude}`;
 
                 //load weather data
@@ -94,7 +91,6 @@ class domLoader
                     //load astro data
                     getForecastedAstronomyData(location.coords.latitude, location.coords.longitude, location.coords.altitude).then((e) =>
                     {
-                        console.log(e);
                         this.#astroData = e;
 
                         //update visuals
@@ -116,7 +112,7 @@ class domLoader
     update()
     {
         this.#dayHandler.update(this.#weatherData, this.#astroData);
-        this.#timelineHandler.update(this.#weatherData, this.#astroData);
+        this.#timelineHandler.update(this.#weatherData, this.#astroData.data);
     }
 }
 
@@ -172,7 +168,7 @@ class domDayHandler
             //set day
             if (i == 0)
             {
-                curDay.querySelector(DAY_NODE_DAY_NAME_QUERY).innerText = 'Today';
+                curDay.querySelector(DAY_NODE_DAY_NAME_QUERY).innerText = 'Tonight';
             }
             else if (i == 1)
             {
@@ -215,26 +211,29 @@ class domDayHandler
     }
 }
 
-const COLUMN_SIZE = '15rem';
-const LEFT_MARGIN = '0';
-
 class domTimelineHandler
 {
     #timelineTemplate;
+    #lineSegmentTemplate;
+    #lineSegmentBeginTemplate;
+    #lineSegmentEndTemplate;
     
     #planetsContainer;
-    #constelationsContainer;
 
     constructor()
     {
         this.#timelineTemplate = document.querySelector(".timeline").cloneNode(true);
 
+        //prep line segments
+        this.#lineSegmentTemplate = this.#timelineTemplate.querySelector(".line .lineSegment").cloneNode(true /*DEBUGGING ONLY*/); //REMEMBER: NO CHILDREN WITHOUT TRUE
+        this.#lineSegmentBeginTemplate = this.#timelineTemplate.querySelector(".lineSegment .left-cap").cloneNode();
+        this.#lineSegmentEndTemplate = this.#timelineTemplate.querySelector(".lineSegment .right-cap").cloneNode();
+
+        //remove children from timelineTemplate's line
+        this.#timelineTemplate.querySelector('.line').innerHTML = '';
+
         //get containers by type
         this.#planetsContainer = document.querySelector(".timeline-holder > .sectionType#planets");
-        this.#constelationsContainer = document.querySelector(".sectionType#constelations");
-
-        console.log(this.#planetsContainer);
-
         this.clear()
     }
 
@@ -245,12 +244,6 @@ class domTimelineHandler
         {
             this.#planetsContainer.removeChild(child);
         }
-
-        //now same for constelations        
-        for (let child of this.#constelationsContainer.querySelectorAll('.timeline'))
-        {
-            this.#constelationsContainer.removeChild(child);
-        }
     }
 
     update(weatherData, astroData)
@@ -258,39 +251,71 @@ class domTimelineHandler
         //just reset us and rebuild the dom for simplicity of coding
         this.clear();
 
-        console.log(astroData);
+        console.log(astroData.table.rows.length);
 
-        //skip visibility of sun and moon because we don't care about the sun and the moon gets it's indicator anyway
-        for (let i = 2; i < astroData.table.rows.length; ++i)
+        for (let planetID = 2 /*First planet after sun and moon tracking*/; planetID < astroData.table.rows.length; ++planetID)
         {
-            let planetData = astroData.table.rows[i]
+            let planetData = astroData.table.rows[planetID];
             let curTimeline = this.#timelineTemplate.cloneNode(true);
-
+            
             //prepare names to be visible
             curTimeline.querySelector(".objectLabel").innerText = planetData.entry.name;
-
+            
             //mark days when viewable
             let lastEmptyDay = -1;
             let visibleDays = this.getDaysViewable(planetData);
-
-            for (let i = 0; i < planetData.length && i; ++i)
+            let lineSegments = Array();
+            
+            for (let i = 0; i < visibleDays.length; ++i)
             {
-                if (visibleDays[i] == false)
+                let isVisibleToday = visibleDays[i];
+                let curLineSegment;
+                
+                
+                //TODO: KEEP WORKING ON SETTING UP LINE SEGMENTS TO LOAD
+                if (isVisibleToday)
                 {
-                    //create end for last object, if there
+                    //setup line segment
+                    
+                    curLineSegment = this.#lineSegmentTemplate.cloneNode(true);
+                    
+                    console.log(curLineSegment);
+                    
+                    if (i > 0)
+                    {
+                        //check if previous day was false and if so, set this to have beginning point
+                        
+                    }
+                    /* if (i == 0 && isVisibleToday) //first node edge case.  Has segment behind it 
+                    {
+                        curLineSegment.appendChild(this.#lineSegmentBeginTemplate.cloneNode());
+                    } */
+                    
                 }
-                else //visibleDays[i] == true
+                else //isVisibleToday == false
                 {
-                    //create start object
+                    //TODO: set last object to have end cap if it needs one
+                    
+                    
+                    //enter empty div into dom
+                    curLineSegment = document.createElement("div");                    
                 }
+
+                //add to timeline
+                console.log(`${isVisibleToday}: ${curLineSegment}`);
+                lineSegments.push(curLineSegment);
+                curTimeline.querySelector('.line').appendChild(curLineSegment);
             }
 
+            //add timeline to dom
+            this.#planetsContainer.appendChild(curTimeline);
         }
+            
     }
 
-    ifPlanetViewable(planetCell)
+    ifPlanetViewable(planet, day)
     {
-        if (planetCell.position.altitude.degrees < 10)
+        if (planet.cells[day].position.horizontal.altitude.degrees < 10)
         {
             return false;
         }
@@ -307,7 +332,9 @@ class domTimelineHandler
 
         for (let i = 0; i < cells.length; ++i)
         {
-            output[i] = this.ifPlanetViewable(planet.cells[i])
+            output[i] = this.ifPlanetViewable(planet, i);
         }
+
+        return output;
     }
 }

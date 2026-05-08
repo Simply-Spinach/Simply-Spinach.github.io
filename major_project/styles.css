@@ -4,14 +4,19 @@
     --fg-color: whitesmoke;
     --accent-color-1: #40279c;
     --accent-color-2: #a79c3f;
+    --bg-accent-color: #333;
     --link-color: #f6cd4c;
+
+    /* day selector styling */
+    --day-selector-gap: 80px;
+    --day-selector-width: 20rem;
 
     /* timeline elements */
     --timeline-thickness: 1.5px;
     --timeline-cap-thickness: 7px;
-    --timeline-cap-roundness: 20px; 
+    --timeline-cap-roundness: 20px;
 
-    --timeline-segment-width: 25rem;
+    --timeline-segment-width: calc(var(--day-selector-gap) + var(--day-selector-width));
 
     /* button styling */
     --button-roundness: 20px;
@@ -95,24 +100,45 @@ main #dayNavigator
 
     width: fit-content;
     min-width: 100%;
-
-    display:flexbox;
-    flex-direction: row;
 }
 
-main #dayIdentifier
+main #dayIdentifier > *
+{
+    flex: 0 0 var(--timeline-segment-width);
+    overflow:hidden;
+}
+
+main #dayIdentifier,
+main .timeline .line
 {
     width: 100%;
     display: flex;
     flex-direction: row;
 
-    column-gap:10em;
-
-    /* grid-template-columns: calc(100% / 2) calc(100% / 2); */ /*HANDLED BY JS AND APPLIED INLINE*/
-
-    justify-content: left;
+    justify-content: left; /*backup for unsupported browsers*/
+    justify-content: space-between;
     padding-left:30px;
-    align-content: center;
+    align-items: center;
+}
+
+main #dayIdentifier
+{
+    column-gap: var(--day-selector-gap);
+}
+
+main .timeline .line
+{
+    column-gap: 0;
+}
+
+main #dayIdentifier > *
+{
+    flex: 0 0 var(--day-selector-width);
+}
+
+main .timeline .line > *
+{
+    flex: 0 0 var(--timeline-segment-width);
 }
 
 /* Navigation buttons */
@@ -146,6 +172,8 @@ button.daysNext
     width: 15rem;
     display:grid;
     grid-template-columns: auto auto;
+
+    background-color: var(--bg-accent-color);
 }
 
 .dayInfo img
@@ -156,11 +184,13 @@ button.daysNext
 
 /* Setup timeline holder */
 
-.timeline_holder h2
+.timeline-holder h2
 {
     position:sticky;
     left:0;
+    top:0;
     width:fit-content;
+    height: fit-content;
 }
 
 .timeline
@@ -168,6 +198,7 @@ button.daysNext
     position: relative;
     margin-top: 1em;
     margin-bottom: 1em;
+    width: fit-content;
 }
 
 .timeline .objectLabel
@@ -178,23 +209,11 @@ button.daysNext
     padding-left: 20px;
 }
 
-.timeline .line
-{
-    /* setup same flex styling as above */
-    display:flex;
-    flex-direction: row;
-}
-
-.timeline .line > *
-{
-    flex-basis: var(--timeline-segment-width);
-}
-
 .timeline .lineSegment
 {
     position: relative;
     height: var(--timeline-thickness);
-    width: var(--timeline-segment-width);
+    width: 100%;
     background-color: var(--fg-color);
     text-justify: bottom;
 }
@@ -213,10 +232,10 @@ button.daysNext
 
 .line .left-cap
 {
-    left: 0;
+    left: -1%;
 }
 
 .line .right-cap
 {
-    right: 0;
+    right: -1%;
 }
