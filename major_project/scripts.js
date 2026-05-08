@@ -197,6 +197,9 @@ class domDayHandler
                 curDay.querySelector(DAY_NODE_DAY_NAME_QUERY).innerText = `${nodeTime.getMonth() + 1}-${nodeTime.getDate()}-${nodeTime.getFullYear()}`
             }
 
+            //set phase from moon info
+            curDay.querySelector('.moonPhase').innerText = astroData.data.table.rows[1].cells[i].extraInfo.phase.string;
+
             //complex info for other stuff
             if (i < weatherForecastAvailable)
             {
@@ -213,7 +216,7 @@ class domDayHandler
                 }
                 else if (i == weatherForecastAvailable - 1)
                 {
-                    curDay.querySelector('.timeframe').innerHTML = `<span class="sunset">${weatherData.forecast.forecastday[i].astro.sunset}</span>`;
+                    curDay.querySelector('.timeframe').innerHTML = `Sunset: <span class="sunset">${weatherData.forecast.forecastday[i].astro.sunset}</span>`;
                 }
             }
             else //we don't have weather data and nothing gets set
@@ -277,7 +280,7 @@ class domTimelineHandler
             
             //mark days when viewable
             let lastEmptyDay = -1;
-            let visibleDays = this.getDaysViewable(planetData);
+            let visibleDays = this.getDaysViewable(planetData, weatherData);
             let lineSegments = Array();
             
             for (let i = 0; i < visibleDays.length; ++i)
@@ -324,7 +327,7 @@ class domTimelineHandler
             
     }
 
-    ifPlanetViewable(planet, day)
+    ifPlanetViewable(planet, day, weatherInfo)
     {
         if (planet.cells[day].position.horizontal.altitude.degrees < 10)
         {
@@ -336,14 +339,14 @@ class domTimelineHandler
         }
     }
 
-    getDaysViewable(planet)
+    getDaysViewable(planet, weatherInfo)
     {
         let cells = planet.cells;
         let output = Array(cells.length);
 
         for (let i = 0; i < cells.length; ++i)
         {
-            output[i] = this.ifPlanetViewable(planet, i);
+            output[i] = this.ifPlanetViewable(planet, i, weatherInfo);
         }
 
         return output;

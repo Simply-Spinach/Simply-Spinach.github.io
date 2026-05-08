@@ -33,6 +33,7 @@ body
 {
     background-color: var(--bg-color);
     color: var(--fg-color);
+    font-family:sans-serif;
 }
 
 a 
@@ -66,7 +67,8 @@ input[type=text][name=searchbar]
     display: inline-block;
     width: 20em;
     border-radius: var(--button-roundness);
-    background-color: var(--button-color-default);
+    background-color: var(--bg-color);
+    color: var(--button-color);
 
     transition: width var(--searchbar-grow-time);
 }
@@ -76,6 +78,7 @@ input[type=text][name=searchbar]:focus
     width: 80%;
     max-width: 90%;
     color: var(--fg-color);
+    background-color: var(--bg-accent-color);
 }
 
 /* Main setup */
@@ -189,7 +192,8 @@ button.daysNext
     display: flex;
 
     width: 15rem;
-    height: 75px;
+    min-height: 75px;
+    height: fit-content;
 
     /*center text inside (yes, span is block.  Best solution at this point)*/
     align-items: center;
@@ -198,9 +202,14 @@ button.daysNext
     background-color: var(--bg-accent-color);
 }
 
-.dayLabel span
+.dayInfo h3,
+.dayLabel h3
 {
-    display: block;
+    margin: 0;
+}
+
+.dayLabel > div
+{
     width: fit-content;
     height: fit-content;
 }
