@@ -273,6 +273,12 @@ class domTimelineHandler
         for (let planetID = 2 /*First planet after sun and moon tracking*/; planetID < astroData.table.rows.length; ++planetID)
         {
             let planetData = astroData.table.rows[planetID];
+
+            if (planetData.entry.name == "Earth")
+            {
+                continue;
+            }
+
             let curTimeline = this.#timelineTemplate.cloneNode(true);
             
             //prepare names to be visible
@@ -283,8 +289,13 @@ class domTimelineHandler
             let visibleDays = this.getDaysViewable(planetData, weatherData);
             let lastSegmentVisible = null; //defined after first loop
             
+            //Debugging to find planet ids
+            console.log(`${planetID}, ${planetData.entry.name}`);
+
             for (let i = 0; i < visibleDays.length; ++i)
             {
+                //for some reason, we have earth as a planet you can view in our data, so we're forcing it out
+
                 let isVisibleToday = visibleDays[i];
                 let curLineSegment;
                            
