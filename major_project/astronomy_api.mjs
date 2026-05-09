@@ -57,26 +57,12 @@ export async function getForecastedAstronomyData(latitude, longitude, altitude)
     let fromDate = `${curDate.getFullYear()}-${curMonth}-${curDay}`;
     let toDate = `${futureDate.getFullYear()}-${futureMonth}-${futureDay}`;
     
-    let curHour = curDate.getHours();
-    if (curHour < 10)
-    {
-        curHour = '0' + curHour;
-    }
-    let curMin = curDate.getMinutes();
-    if (curMin < 10)
-    {
-        curMin = '0' + curMin;
-    }
-    let curSec = curDate.getSeconds();
-    if (curSec < 10)
-    {
-        curSec = '0' + curSec;
-    }
-
-    let curTime = `${curHour}%3A${curMin}%3A${curSec}`
+    //current time used to be computed here but I realized I should probably just check every midnight instead as that's when you're actually looking at the stars
     
     //prep url
-    let url = `${API_FORECAST_URL}/?latitude=${latitude}&longitude=${longitude}&elevation=${altitude}&from_date=${fromDate}&to_date=${toDate}&time=${curTime}`;
+
+    //NOTE FOR SELF: I NOTICED WAY TOO LATE THIS CHECKS ONLY THE TIME YOU USE THE APP
+    let url = `${API_FORECAST_URL}/?latitude=${latitude}&longitude=${longitude}&elevation=${altitude}&from_date=${fromDate}&to_date=${toDate}&time=23%3A59%3A59`;
 
     try
     {

@@ -97,9 +97,6 @@ class domLoader
                 });
 
             });
-
-
-
         }
         else
         {
@@ -109,6 +106,14 @@ class domLoader
 
     update()
     {
+        //update titlebar to location
+        document.querySelector('#location').innerText = this.#weatherData.location.name;
+
+        //clear all dayHandler and timelineHandler conteent
+
+        this.#dayHandler.clear();
+        this.#timelineHandler.clear();
+
         this.#dayHandler.update(this.#weatherData, this.#astroData);
         this.#timelineHandler.update(this.#weatherData, this.#astroData.data);
     }
@@ -138,13 +143,7 @@ class domDayHandler
     //Clears all days from the daysContainer
     clear()
     {
-        for (let child of this.#daysContainer.children)
-        {
-            if (child.classList.contains(DAY_NODE_QUERY)) //is a child we should remove
-            {
-                this.#daysContainer.removeChild(child);
-            }
-        }
+        this.#daysContainer.innerHTML = '';
     }
 
     update(weatherData, astroData)
@@ -160,6 +159,7 @@ class domDayHandler
         {
             //create day to add to daysContainer
             let currentTime = new Date();
+            
             let curAstro = astroData.data.table[i];
             let curDay; //set later
 
@@ -346,13 +346,26 @@ class domTimelineHandler
 
     ifPlanetViewable(planet, day, weatherInfo)
     {
-        if (planet.cells[day].position.horizontal.altitude.degrees < 10)
-        {
-            return false;
-        }
-        else
+        /*
+        Honestly, I hate this API because I had to figure out what in the 
+        world this number means and even then, I'm missing so much here that
+        I should be checking.  For example, just because it's in the sky doesn't mean it's
+        visible because of light pollution.
+        I'm leaving it like this for now, but next time, REVISE THIS, AND/OR USE A NEW API
+        BECAUSE THIS ISN'T GOOD.  ALTITUDE ONLY MATTERS AT WHATEVER RANDOM TIME IT DECIDES TO
+        USE AND I'M PRETTY SURE IT ISN'T ALWAYS ACCURATE.
+
+        Not to mention that it just is a headache to navigate.  Thankfully, I found some
+        useful data, but not that much I could easily use.
+        */
+
+        if (planet.cells[day].position.horizontal.altitude.degrees > 10)
         {
             return true;
+        }
+        else //less than 10 degrees above the horizon, basically below the horizon and unviewable
+        {
+            return false;
         }
     }
 
