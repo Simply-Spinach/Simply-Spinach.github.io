@@ -61,7 +61,7 @@ export async function getForecastedAstronomyData(latitude, longitude, altitude)
     
     //prep url
 
-    //NOTE FOR SELF: I NOTICED WAY TOO LATE THIS CHECKS ONLY THE TIME YOU USE THE APP
+    //NOTE FOR SELF: ONLY CHECKS TIMES ALMOST AT MIDNIGHT EVERY NIGHT.  UPDATE LATER TO COMBINE DATA FROM MULTIPLE TIMES, ONCE I DISCOVER THE RATE LIMITS
     let url = `${API_FORECAST_URL}/?latitude=${latitude}&longitude=${longitude}&elevation=${altitude}&from_date=${fromDate}&to_date=${toDate}&time=23%3A59%3A59`;
 
     try
