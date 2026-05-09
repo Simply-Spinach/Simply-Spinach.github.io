@@ -104,18 +104,27 @@ class domLoader
         }
     }
 
+    clear()
+    {
+        //clear all dayHandler and timelineHandler conteent
+        this.#dayHandler.clear();
+        this.#timelineHandler.clear();
+
+        //add class on body to hide non-functioning content
+        document.body.classList.add("no_content");
+    }
+
     update()
     {
         //update titlebar to location
         document.querySelector('#location').innerText = this.#weatherData.location.name;
 
-        //clear all dayHandler and timelineHandler conteent
-
-        this.#dayHandler.clear();
-        this.#timelineHandler.clear();
+        this.clear();
 
         this.#dayHandler.update(this.#weatherData, this.#astroData);
         this.#timelineHandler.update(this.#weatherData, this.#astroData.data);
+
+        document.body.classList.remove("no_content");
     }
 }
 
@@ -159,7 +168,7 @@ class domDayHandler
         {
             //create day to add to daysContainer
             let currentTime = new Date();
-            
+
             let curAstro = astroData.data.table[i];
             let curDay; //set later
 

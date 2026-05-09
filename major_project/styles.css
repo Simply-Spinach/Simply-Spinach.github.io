@@ -100,7 +100,7 @@ main
 
 main #dayNavigator
 {
-    position: sticky; /*Used instead of fixed so it takes up space in DOM*/
+    position: block; /*Used instead of fixed so it takes up space in DOM*/
     top: 0;
 
     width: fit-content;
@@ -224,7 +224,7 @@ button.daysNext
 
 .timeline-holder h2
 {
-    position:sticky;
+    position:block;
     left:0;
     top:0;
     width:fit-content;
@@ -241,7 +241,7 @@ button.daysNext
 
 .timeline .objectLabel
 {
-    position:sticky;
+    position:block;
     width:fit-content;
     left: 0;
     padding-left: 20px;
@@ -276,4 +276,11 @@ button.daysNext
 .line .right-cap
 {
     right: -1%;
+}
+
+
+.no_content #location,
+.no_content main
+{
+    display: none;
 }
