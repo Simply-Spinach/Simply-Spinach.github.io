@@ -13,6 +13,9 @@
 
     --day-selector-left-padding: 30px;
 
+    --bg-accent-roundness: 20px;
+    --bg-accent-padding: 10px;
+
     /* timeline elements */
     --timeline-thickness: 1.5px;
     --timeline-cap-thickness: 7px;
@@ -89,9 +92,6 @@ main
 {
     position: relative;
     margin-top: 1em;
-
-    overflow-y: auto;
-    overflow-x: auto;
 
     width: 100vw;
 }
@@ -180,6 +180,8 @@ button.daysNext
     grid-template-columns: auto auto;
 
     background-color: var(--bg-accent-color);
+    border-radius: var(--bg-accent-roundness);
+    padding: var(--bg-accent-padding);
 }
 
 .dayInfo img
@@ -202,6 +204,8 @@ button.daysNext
     justify-content: center;
 
     background-color: var(--bg-accent-color);
+    border-radius: var(--bg-accent-roundness);
+    padding: var(--bg-accent-padding);
 }
 
 .dayInfo h3,
