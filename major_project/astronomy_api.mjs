@@ -21,6 +21,12 @@ export async function getForecastedAstronomyData(latitude, longitude, altitude)
             'Content-Type': 'application/json'
         }
     }   
+
+    //fix altitude to 0 if identified as null (not able to determine)
+    if (altitude === null)
+    {
+        altitude = 0;
+    }
     
     //prep dates
     let curDate = new Date();
