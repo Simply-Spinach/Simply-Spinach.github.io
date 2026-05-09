@@ -241,17 +241,22 @@ button.daysNext
 
 .timeline .objectLabel
 {
-    position:block;
+    position:sticky;
     width:fit-content;
     left: 0;
     padding-left: 20px;
+}
+
+.line > *
+{
+    overflow:visible;
 }
 
 .timeline .lineSegment
 {
     position: relative;
     height: var(--timeline-thickness);
-    width: 100%;
+    width: max-content;
     background-color: var(--fg-color);
     text-justify: bottom;
 }
@@ -266,6 +271,15 @@ button.daysNext
     height: var(--timeline-cap-thickness);
 
     border-radius: var(--timeline-cap-roundness)
+}
+
+.line .left-bridge
+{
+    position: absolute;
+    left: -1%;
+    width: 20px;
+    height: var(--timeline-thickness);
+    background-color: var(--fg-color);
 }
 
 .line .left-cap

@@ -20,28 +20,12 @@ document.addEventListener("DOMContentLoaded", function()
 //create domLoader class for ease of use
 class domLoader
 {
-    //setup day identifier to copy and paste
-    /*
-    #dayHolder = document.querySelector("#dayIdentifier");
-    #dayInfoTemplate = dayHolder.querySelector(".dayInfo");
-
-    //setup constelations and such to load
-    #timelineSections = document.querySelectorAll(' #timeline-holder .section-type');
-    #planets = docuemnt.querySelector("#planets");
-    #constelations = document.querySelector("#constelations");
-
-    //prep timeline template object
-    #timelineTemplate = timelineHolder.querySelector('.timeline');
-    */
-    //setup api calls
-
     #timelineHandler;
     #dayHandler;
 
     #curLocationStr;
     #astroData;
     #weatherData;
-
 
     constructor()
     {
@@ -80,8 +64,6 @@ class domLoader
         {
             navigator.geolocation.getCurrentPosition((location) =>
             {
-                this.#curLocationStr = `${location.coords.latitude}, ${location.coords.longitude}`;
-
                 //load weather data
                 getWeatherFromCoords(location.coords.latitude, location.coords.longitude).then((e) =>
                 {
@@ -245,6 +227,8 @@ class domTimelineHandler
     #lineSegmentTemplate;
     #lineSegmentBeginTemplate;
     #lineSegmentEndTemplate;
+    //added to help with Chromium bug (developed on firefox and without thinking introduced bugs on 99% of the world's browsers)
+    #lineSegmentBridgeTemplate;
     
     #planetsContainer;
 
@@ -256,6 +240,8 @@ class domTimelineHandler
         this.#lineSegmentTemplate = this.#timelineTemplate.querySelector(".line .lineSegment").cloneNode(/*true /* REMOVE COMMENT FOR DEBUGGING MODE*/);
         this.#lineSegmentBeginTemplate = this.#timelineTemplate.querySelector(".lineSegment .left-cap").cloneNode();
         this.#lineSegmentEndTemplate = this.#timelineTemplate.querySelector(".lineSegment .right-cap").cloneNode();
+
+        this.#lineSegmentBridgeTemplate = this.#timelineTemplate.querySelector(".line .left-bridge").cloneNode();
 
         //remove children from timelineTemplate's line
         this.#timelineTemplate.querySelector('.line').innerHTML = '';
@@ -319,6 +305,11 @@ class domTimelineHandler
                         //insert beginning point
                         curLineSegment.appendChild(this.#lineSegmentBeginTemplate.cloneNode(true));
                         
+                    }
+                    else if (i > 0 && lastSegmentVisible)
+                    {
+                        //patch for Chromium: add bridge to help cover gaps between lines
+                        curLineSegment.appendChild(this.#lineSegmentBridgeTemplate.cloneNode(true));
                     }
                     else if (i == 0) //edge case where we do want a start here
                     {
