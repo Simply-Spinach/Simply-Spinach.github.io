@@ -185,7 +185,7 @@ class domDayHandler
             else if (i < 7) //same week
             {
                 let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-                let selectWeekDay = (currentTime.getDay() + i) % 6;
+                let selectWeekDay = (currentTime.getDay() + i - 1) % 6;
                 
                 curDay.querySelector(DAY_NODE_DAY_NAME_QUERY).innerText = daysOfWeek[selectWeekDay];
             }

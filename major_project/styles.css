@@ -92,6 +92,8 @@ main
 
     overflow-y: auto;
     overflow-x: auto;
+
+    width: 100vw;
 }
 
 /* General dayIdentifier setup */
