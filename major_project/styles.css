@@ -31,6 +31,9 @@
 
     /* Searchbar styling */
     --searchbar-grow-time: 0.4s;
+
+    /* Tools and general info */
+    --main-width: calc(15 * var(--timeline-segment-width));
 }
 
 /* General changes */
@@ -51,6 +54,13 @@ ul
 {
     /* We aren't using these in the typical format to just remove the padding by default */
     padding-left: 0;
+}
+
+h1
+{
+    left: 0;
+    width: var(--main-width);
+    position:sticky;
 }
 
 button
@@ -94,6 +104,8 @@ main
     margin-top: 1em;
 
     width: 100vw;
+
+    overflow-x:scroll;
 }
 
 /* General dayIdentifier setup */
@@ -116,7 +128,10 @@ main #dayIdentifier > *
 main #dayIdentifier,
 main .timeline .line
 {
-    width: 100%;
+    position:relative;
+    left:0;
+
+    width: 100vw;
     display: flex;
     flex-direction: row;
 
@@ -222,12 +237,18 @@ button.daysNext
 
 /* Setup timeline holder */
 
+.timeline-holder
+{
+    position:relative;
+    width: var(--main-width);
+}
+
 .timeline-holder h2
 {
-    position:block;
+    position: sticky;
     left:0;
     top:0;
-    width:fit-content;
+    width: fit-content;
     height: fit-content;
 }
 
@@ -236,7 +257,7 @@ button.daysNext
     position: relative;
     margin-top: 1em;
     margin-bottom: 1em;
-    width: fit-content;
+    width: var(--main-width);
 }
 
 .timeline .objectLabel
